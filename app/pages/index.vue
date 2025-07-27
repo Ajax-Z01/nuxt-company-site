@@ -1,7 +1,7 @@
 <template>
-  <section class="text-center py-20 bg-gray-600">
-    <h2 class="text-4xl font-bold mb-4">Welcome to PT Awesome Company</h2>
-    <p class="text-lg text-gray-600 max-w-xl mx-auto">
+  <section class="text-center min-h-screen flex flex-col justify-center bg-gray-600 px-4">
+    <h2 class="text-4xl font-bold mb-4 text-white">Welcome to PT Ajaxtreon</h2>
+    <p class="text-lg text-gray-300 max-w-xl mx-auto">
       We specialize in business consulting, sustainable development, and estate construction. Let's build the future together.
     </p>
 
