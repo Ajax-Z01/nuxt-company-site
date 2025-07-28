@@ -1,46 +1,22 @@
-<script setup>
-const { data, error, pending } = await useFetch('http://localhost:1337/api/posts?populate=*')
+<script setup lang="ts">
+import { usePosts } from '~/composables/usePosts'
 
-// Normalisasi data & filter post yang punya slug valid
-const rawPosts = computed(() => {
-  if (!data.value) return []
-  if (Array.isArray(data.value)) return data.value
-  if (Array.isArray(data.value.data)) return data.value.data
-  return []
-})
+const { posts, loading, error, fetchAll, getImageUrl } = usePosts()
 
-const posts = computed(() => rawPosts.value.filter(post => post && typeof post.slug === 'string' && post.slug.trim() !== ''))
+await fetchAll()
 
-const getImageUrl = (imgArr) => {
-  if (!Array.isArray(imgArr) || imgArr.length === 0) return ''
-  const image = imgArr[0]
-  if (image.formats?.medium?.url) {
-    return image.formats.medium.url.startsWith('http')
-      ? image.formats.medium.url
-      : `http://localhost:1337${image.formats.medium.url}`
-  }
-  if (image.url) {
-    return image.url.startsWith('http')
-      ? image.url
-      : `http://localhost:1337${image.url}`
-  }
-  return ''
-}
-
-const formatDate = (dateStr) =>
-  dateStr
-    ? new Date(dateStr).toLocaleString('en-US', {
-        dateStyle: 'long',
-        timeStyle: 'short',
-      })
-    : 'Unknown date'
+const formatDate = (dateStr: string) =>
+  new Date(dateStr).toLocaleString('en-US', {
+    dateStyle: 'long',
+    timeStyle: 'short',
+  })
 </script>
 
 <template>
   <section class="p-6 space-y-6 max-w-3xl mx-auto">
     <h1 class="text-3xl font-bold">Latest Blog Posts</h1>
 
-    <div v-if="pending" class="text-gray-500">Loading posts...</div>
+    <div v-if="loading" class="text-gray-500">Loading posts...</div>
     <div v-else-if="error" class="text-red-500">Error loading posts: {{ error.message }}</div>
 
     <div v-else>
@@ -52,7 +28,7 @@ const formatDate = (dateStr) =>
         >
           <NuxtLink :to="`/blog/${post.slug}`" class="block space-y-2">
             <img
-              v-if="post.coverImage && post.coverImage.length"
+              v-if="post.coverImage?.length"
               :src="getImageUrl(post.coverImage)"
               alt="Cover image"
               class="w-full aspect-video object-cover rounded-md"

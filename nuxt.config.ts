@@ -9,11 +9,17 @@ export default defineNuxtConfig({
   ],
   css: [
     '@/assets/css/tailwind.css',
+    'swiper/swiper-bundle.css'
   ],
   postcss: {
     plugins: {
       tailwindcss: {},
       autoprefixer: {},
+    },
+  },
+  runtimeConfig: {
+    public: {
+      strapiBaseUrl: process.env.NUXT_PUBLIC_STRAPI_BASE_URL || 'http://localhost:1337'
     },
   },
 })

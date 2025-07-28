@@ -1,34 +1,24 @@
-<script setup>
-import { computed } from 'vue'
+<script setup lang="ts">
 import { useRoute } from 'vue-router'
+import { computed } from 'vue'
+import { usePosts } from '~/composables/usePosts'
 
 const route = useRoute()
-console.log('Current slug:', route.params.slug)
+const slug = route.params.slug as string
 
-const { data, pending, error } = await useFetch(
-  `http://localhost:1337/api/posts?filters[slug][$eq]=${route.params.slug}&populate=*`
-)
+const { post, loading, error, fetchBySlug, getImageUrl } = usePosts()
 
-console.log('Raw fetch data:', data.value)
+await fetchBySlug(slug)
 
-const post = computed(() => data.value?.data?.[0] ?? null)
+const imageUrl = computed(() => getImageUrl(post.value?.coverImage || []))
 
-const imageUrl = computed(() => {
-  const coverImages = post.value?.coverImage
-  if (Array.isArray(coverImages) && coverImages.length > 0) {
-    const url = coverImages[0].url
-    return url.startsWith('http') ? url : `http://localhost:1337${url}`
-  }
-  return ''
-})
-
-const formatDate = (dateStr) => {
-  if (!dateStr) return 'Unknown date'
-  return new Date(dateStr).toLocaleString('en-US', {
-    dateStyle: 'long',
-    timeStyle: 'short',
-  })
-}
+const formatDate = (dateStr: string) =>
+  dateStr
+    ? new Date(dateStr).toLocaleString('en-US', {
+        dateStyle: 'long',
+        timeStyle: 'short',
+      })
+    : 'Unknown date'
 </script>
 
 <template>
@@ -41,15 +31,14 @@ const formatDate = (dateStr) => {
     />
     <h1>{{ post.title?.trim() || 'Untitled' }}</h1>
     <p class="text-sm text-gray-500">{{ formatDate(post.postDate) }}</p>
-    <div v-html="post.content"></div>
+    <div v-html="post.content" />
   </article>
 
-  <div v-else-if="pending" class="text-center p-6">Loading post...</div>
+  <div v-else-if="loading" class="text-center p-6">Loading post...</div>
   <div v-else-if="error" class="text-center p-6 text-red-500">
     Error loading post: {{ error.message }}
   </div>
   <div v-else class="text-center p-6 text-gray-500">
     Post not found.
-    <pre>{{ data }}</pre> <!-- untuk debugging -->
   </div>
 </template>

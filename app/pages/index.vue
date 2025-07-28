@@ -1,4 +1,10 @@
+<script setup>
+import HeroSection from '~/components/HeroSection.vue'
+</script>
+
 <template>
+  <HeroSection />
+
   <section class="text-center min-h-screen flex flex-col justify-center bg-gray-600 px-4">
     <h2 class="text-4xl font-bold mb-4 text-white">Welcome to PT Ajaxtreon</h2>
     <p class="text-lg text-gray-300 max-w-xl mx-auto">
