@@ -44,7 +44,7 @@ function onThumbsInit(swiperInstance: unknown) {
 </script>
 
 <template>
-  <section class="relative h-[100vh] w-full overflow-hidden">
+  <section class="relative h-[120vh] w-full overflow-hidden">
     <!-- Hero Swiper -->
     <Swiper
       :modules="[Pagination, Thumbs, Autoplay, EffectFade]"
@@ -63,24 +63,25 @@ function onThumbsInit(swiperInstance: unknown) {
       >
         <div class="absolute inset-0 bg-black/60 z-0"></div>
         <div
-          class="relative z-10 max-w-3xl px-10 py-12 mt-12 text-white text-center"
+        class="relative z-10 max-w-7xl px-4 md:px-6 py-12 mt-24 text-white text-left mx-auto flex flex-col items-start"
+      >
+        <p class="text-sm font-semibold uppercase tracking-wider text-sky-500 flex items-center gap-2">
+          <span class="block w-6 h-0.5 bg-yellow-500"></span>
+          Our Services
+        </p>
+        <h2 class="text-4xl md:text-5xl font-extrabold leading-tight text-emerald-400 drop-shadow mb-4">
+          {{ slide.title }}
+        </h2>
+        <p class="text-base md:text-lg text-slate-200 max-w-2xl leading-relaxed mb-8">
+          {{ slide.text }}
+        </p>
+        <a
+          href="/single-service.html"
+          class="inline-block bg-yellow-500 hover:bg-yellow-600 text-black font-semibold px-6 py-3 rounded transition"
         >
-          <p class="uppercase text-sm font-medium text-white/80 mb-2 tracking-wide">
-            Our Services
-          </p>
-          <h2 class="text-4xl md:text-5xl font-extrabold mb-6 leading-tight drop-shadow">
-            {{ slide.title }}
-          </h2>
-          <p class="text-white/90 text-base md:text-lg mb-8 leading-relaxed">
-            {{ slide.text }}
-          </p>
-          <a
-            href="/single-service.html"
-            class="inline-block bg-yellow-500 hover:bg-yellow-600 text-black font-semibold px-6 py-3 rounded transition"
-          >
-            SERVICE DETAILS
-          </a>
-        </div>
+          SERVICE DETAILS
+        </a>
+      </div>
       </SwiperSlide>
     </Swiper>
 
