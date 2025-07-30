@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { ref, onMounted, onBeforeUnmount } from 'vue'
+
 const partnerLogos = [
   { src: '/svg/remedy.svg', alt: 'Remedy Engineering' },
   { src: '/svg/brickblock.svg', alt: 'Brick & Block' },
@@ -6,10 +8,37 @@ const partnerLogos = [
   { src: '/svg/arup.svg', alt: 'Arup' },
   { src: '/svg/fluor.svg', alt: 'Fluor Corp.' },
 ]
+
+const isVisible = ref(false)
+const sectionRef = ref<HTMLElement | null>(null)
+
+function handleIntersection(entries: IntersectionObserverEntry[]) {
+  if (entries[0]?.isIntersecting) {
+    isVisible.value = true
+  } else {
+    isVisible.value = false
+  }
+}
+
+let observer: IntersectionObserver | null = null
+
+onMounted(() => {
+  observer = new IntersectionObserver(handleIntersection, {
+    threshold: 0.1,
+  })
+  if (sectionRef.value) observer.observe(sectionRef.value)
+})
+
+onBeforeUnmount(() => {
+  if (sectionRef.value && observer) observer.unobserve(sectionRef.value)
+})
 </script>
 
 <template>
-  <section class="py-20 bg-white dark:bg-gray-950">
+  <section
+    ref="sectionRef"
+    class="py-20 bg-white dark:bg-gray-950"
+  >
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <!-- Section Header -->
       <div class="mb-12">
@@ -28,7 +57,12 @@ const partnerLogos = [
         <div
           v-for="(logo, i) in partnerLogos"
           :key="i"
-          class="border-2 border-transparent dark:border-transparent rounded-lg p-6 bg-white dark:bg-gray-100 shadow-sm transition duration-200 transform hover:shadow-md hover:scale-[1.03] hover:border-emerald-500 flex flex-col items-center text-center"
+          :class="[
+            'border-2 border-transparent dark:border-transparent rounded-lg p-6 bg-white dark:bg-gray-100 shadow-sm transform flex flex-col items-center text-center will-change-opacity will-change-transform transition-[transform,opacity] duration-[300ms,1200ms] ease-in-out',
+            isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-90'
+          ]"
+          class="hover:shadow-md hover:scale-[1.03] hover:border-emerald-500"
+          :style="{ transitionDelay: `${i * 150}ms` }"
         >
           <img
             :src="logo.src"

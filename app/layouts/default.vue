@@ -8,22 +8,25 @@ const isLoading = ref(true)
 onMounted(() => {
   setTimeout(() => {
     isLoading.value = false
-  }, 500)
+  }, 800)
 })
 </script>
 
 <template>
-  <div class="min-h-screen flex flex-col">
+  <div class="min-h-screen flex flex-col relative">
     <AppHeader />
 
     <main class="flex-grow relative">
-      <template v-if="isLoading">
+      <!-- Page is rendered, but hidden until loading finishes -->
+      <NuxtPage v-show="!isLoading" />
+      <AppFooter v-show="!isLoading" />
+
+      <!-- Loading overlay -->
+      <transition name="fade">
         <div
-          class="absolute inset-0 flex items-center justify-center bg-white dark:bg-gray-900 z-50"
-          aria-busy="true"
-          aria-live="polite"
+          v-if="isLoading"
+          class="fixed inset-0 z-50 flex items-center justify-center bg-white dark:bg-gray-900"
         >
-          <!-- Spinner -->
           <svg
             class="animate-spin h-10 w-10 text-emerald-500"
             xmlns="http://www.w3.org/2000/svg"
@@ -45,12 +48,18 @@ onMounted(() => {
             />
           </svg>
         </div>
-      </template>
-
-      <template v-else>
-        <slot />
-        <AppFooter />
-      </template>
+      </transition>
     </main>
   </div>
 </template>
+
+<style scoped>
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.4s ease;
+}
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+</style>

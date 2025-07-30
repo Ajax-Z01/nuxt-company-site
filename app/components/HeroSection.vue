@@ -44,12 +44,11 @@ function onThumbsInit(swiperInstance: unknown) {
 </script>
 
 <template>
-  <section class="relative h-[120vh] w-full overflow-hidden">
+  <section class="relative h-[100vh] md:h-[120vh] w-full overflow-hidden">
     <!-- Hero Swiper -->
     <Swiper
-      :modules="[Pagination, Thumbs, Autoplay, EffectFade]"
+      :modules="[Thumbs, Autoplay, EffectFade]"
       effect="fade"
-      :pagination="{ clickable: true }"
       :thumbs="{ swiper: thumbsSwiper }"
       :loop="true"
       :autoplay="{ delay: 5000, disableOnInteraction: false }"
@@ -63,25 +62,28 @@ function onThumbsInit(swiperInstance: unknown) {
       >
         <div class="absolute inset-0 bg-black/60 z-0"></div>
         <div
-        class="relative z-10 max-w-7xl px-4 md:px-6 py-12 mt-24 text-white text-left mx-auto flex flex-col items-start"
-      >
-        <p class="text-sm font-semibold uppercase tracking-wider text-sky-500 flex items-center gap-2">
-          <span class="block w-6 h-0.5 bg-yellow-500"></span>
-          Our Services
-        </p>
-        <h2 class="text-4xl md:text-5xl font-extrabold leading-tight text-emerald-400 drop-shadow mb-4">
-          {{ slide.title }}
-        </h2>
-        <p class="text-base md:text-lg text-slate-200 max-w-2xl leading-relaxed mb-8">
-          {{ slide.text }}
-        </p>
-        <a
-          href="/single-service.html"
-          class="inline-block bg-yellow-500 hover:bg-yellow-600 text-black font-semibold px-6 py-3 rounded transition"
+          class="relative z-10 max-w-7xl px-4 md:px-6 py-12 mt-24 text-white mx-auto flex flex-col
+                 items-center text-center
+                 md:items-start md:text-left
+          "
         >
-          SERVICE DETAILS
-        </a>
-      </div>
+          <p class="text-sm font-semibold uppercase tracking-wider text-sky-500 flex items-center gap-2">
+            <span class="block w-6 h-0.5 bg-yellow-500"></span>
+            Our Services
+          </p>
+          <h2 class="text-4xl md:text-5xl font-extrabold leading-tight text-emerald-400 drop-shadow mb-4">
+            {{ slide.title }}
+          </h2>
+          <p class="text-base md:text-lg text-slate-200 max-w-2xl leading-relaxed mb-8">
+            {{ slide.text }}
+          </p>
+          <a
+            href="/single-service.html"
+            class="inline-block bg-yellow-500 hover:bg-yellow-600 text-black font-semibold px-6 py-3 rounded transition"
+          >
+            SERVICE DETAILS
+          </a>
+        </div>
       </SwiperSlide>
     </Swiper>
 
@@ -91,7 +93,7 @@ function onThumbsInit(swiperInstance: unknown) {
     >
       <Swiper
         :modules="[Thumbs, Autoplay, FreeMode]"
-        :slidesPerView="3"
+        :slidesPerView="1"
         :spaceBetween="20"
         watchSlidesProgress
         watchSlidesVisibility
@@ -100,14 +102,21 @@ function onThumbsInit(swiperInstance: unknown) {
         :freeMode="true"
         :autoplay="{ delay: 0, disableOnInteraction: false, pauseOnMouseEnter: true }"
         :speed="4000"
-        class="rounded-md bg-black/30 backdrop-blur-sm px-4 py-3 cursor-grab select-none"
+        :breakpoints="{
+          768: {
+            slidesPerView: 3
+          }
+        }"
+        class="rounded-md bg-black/30 backdrop-blur-sm px-4 py-6 md:py-3 cursor-grab select-none h-[180px] md:h-auto"
       >
         <SwiperSlide
           v-for="(slide, i) in slides"
           :key="'thumb-' + i"
           class="group relative transition-all duration-300 overflow-hidden rounded-lg"
         >
-          <div class="w-full aspect-video relative rounded-lg overflow-hidden">
+          <div
+            class="w-full relative rounded-lg overflow-hidden aspect-video md:aspect-video h-[180px] md:h-auto"
+          >
             <img
               :src="slide.bg"
               :alt="slide.title"
@@ -125,22 +134,3 @@ function onThumbsInit(swiperInstance: unknown) {
     </div>
   </section>
 </template>
-
-<style scoped>
-/* Styling untuk highlight thumbnail aktif */
-.swiper-slide-thumb-active {
-  opacity: 1 !important;
-  border: 3px solid #FFD700;
-  box-shadow: 0 0 10px #FFD700;
-  transition: box-shadow 0.3s ease;
-}
-
-/* Agar thumbnail yang tidak aktif agak transparan */
-.swiper-slide {
-  opacity: 0.7;
-  transition: opacity 0.3s ease;
-}
-.swiper-slide:hover {
-  opacity: 1;
-}
-</style>

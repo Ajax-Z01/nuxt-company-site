@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, onMounted, onUnmounted, watch } from 'vue'
 
 const isScrolled = ref(false)
 const isMobileMenuOpen = ref(false)
@@ -24,26 +24,40 @@ onMounted(() => {
 onUnmounted(() => {
   window.removeEventListener('scroll', onScroll)
 })
+
+// Saat mobile menu dibuka, reset translate supaya gak conflict
+watch(isMobileMenuOpen, (open) => {
+  if (open) {
+    // optional: kalau mau scroll ke top saat buka menu
+    window.scrollTo(0, 0)
+  }
+})
 </script>
 
 <template>
   <header
     :class="[
-      'fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out backdrop-blur',
-      isScrolled ? 'bg-[#0f172a]/90 shadow-lg' : 'bg-transparent',
-      isScrollingUp ? 'translate-y-0' : '-translate-y-full',
-      'h-16 md:h-20'
+      'fixed top-0 left-0 right-0 z-50 transition-colors duration-500 ease-in-out overflow-hidden',
+      (isMobileMenuOpen || isScrolled) ? 'bg-[#0f172a]/90 shadow-lg backdrop-blur' : 'bg-transparent h-16 md:h-20',
     ]"
+    :style="{
+      transform: (isScrollingUp || isMobileMenuOpen) ? 'translateY(0)' : 'translateY(-100%)',
+      transition: 'transform 0.5s ease',
+    }"
   >
-    <nav class="mx-auto max-w-7xl h-full flex justify-between items-center px-4">
+    <!-- Navbar container with scroll show/hide -->
+    <nav
+      class="mx-auto max-w-7xl flex justify-between items-center px-4 h-16 md:h-20 bg-transparent transition-transform duration-500 ease-in-out"
+      :class="{
+        'translate-y-0': isScrollingUp || isMobileMenuOpen,
+        '-translate-y-full': !isScrollingUp && !isMobileMenuOpen,
+      }"
+    >
       <!-- Logo -->
-      <NuxtLink
-        to="/"
-        class="flex items-center gap-3 group"
-      >
+      <NuxtLink to="/" class="flex items-center gap-3 group">
         <img src="/svg/logo.svg" alt="Ajaxtreon Logo" class="h-8 w-auto md:h-10" />
         <span class="text-2xl font-extrabold tracking-wide select-none text-white group-hover:text-emerald-400 transition">
-          Ajaxtreon <span class="text-emerald-400">Construct</span>
+          PT <span class="text-emerald-400">Ajaxtreon</span>
         </span>
       </NuxtLink>
 
@@ -92,43 +106,13 @@ onUnmounted(() => {
     <transition name="slide-fade">
       <div
         v-if="isMobileMenuOpen"
-        class="md:hidden absolute top-16 left-0 right-0 bg-[#0f172a]/95 backdrop-blur text-white text-lg font-medium px-6 py-6 flex flex-col gap-4"
+        class="inset-0 bg-[#0f172a]/95 backdrop-blur z-40 text-white text-lg font-medium px-6 py-6 flex flex-col gap-6 overflow-auto"
       >
-        <NuxtLink
-          to="/"
-          @click="isMobileMenuOpen = false"
-          class="hover:text-sky-400 transition"
-        >
-          Home
-        </NuxtLink>
-        <NuxtLink
-          to="/about"
-          @click="isMobileMenuOpen = false"
-          class="hover:text-sky-400 transition"
-        >
-          About
-        </NuxtLink>
-        <NuxtLink
-          to="/services"
-          @click="isMobileMenuOpen = false"
-          class="hover:text-sky-400 transition"
-        >
-          Services
-        </NuxtLink>
-        <NuxtLink
-          to="/blog"
-          @click="isMobileMenuOpen = false"
-          class="hover:text-sky-400 transition"
-        >
-          Blog
-        </NuxtLink>
-        <NuxtLink
-          to="/contact"
-          @click="isMobileMenuOpen = false"
-          class="hover:text-sky-400 transition"
-        >
-          Contact
-        </NuxtLink>
+        <NuxtLink to="/" @click="isMobileMenuOpen = false" class="hover:text-sky-400 transition">Home</NuxtLink>
+        <NuxtLink to="/about" @click="isMobileMenuOpen = false" class="hover:text-sky-400 transition">About</NuxtLink>
+        <NuxtLink to="/services" @click="isMobileMenuOpen = false" class="hover:text-sky-400 transition">Services</NuxtLink>
+        <NuxtLink to="/blog" @click="isMobileMenuOpen = false" class="hover:text-sky-400 transition">Blog</NuxtLink>
+        <NuxtLink to="/contact" @click="isMobileMenuOpen = false" class="hover:text-sky-400 transition">Contact</NuxtLink>
       </div>
     </transition>
   </header>
