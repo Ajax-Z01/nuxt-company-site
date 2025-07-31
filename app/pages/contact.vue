@@ -1,5 +1,6 @@
-<script setup>
+<script setup lang="ts">
 import { reactive } from 'vue'
+import HeaderPage from '@/components/HeaderPage.vue'
 
 const form = reactive({
   name: '',
@@ -16,8 +17,18 @@ const submitForm = () => {
 </script>
 
 <template>
+  <!-- Hero Header -->
+  <HeaderPage
+    title="Contact Us"
+    subtitle="Get in Touch"
+    current="Contact"
+    imageWebp="/img/plan.webp"
+    imagePng="/img/plan.png"
+  />
+
+  <!-- Contact Form -->
   <section class="max-w-3xl mx-auto p-6">
-    <h1 class="text-3xl font-bold mb-4">Contact Us</h1>
+    <h1 class="text-3xl font-bold mb-4">Send Us a Message</h1>
     <form class="space-y-4 max-w-md mx-auto" @submit.prevent="submitForm">
       <div>
         <label class="block mb-1 font-semibold" for="name">Name</label>

@@ -22,72 +22,126 @@ const stats = [
 
 <template>
   <section class="py-20 bg-white dark:bg-gray-950">
-    <div class="container max-w-7xl mx-auto px-4 flex flex-col md:flex-row gap-12 items-end">
-      
-      <!-- Left / Text & Achievements -->
-      <div class="md:w-1/2 flex flex-col justify-center gap-8 text-gray-900 dark:text-white">
-        <p class="text-sm font-semibold uppercase tracking-wider text-sky-500 flex items-center gap-2">
-          <span class="block w-6 h-0.5 bg-yellow-500"></span>
+    <div
+      class="container max-w-7xl mx-auto px-4 flex flex-col md:flex-row gap-12 items-end"
+    >
+      <!-- Left: Text & Achievements -->
+      <div
+        class="md:w-1/2 flex flex-col justify-center gap-10 text-gray-900 dark:text-white"
+      >
+        <p
+          class="text-sm font-semibold uppercase tracking-wider text-sky-500 flex items-center gap-2 max-w-max"
+        >
+          <span class="block w-6 h-0.5 bg-yellow-500 rounded"></span>
           Just feel the future
         </p>
-        <h2 class="text-4xl font-extrabold leading-tight">
-          <span class="text-emerald-500">Bringing Your Ideas</span>
-          <span> and Innovations to Life</span>
+
+        <h2 class="text-4xl font-extrabold leading-tight max-w-lg">
+          <span class="text-emerald-500">Bringing Your Ideas</span
+          ><span> and Innovations to Life</span>
         </h2>
+
         <p class="text-gray-700 dark:text-gray-300 max-w-xl leading-relaxed">
-          Vitae ultricies leo integer malesuada nunc vel. Molestie ac feugiat sed lectus vestibulum mattis ullamcorper velit. Viverra aliquet eget sit amet tellus cras adipiscing.
+          Vitae ultricies leo integer malesuada nunc vel. Molestie ac feugiat sed
+          lectus vestibulum mattis ullamcorper velit. Viverra aliquet eget sit
+          amet tellus cras adipiscing.
         </p>
 
-        <ul class="space-y-6">
+        <ul class="space-y-6 max-w-md">
           <li
             v-for="(ach, idx) in achievements"
             :key="idx"
-            class="flex items-center gap-4"
+            class="flex items-center gap-4 cursor-default group transition"
+            tabindex="0"
+            role="listitem"
           >
-            <div v-html="ach.icon" aria-hidden="true"></div>
-            <span class="text-gray-900 dark:text-white font-semibold text-lg">
-              {{ ach.label }}
-            </span>
+            <div
+              v-html="ach.icon"
+              aria-hidden="true"
+              class="transition group-hover:text-emerald-600"
+            ></div>
+            <span
+              class="text-gray-900 dark:text-white font-semibold text-lg transition group-hover:text-emerald-600"
+              >{{ ach.label }}</span
+            >
           </li>
         </ul>
 
-        <a href="#" class="inline-block mt-8 px-8 py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold rounded shadow transition text-center max-w-max">
+        <a
+          href="#"
+          class="inline-flex items-center gap-2 mt-8 px-8 py-3 bg-emerald-600 hover:bg-emerald-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-500 text-white font-semibold rounded shadow transition max-w-max"
+        >
           About company
+          <svg
+            class="w-4 h-4"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M9 5l7 7-7 7"
+            ></path>
+          </svg>
         </a>
       </div>
 
-      <!-- Right / Stats & Image -->
-      <div class="md:w-1/2 flex flex-col gap-6">
-        <div class="flex gap-8 justify-center md:justify-end mb-4 flex-wrap">
-          <div class="flex flex-col items-center w-40 md:w-48 mb-6 md:mb-0">
-            <h3 class="text-5xl md:text-6xl font-extrabold text-emerald-500">
+      <!-- Right: Stats & Image -->
+      <div class="md:w-1/2 flex flex-col gap-8">
+        <div
+          class="flex flex-wrap gap-8 justify-center md:justify-end mb-6"
+          role="list"
+          aria-label="Company statistics"
+        >
+          <div
+            class="flex flex-col items-center w-40 md:w-48 text-center"
+            role="listitem"
+          >
+            <h3
+              class="text-5xl md:text-6xl font-extrabold text-emerald-500"
+              aria-label="Active Projects in Civil Engineering"
+            >
               {{ stats[0]?.value ?? '-' }}
             </h3>
-            <p class="mt-3 text-center text-base max-w-xs text-gray-700 dark:text-gray-300">
+            <p
+              class="mt-3 text-base max-w-xs text-gray-700 dark:text-gray-300"
+              aria-hidden="true"
+            >
               {{ stats[0]?.label ?? '-' }}
             </p>
           </div>
 
-          <div class="flex flex-col items-center w-40 md:w-48">
-            <h3 class="text-5xl md:text-6xl font-extrabold text-emerald-500">
+          <div
+            class="flex flex-col items-center w-40 md:w-48 text-center"
+            role="listitem"
+          >
+            <h3
+              class="text-5xl md:text-6xl font-extrabold text-emerald-500"
+              aria-label="Building Control Approval Rate"
+            >
               {{ stats[1]?.value ?? '-' }}
             </h3>
-            <p class="mt-3 text-center text-base max-w-xs text-gray-700 dark:text-gray-300">
+            <p
+              class="mt-3 text-base max-w-xs text-gray-700 dark:text-gray-300"
+              aria-hidden="true"
+            >
               {{ stats[1]?.label ?? '-' }}
             </p>
           </div>
         </div>
 
-        <div class="rounded-lg overflow-hidden shadow-lg mt-2">
+        <div class="rounded-lg overflow-hidden shadow-lg">
           <img
             src="/img/gallery/18.webp"
-            alt="About media"
+            alt="Construction site"
             class="w-full object-cover aspect-[16/9]"
             loading="lazy"
           />
         </div>
       </div>
-
     </div>
   </section>
 </template>

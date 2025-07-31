@@ -1,4 +1,17 @@
+<script setup lang="ts">
+import HeaderPage from '@/components/HeaderPage.vue'
+</script>
+
 <template>
+  <HeaderPage
+    title="Our Services"
+    subtitle="What We Offer"
+    current="Services"
+    imageWebp="/img/plan.webp"
+    imagePng="/img/plan.png"
+  />
+
+  <!-- Content -->
   <section class="max-w-3xl mx-auto p-6">
     <h1 class="text-3xl font-bold mb-4">Our Services</h1>
     <ul class="list-disc list-inside space-y-2">

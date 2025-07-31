@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { usePosts } from '~/composables/usePosts'
+import HeaderPage from '@/components/HeaderPage.vue'
 
 const { posts, loading, error, fetchAll, getImageUrl } = usePosts()
 
@@ -13,6 +14,16 @@ const formatDate = (dateStr: string) =>
 </script>
 
 <template>
+  <!-- Hero Header -->
+  <HeaderPage
+    title="Blog"
+    subtitle="Our Blog"
+    current="Blog"
+    imageWebp="/img/plan.webp"
+    imagePng="/img/plan.png"
+  />
+
+  <!-- Blog List -->
   <section class="p-6 space-y-6 max-w-3xl mx-auto">
     <h1 class="text-3xl font-bold">Latest Blog Posts</h1>
 

@@ -1,7 +1,7 @@
 <script setup>
 import HeroSection from '~/components/HeroSection.vue'
 import PartnersSection from '~/components/PartnersSection.vue'
-import AboutSection from '~/components/AboutSection.vue';
+import AboutSectionHome from '~/components/AboutSectionHome.vue';
 import AdvantagesSection from '~/components/AdvantagesSection.vue';
 import GallerySection from '~/components/GallerySection.vue';
 import ProcessSection from '~/components/ProcessSection.vue';
@@ -12,7 +12,7 @@ import ContactSection from '~/components/ContactSection.vue';
 <template>
   <HeroSection />
   <PartnersSection />
-  <AboutSection />
+  <AboutSectionHome />
   <AdvantagesSection />
   <GallerySection />
   <ProcessSection />
