@@ -2,7 +2,7 @@
 import HeaderPage from '~/components/HeaderPage.vue'
 import AboutSectionPage from '~/components/AboutSectionPage.vue'
 import QuoteSection from '~/components/QuoteSection.vue'
-import ServicesSection from '~/components/ServicesSection.vue';
+import ServicesSectionAbout from '~/components/ServicesSectionAbout.vue';
 import GalleryPresentation from '~/components/GalleryPresentation.vue';
 import FeaturesSection from '~/components/FeaturesSection.vue';
 import ReviewsSection from '~/components/ReviewsSection.vue';
@@ -18,7 +18,7 @@ import ReviewsSection from '~/components/ReviewsSection.vue';
   />
   <AboutSectionPage />
   <QuoteSection />
-  <ServicesSection />
+  <ServicesSectionAbout />
   <GalleryPresentation />
   <FeaturesSection />
   <ReviewsSection />
