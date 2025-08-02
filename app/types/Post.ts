@@ -45,6 +45,7 @@ export interface Post {
   documentId: string
   title: string
   slug: string
+  excerpt: string
   content: string
   postDate: string
   createdAt: string

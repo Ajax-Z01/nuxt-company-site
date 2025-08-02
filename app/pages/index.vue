@@ -6,7 +6,7 @@ import AdvantagesSection from '~/components/AdvantagesSection.vue';
 import GallerySection from '~/components/GallerySection.vue';
 import ProcessSection from '~/components/ProcessSection.vue';
 import FeedbackSection from '~/components/FeedbackSection.vue';
-import ContactSection from '~/components/ContactSection.vue';
+import ContactSectionHome from '~/components/ContactSectionHome.vue';
 </script>
 
 <template>
@@ -17,5 +17,5 @@ import ContactSection from '~/components/ContactSection.vue';
   <GallerySection />
   <ProcessSection />
   <FeedbackSection />
-  <ContactSection />
+  <ContactSectionHome />
 </template>

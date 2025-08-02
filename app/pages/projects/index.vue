@@ -1,21 +1,20 @@
 <script setup lang="ts">
-import HeaderPage from '@/components/HeaderPage.vue'
-import BlogSection from '~/components/BlogSection.vue';
+import HeaderPage from '~/components/HeaderPage.vue'
+import ProjectsSection from '~/components/ProjectsSection.vue'
 
 const breadcrumbs = [
   { text: 'Home', to: '/' },
-  { text: 'Blog' },
+  { text: 'Projects' },
 ]
 </script>
 
 <template>
-  <!-- Hero Header -->
   <HeaderPage
-    title="Blog"
-    subtitle="Our Blog"
+    title="Our Projects"
+    subtitle="Building communities"
     :breadcrumbs="breadcrumbs"
     imageWebp="/img/plan.webp"
     imagePng="/img/plan.png"
   />
-  <BlogSection />
+  <ProjectsSection />
 </template>

@@ -1,32 +1,36 @@
 <script setup lang="ts">
 const galleryItems = [
   {
-    full: '/img/gallery/10full.jpg',
-    webp: '/img/gallery/10.webp',
-    jpg: '/img/gallery/10.jpg',
-    caption: 'Fresh Concept Construction Renovation',
-    label: 'Special Projects',
+    title: 'Food Factory Design and Construction',
+    caption: 'Food Factory Design and Construction',
+    label: 'Karli Turnpike Apt. 993 Port Valentine',
+    webp: '/img/projects/05.webp',
+    jpg: '/img/projects/05.jpg',
+    link: '/projects/food-factory',
   },
   {
-    full: '/img/gallery/08full.jpg',
-    webp: '/img/gallery/08.webp',
-    jpg: '/img/gallery/08.jpg',
+    title: 'Fresh Concept Construction Renovation',
     caption: 'Fresh Concept Construction Renovation',
-    label: 'Special Projects',
+    label: 'Daphne Way New Reaganmouth',
+    webp: '/img/projects/02.webp',
+    jpg: '/img/projects/02.jpg',
+    link: '/projects/fresh-renovation-1',
   },
   {
-    full: '/img/gallery/02full.jpg',
-    webp: '/img/gallery/02.webp',
-    jpg: '/img/gallery/02.jpg',
-    caption: 'Fresh Concept Construction Renovation',
-    label: 'Special Projects',
+    title: 'Reconstruction of Old Factory Building',
+    caption: 'Reconstruction of Old Factory Building',
+    label: 'Schoen Ramp Suite 607 Borerton',
+    webp: '/img/projects/06.webp',
+    jpg: '/img/projects/06.jpg',
+    link: '/projects/old-factory',
   },
   {
-    full: '/img/gallery/09full.jpg',
-    webp: '/img/gallery/09.webp',
-    jpg: '/img/gallery/09.jpg',
-    caption: 'Fresh Concept Construction Renovation',
-    label: 'Special Projects',
+    title: 'Installation and Creation of a Supply System',
+    caption: 'Installation and Creation of a Supply System',
+    label: 'Ernest Mount Bartonstad',
+    webp: '/img/projects/03.webp',
+    jpg: '/img/projects/03.jpg',
+    link: '/projects/supply-system',
   },
 ]
 </script>
@@ -48,7 +52,7 @@ const galleryItems = [
           role="listitem"
         >
           <a
-            :href="item.full"
+            :href="item.link"
             class="media block focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 rounded-none lg:rounded-lg"
             :aria-label="`View full image: ${item.caption}`"
             data-role="gallery-link"

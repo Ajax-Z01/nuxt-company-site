@@ -15,8 +15,8 @@ const reviews = [
       'Curabitur vitae nunc sed velit dignissim sodales ut. Maecenas ultricies mi eget mauris pharetra et. Et ligula ullamcorper malesuada proin pellentesque diam volutpat commodo',
     name: 'Vera Robinson',
     details: 'Psychologist',
-    avatarWebp: 'img/avatars/female01.webp',
-    avatarJpg: 'img/avatars/female01.jpg',
+    avatarWebp: '/img/avatars/female01.webp',
+    avatarJpg: '/img/avatars/female01.jpg',
   },
   {
     id: 2,
@@ -25,8 +25,8 @@ const reviews = [
       'Commodo quis imperdiet massa tincidunt nunc. Volutpat odio facilisis mauris sit amet. Mauris commodo quis imperdiet massa tincidunt',
     name: 'Benjamin Norris',
     details: 'Business analyst',
-    avatarWebp: 'img/avatars/male01.webp',
-    avatarJpg: 'img/avatars/male01.jpg',
+    avatarWebp: '/img/avatars/male01.webp',
+    avatarJpg: '/img/avatars/male01.jpg',
   },
   {
     id: 3,
@@ -35,8 +35,8 @@ const reviews = [
       'Curabitur vitae nunc sed velit dignissim sodales ut. Maecenas ultricies mi eget mauris pharetra et. Et ligula ullamcorper malesuada proin pellentesque diam volutpat commodo',
     name: 'Lisa Smith',
     details: 'Manager',
-    avatarWebp: 'img/avatars/female02.webp',
-    avatarJpg: 'img/avatars/female02.jpg',
+    avatarWebp: '/img/avatars/female02.webp',
+    avatarJpg: '/img/avatars/female02.jpg',
   },
   {
     id: 4,
@@ -45,8 +45,8 @@ const reviews = [
       'Commodo quis imperdiet massa tincidunt nunc. Volutpat odio facilisis mauris sit amet. Mauris commodo quis imperdiet massa tincidunt',
     name: 'Lucas Perry',
     details: 'Analyst',
-    avatarWebp: 'img/avatars/male02.webp',
-    avatarJpg: 'img/avatars/male02.jpg',
+    avatarWebp: '/img/avatars/male02.webp',
+    avatarJpg: '/img/avatars/male02.jpg',
   },
 ]
 </script>
@@ -88,6 +88,7 @@ const reviews = [
         :modules="[Navigation, Autoplay]"
         :spaceBetween="24"
         :slidesPerView="2"
+        :loop="true"
         :navigation="{
           nextEl: '.swiper-button-next-custom',
           prevEl: '.swiper-button-prev-custom',

@@ -1,3 +1,49 @@
+<script lang="ts" setup>
+import { ref, onMounted } from 'vue'
+
+const gearOuter = ref<SVGSVGElement | null>(null)
+const gearInner = ref<SVGSVGElement | null>(null)
+
+onMounted(() => {
+  let angleOuter = 0
+  let angleInner = 0
+
+  let speed = 1         // current speed (deg per frame)
+  let targetSpeed = 1   // desired speed
+  let minSpeed = 0
+  let maxSpeed = 1
+  let easing = 0.05       // smooth interpolation factor (0-1)
+
+  const animate = () => {
+    speed += (targetSpeed - speed) * easing
+
+    angleOuter += speed
+    angleInner += speed * 1
+
+    if (gearOuter.value)
+      gearOuter.value.style.transform = `rotate(${angleOuter}deg)`
+    if (gearInner.value)
+      gearInner.value.style.transform = `rotate(${angleInner}deg)`
+
+    requestAnimationFrame(animate)
+  }
+
+  const cycle = () => {
+    targetSpeed = minSpeed
+    setTimeout(() => {
+      targetSpeed = 0.05
+      setTimeout(() => {
+        targetSpeed = maxSpeed
+        setTimeout(cycle, 4000)
+      }, 2000)
+    }, 1500)
+  }
+
+  animate()
+  setTimeout(cycle, 4000) // mulai siklus pertama setelah 4s
+})
+</script>
+
 <template>
   <section
     class="relative py-20 bg-primary-light dark:bg-primary-dark text-white overflow-hidden"
@@ -18,7 +64,8 @@
           <div class="absolute -left-[150px] -top-[200px]">
             <!-- Gear Outer -->
             <svg
-              class="w-72 h-72 gear-outer animate-spin-slow"
+              ref="gearOuter"
+              class="w-72 h-72 gear-outer animate-spin-pulse"
               viewBox="0 0 24 24"
               fill="currentColor"
               aria-hidden="true"
@@ -34,7 +81,8 @@
             <!-- Gear Inner (centered inside outer) -->
             <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
               <svg
-                class="w-44 h-44 gear-inner animate-spin-slower"
+                ref="gearInner"
+                class="w-44 h-44 gear-inner animate-spin-pulse-slow"
                 viewBox="0 0 24 24"
                 fill="currentColor"
                 aria-hidden="true"
@@ -75,7 +123,7 @@
 </template>
 
 <style scoped>
-@keyframes spin-slow {
+@keyframes spin-pulse {
   0% {
     transform: rotate(0deg);
   }
@@ -83,21 +131,11 @@
     transform: rotate(360deg);
   }
 }
-@keyframes spin-slower {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-.animate-spin-slow {
-  animation: spin-slow 30s linear infinite;
+
+.gear-outer,
+.gear-inner {
+  transform-origin: center;
   filter: blur(0.5px);
-}
-.animate-spin-slower {
-  animation: spin-slower 60s linear infinite;
-  filter: blur(1px);
 }
 
 .bg-primary-light {

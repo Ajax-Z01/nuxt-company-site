@@ -18,8 +18,10 @@ onMounted(() => {
 
     <main class="flex-grow relative">
       <!-- Page is rendered, but hidden until loading finishes -->
-      <NuxtPage v-show="!isLoading" />
-      <AppFooter v-show="!isLoading" />
+      <div v-show="!isLoading">
+        <NuxtPage />
+        <AppFooter />
+      </div>
 
       <!-- Loading overlay -->
       <transition name="fade">

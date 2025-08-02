@@ -120,7 +120,7 @@ const services = [
                 </li>
               </ul>
               <NuxtLink
-                to="/services"
+                :to="`/services/${service.title.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z-]/g, '')}`"
                 class="inline-block mt-6 px-8 py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold rounded shadow-md transition"
                 aria-label="Read more about {{ service.title }}"
               >

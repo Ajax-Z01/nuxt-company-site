@@ -1,10 +1,13 @@
 <script setup lang="ts">
-import { ref, onMounted, onBeforeUnmount } from 'vue'
+import { ref, computed, watchEffect, nextTick, onMounted } from 'vue'
+import { useWindowSize } from '@vueuse/core'
 import { Swiper, SwiperSlide } from 'swiper/vue'
-import { Pagination, Autoplay, Navigation } from 'swiper/modules'
-import SwiperCore from 'swiper'
-SwiperCore.use([Pagination, Autoplay, Navigation])
+import { Autoplay, Navigation } from 'swiper/modules'
 
+// Reactive window size
+const { width } = useWindowSize()
+
+// Feedback data
 const feedbacks = ref([
   {
     main: 'Consequat nisl vel pretium lectus quam id leo. Mauris augue neque gravida in fermentum et sollicitudin ac orci. Blandit libero volutpat sed cras ornare',
@@ -44,23 +47,31 @@ const feedbacks = ref([
 ])
 
 const leftColRef = ref<HTMLElement | null>(null)
-const swiperWrapperRef = ref<HTMLElement | null>(null)
 const sliderHeight = ref('auto')
 
-function updateHeight() {
-  if (leftColRef.value && swiperWrapperRef.value) {
+const prevEl = ref<HTMLElement | null>(null)
+const nextEl = ref<HTMLElement | null>(null)
+
+const shouldLoop = computed(() => feedbacks.value.length > 1)
+
+// Update slider height when DOM is ready or resized
+const updateSliderHeight = async () => {
+  await nextTick()
+  if (leftColRef.value) {
     const height = leftColRef.value.offsetHeight
-    sliderHeight.value = `${height}px`
+    if (height > 0) {
+      sliderHeight.value = `${height}px`
+    }
   }
 }
 
 onMounted(() => {
-  updateHeight()
-  window.addEventListener('resize', updateHeight)
+  updateSliderHeight()
 })
 
-onBeforeUnmount(() => {
-  window.removeEventListener('resize', updateHeight)
+// Recalculate on window size change
+watchEffect(() => {
+  void updateSliderHeight()
 })
 </script>
 
@@ -104,61 +115,82 @@ onBeforeUnmount(() => {
       </div>
 
       <!-- KANAN: Swiper Slider -->
-      <Swiper
-        ref="swiperWrapperRef"
-        :modules="[Pagination, Autoplay, Navigation]"
-        :pagination="{ clickable: true, el: '.custom-pagination' }"
-        :navigation="{ prevEl: '.custom-prev', nextEl: '.custom-next' }"
-        :autoplay="{ delay: 5000, disableOnInteraction: false }"
-        :spaceBetween="30"
-        :slidesPerView="1"
-        class="feedback_slider max-w-3xl relative w-full"
-        :style="{ height: sliderHeight }"
-      >
-        <SwiperSlide
-          v-for="(item, i) in feedbacks"
-          :key="i"
-          class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 md:p-8 h-full flex"
+      <div class="max-w-3xl w-full relative">
+        <Swiper
+          ref="swiperWrapperRef"
+          :modules="[Autoplay, Navigation]"
+          :autoplay="{ delay: 5000, disableOnInteraction: false }"
+          :spaceBetween="30"
+          :slidesPerView="1"
+          :loop="shouldLoop"
+          :navigation="{ prevEl: prevEl, nextEl: nextEl }"
+          class="feedback_slider relative w-full"
+          :style="{ height: sliderHeight }"
         >
-          <div
-            class="flex flex-col justify-center h-full max-w-xl mx-auto text-center px-4"
+          <SwiperSlide
+            v-for="(item, i) in feedbacks"
+            :key="i"
+            class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 md:p-8 h-full flex"
           >
-            <p
-              class="main text-gray-900 dark:text-gray-100 mb-8 text-base sm:text-lg md:text-xl leading-relaxed font-serif italic"
+            <div
+              class="flex flex-col justify-center h-full max-w-xl mx-auto text-center px-4"
             >
-              “{{ item.main }}”
-            </p>
-
-            <div class="media flex items-center justify-center gap-4">
-              <div
-                class="avatar w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full overflow-hidden flex-shrink-0 border-2 border-emerald-500 dark:border-emerald-400"
+              <p
+                class="main text-gray-900 dark:text-gray-100 mb-8 text-base sm:text-lg md:text-xl leading-relaxed font-serif italic"
               >
-                <picture>
-                  <source :srcset="item.avatarWebp" type="image/webp" />
-                  <img
-                    :src="item.avatarJpg"
-                    :alt="item.name"
-                    loading="lazy"
-                    class="object-cover w-full h-full"
-                  />
-                </picture>
-              </div>
+                “{{ item.main }}”
+              </p>
 
-              <div class="media_info text-left">
-                <span
-                  class="name block font-semibold text-gray-900 dark:text-white text-sm sm:text-base md:text-lg"
-                  >{{ item.name }}</span
+              <div class="media flex items-center justify-center gap-4">
+                <div
+                  class="avatar w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full overflow-hidden flex-shrink-0 border-2 border-emerald-500 dark:border-emerald-400"
                 >
-                <span
-                  class="company block text-xs sm:text-sm text-gray-500 dark:text-gray-400 font-medium"
-                  >{{ item.company }}</span
-                >
+                  <picture>
+                    <source :srcset="item.avatarWebp" type="image/webp" />
+                    <img
+                      :src="item.avatarJpg"
+                      :alt="item.name"
+                      loading="lazy"
+                      class="object-cover w-full h-full"
+                    />
+                  </picture>
+                </div>
+
+                <div class="media_info text-left">
+                  <span
+                    class="name block font-semibold text-gray-900 dark:text-white text-sm sm:text-base md:text-lg"
+                    >{{ item.name }}</span
+                  >
+                  <span
+                    class="company block text-xs sm:text-sm text-gray-500 dark:text-gray-400 font-medium"
+                    >{{ item.company }}</span
+                  >
+                </div>
               </div>
             </div>
-          </div>
-        </SwiperSlide>
-        <div class="custom-pagination mt-6 flex justify-center space-x-2"></div>
-      </Swiper>
+          </SwiperSlide>
+        </Swiper>
+
+        <!-- Navigation buttons -->
+        <div
+          class="flex justify-center gap-4 mt-6"
+        >
+          <button
+            ref="prevEl"
+            class="px-4 py-2 rounded bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition"
+            aria-label="Previous slide"
+          >
+            Prev
+          </button>
+          <button
+            ref="nextEl"
+            class="px-4 py-2 rounded bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition"
+            aria-label="Next slide"
+          >
+            Next
+          </button>
+        </div>
+      </div>
     </div>
   </section>
 </template>

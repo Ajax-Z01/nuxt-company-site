@@ -2,7 +2,7 @@
 defineProps<{
   title: string
   subtitle: string
-  current: string
+  breadcrumbs: { text: string; to?: string }[]
   imageWebp: string
   imagePng: string
 }>()
@@ -10,7 +10,6 @@ defineProps<{
 
 <template>
   <header class="page relative bg-gray-900 text-white overflow-hidden">
-    <!-- CONTENT -->
     <div class="mx-auto max-w-7xl px-4 py-24 lg:py-36 relative z-10">
       <div class="section_header text-center lg:text-left animate-fade-up opacity-0 transition-opacity duration-700 delay-200">
         <span class="subtitle uppercase text-base lg:text-lg font-semibold text-yellow-400 tracking-widest block mb-4">
@@ -20,18 +19,29 @@ defineProps<{
           {{ title }}
         </h1>
         <ul class="breadcrumbs flex flex-wrap justify-center lg:justify-start gap-3 text-sm lg:text-base text-gray-300">
-          <li class="breadcrumbs_item">
-            <NuxtLink to="/" class="hover:underline text-emerald-400">Home</NuxtLink>
-          </li>
-          <li class="breadcrumbs_item text-gray-500">/</li>
-          <li class="breadcrumbs_item breadcrumbs_item--current">
-            <span>{{ current }}</span>
+          <li
+            v-for="(crumb, index) in breadcrumbs"
+            :key="index"
+            class="breadcrumbs_item"
+          >
+            <template v-if="crumb.to && index !== breadcrumbs.length - 1">
+              <NuxtLink :to="crumb.to" class="hover:underline text-emerald-400">
+                {{ crumb.text }}
+              </NuxtLink>
+            </template>
+            <template v-else>
+              <span
+                :class="{'breadcrumbs_item--current': index === breadcrumbs.length - 1}"
+              >
+                {{ crumb.text }}
+              </span>
+            </template>
+            <span v-if="index < breadcrumbs.length - 1" class="text-gray-500">/</span>
           </li>
         </ul>
       </div>
     </div>
 
-    <!-- BACKGROUND IMAGE -->
     <div class="media absolute inset-0 z-0">
       <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70"></div>
       <picture>

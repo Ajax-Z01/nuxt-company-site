@@ -103,28 +103,30 @@ const currentYear = new Date().getFullYear()
         <p>
           PT Ajaxtreon — All rights reserved © {{ currentYear }}
         </p>
-        <ul class="flex gap-6">
-          <li>
-            <a href="#" aria-label="Facebook" class="hover:text-emerald-400 transition">
-              <FacebookIcon />
-            </a>
-          </li>
-          <li>
-            <a href="#" aria-label="Instagram" class="hover:text-emerald-400 transition">
-              <InstagramIcon />
-            </a>
-          </li>
-          <li>
-            <a href="#" aria-label="Twitter" class="hover:text-emerald-400 transition">
-              <TwitterIcon />
-            </a>
-          </li>
-          <li>
-            <a href="#" aria-label="WhatsApp" class="hover:text-emerald-400 transition">
-              <WhatsappIcon />
-            </a>
-          </li>
-        </ul>
+        <ClientOnly>
+          <ul class="flex gap-6">
+            <li>
+              <a href="#" aria-label="Facebook" class="hover:text-emerald-400 transition">
+                <FacebookIcon />
+              </a>
+            </li>
+            <li>
+              <a href="#" aria-label="Instagram" class="hover:text-emerald-400 transition">
+                <InstagramIcon />
+              </a>
+            </li>
+            <li>
+              <a href="#" aria-label="Twitter" class="hover:text-emerald-400 transition">
+                <TwitterIcon />
+              </a>
+            </li>
+            <li>
+              <a href="#" aria-label="WhatsApp" class="hover:text-emerald-400 transition">
+                <WhatsappIcon />
+              </a>
+            </li>
+          </ul>
+        </ClientOnly>
       </div>
     </div>
   </footer>

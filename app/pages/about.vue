@@ -6,13 +6,18 @@ import ServicesSectionAbout from '~/components/ServicesSectionAbout.vue';
 import GalleryPresentation from '~/components/GalleryPresentation.vue';
 import FeaturesSection from '~/components/FeaturesSection.vue';
 import ReviewsSection from '~/components/ReviewsSection.vue';
+
+const breadcrumbs = [
+  { text: 'Home', to: '/' },
+  { text: 'About' },
+]
 </script>
 
 <template>
   <HeaderPage
     title="About Us"
     subtitle="Company Overview"
-    current="About"
+    :breadcrumbs="breadcrumbs"
     imageWebp="/img/plan.webp"
     imagePng="/img/plan.png"
   />
