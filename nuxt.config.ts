@@ -10,7 +10,8 @@ export default defineNuxtConfig({
   ],
   css: [
     '@/assets/css/tailwind.css',
-    'swiper/swiper-bundle.css'
+    'swiper/swiper-bundle.css',
+    'prismjs/themes/prism-tomorrow.css',
   ],
   postcss: {
     plugins: {

@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import HeaderPage from '@/components/HeaderPage.vue'
-import TabsSection from '@/components/TabsSection.vue'
-import ProcessSection from '@/components/ProcessSection.vue'
-import ServicesSectionPage from '@/components/ServicesSectionPage.vue'
-import ReviewsSection from '@/components/ReviewsSection.vue'
-import FaqSection from '@/components/FaqSection.vue'
+import TabsSection from '~/components/section/TabsSection.vue'
+import ProcessSection from '~/components/section/ProcessSection.vue'
+import ServicesSectionPage from '~/components/section/ServicesSectionPage.vue'
+import ReviewsSection from '~/components/section/ReviewsSection.vue'
+import FaqSection from '~/components/section/FaqSection.vue'
 
 const tabs = [
   {

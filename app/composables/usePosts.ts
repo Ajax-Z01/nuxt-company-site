@@ -11,15 +11,19 @@ export const usePosts = () => {
   const error = ref<Error | null>(null)
   const loading = ref(false)
 
-  const fetchAll = async () => {
+  const fetchAll = async (): Promise<Post[]> => {
     loading.value = true
     error.value = null
     try {
-      const res = await fetch(`${baseUrl}/api/posts?populate=coverImage`)
+      const res = await fetch(
+        `${baseUrl}/api/posts?populate[coverImage]=true&populate[category]=true&populate[tags]=true`
+      )
       const json = await res.json()
-      posts.value = json.data || []
+      posts.value = Array.isArray(json.data) ? json.data : []
+      return posts.value
     } catch (err) {
       error.value = err as Error
+      return []
     } finally {
       loading.value = false
     }
@@ -29,11 +33,14 @@ export const usePosts = () => {
     loading.value = true
     error.value = null
     try {
-      const res = await fetch(`${baseUrl}/api/posts?filters[slug][$eq]=${slug}&populate=coverImage`)
+      const res = await fetch(
+        `${baseUrl}/api/posts?filters[slug][$eq]=${encodeURIComponent(slug)}&populate[coverImage]=true&populate[category]=true&populate[tags]=true`
+      )
       const json = await res.json()
-      post.value = json.data?.[0] || null
+      post.value = Array.isArray(json.data) && json.data.length > 0 ? json.data[0] : null
     } catch (err) {
       error.value = err as Error
+      post.value = null
     } finally {
       loading.value = false
     }
@@ -42,16 +49,17 @@ export const usePosts = () => {
   const getImageUrl = (images: Post['coverImage'] = []): string => {
     const image = images?.[0]
     if (!image) return ''
-
+    
     const url =
-        image.formats?.medium?.url ||
-        image.formats?.small?.url ||
-        image.formats?.thumbnail?.url ||
-        image.url
+      image.formats?.medium?.url ||
+      image.formats?.small?.url ||
+      image.formats?.thumbnail?.url ||
+      image.url
 
     if (!url) return ''
+    
     return url.startsWith('http') ? url : `${baseUrl}${url}`
-    }
+  }
 
   return {
     posts,

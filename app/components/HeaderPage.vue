@@ -9,47 +9,57 @@ defineProps<{
 </script>
 
 <template>
-  <header class="page relative bg-gray-900 text-white overflow-hidden">
-    <div class="mx-auto max-w-7xl px-4 py-24 lg:py-36 relative z-10">
-      <div class="section_header text-center lg:text-left animate-fade-up opacity-0 transition-opacity duration-700 delay-200">
-        <span class="subtitle uppercase text-base lg:text-lg font-semibold text-yellow-400 tracking-widest block mb-4">
+  <header class="relative bg-gray-900 text-white overflow-hidden">
+    <!-- CONTENT -->
+    <div class="relative z-10 mx-auto max-w-7xl px-4 py-24 lg:py-36">
+      <div class="text-center lg:text-left space-y-6 backdrop-blur-sm bg-black/10 p-6 rounded-md animate-fade-up">
+        <!-- Subtitle -->
+        <span class="block text-yellow-400 uppercase tracking-widest text-base lg:text-lg font-semibold">
           {{ subtitle }}
         </span>
-        <h1 class="title text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight mb-6 drop-shadow-md">
+
+        <!-- Title -->
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight drop-shadow-md max-w-4xl">
           {{ title }}
         </h1>
-        <ul class="breadcrumbs flex flex-wrap justify-center lg:justify-start gap-3 text-sm lg:text-base text-gray-300">
+
+        <!-- Breadcrumbs -->
+        <ul class="flex flex-wrap justify-center lg:justify-start gap-2 text-sm lg:text-base text-gray-300">
           <li
             v-for="(crumb, index) in breadcrumbs"
             :key="index"
-            class="breadcrumbs_item"
+            class="flex items-center gap-2"
           >
             <template v-if="crumb.to && index !== breadcrumbs.length - 1">
               <NuxtLink :to="crumb.to" class="hover:underline text-emerald-400">
                 {{ crumb.text }}
               </NuxtLink>
+              <span class="text-gray-500">›</span>
             </template>
             <template v-else>
               <span
-                :class="{'breadcrumbs_item--current': index === breadcrumbs.length - 1}"
+                :class="[
+                  'text-white font-semibold',
+                  index !== 0 ? 'pl-1' : ''
+                ]"
               >
                 {{ crumb.text }}
               </span>
             </template>
-            <span v-if="index < breadcrumbs.length - 1" class="text-gray-500">/</span>
           </li>
         </ul>
       </div>
     </div>
 
-    <div class="media absolute inset-0 z-0">
-      <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70"></div>
+    <!-- BACKGROUND IMAGE -->
+    <div class="absolute inset-0 z-0">
+      <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/80"></div>
       <picture>
         <source :srcset="imageWebp" type="image/webp" />
         <img
           :src="imagePng"
           :alt="title"
-          class="w-full h-full object-cover scale-105 brightness-75 transition-transform duration-1000"
+          class="w-full h-full object-cover scale-105 brightness-[0.75] transition-transform duration-1000"
         />
       </picture>
     </div>
@@ -69,6 +79,6 @@ defineProps<{
 }
 
 .animate-fade-up {
-  animation: fade-up 0.8s ease-out forwards;
+  animation: fade-up 1s ease-out forwards;
 }
 </style>

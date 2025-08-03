@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import HeaderPage from '~/components/HeaderPage.vue'
-import AboutProjectSection from '@/components/AboutProjectSection.vue'
+import AboutProjectSection from '~/components/section/AboutProjectSection.vue'
 import GalleryPresentation from '@/components/GalleryPresentation.vue'
-import FeedbackSection from '@/components/FeedbackSection.vue'
+import FeedbackSection from '~/components/section/FeedbackSection.vue'
 import type { ProjectContactInfo, ProjectInfoTableItem, ProjectSection } from '@/types/Project'
 
 const project = {

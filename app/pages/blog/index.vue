@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import HeaderPage from '@/components/HeaderPage.vue'
-import BlogSection from '~/components/BlogSection.vue';
+import BlogSection from '~/components/section/BlogSection.vue';
 
 const breadcrumbs = [
   { text: 'Home', to: '/' },

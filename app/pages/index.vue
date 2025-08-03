@@ -1,12 +1,12 @@
 <script setup>
-import HeroSection from '~/components/HeroSection.vue'
-import PartnersSection from '~/components/PartnersSection.vue'
-import AboutSectionHome from '~/components/AboutSectionHome.vue';
-import AdvantagesSection from '~/components/AdvantagesSection.vue';
-import GallerySection from '~/components/GallerySection.vue';
-import ProcessSection from '~/components/ProcessSection.vue';
-import FeedbackSection from '~/components/FeedbackSection.vue';
-import ContactSectionHome from '~/components/ContactSectionHome.vue';
+import HeroSection from '~/components/section/HeroSection.vue'
+import PartnersSection from '~/components/section/PartnersSection.vue'
+import AboutSectionHome from '~/components/section/AboutSectionHome.vue';
+import AdvantagesSection from '~/components/section/AdvantagesSection.vue';
+import GallerySection from '~/components/section/GallerySection.vue';
+import ProcessSection from '~/components/section/ProcessSection.vue';
+import FeedbackSection from '~/components/section/FeedbackSection.vue';
+import ContactSectionHome from '~/components/section/ContactSectionHome.vue';
 </script>
 
 <template>

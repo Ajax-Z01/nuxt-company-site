@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import HeaderPage from '@/components/HeaderPage.vue'
-import InfoSection from '@/components/InfoSection.vue'
-import ContactSection from '~/components/ContactSectionService.vue'
+import InfoSection from '~/components/section/InfoSection.vue'
+import ContactSection from '~/components/section/ContactSectionService.vue'
 
 const breadcrumbs = [
   { text: 'Home', to: '/' },
