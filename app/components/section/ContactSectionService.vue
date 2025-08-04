@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import FacebookIcon from '~/components/icons/FacebookIcon.vue'
-import InstagramIcon from '~/components/icons/InstagramIcon.vue'
-import TwitterIcon from '~/components/icons/TwitterIcon.vue'
-import WhatsappIcon from '~/components/icons/WhatsappIcon.vue'
+import FacebookIcon from '~/components/icon/FacebookIcon.vue'
+import InstagramIcon from '~/components/icon/InstagramIcon.vue'
+import TwitterIcon from '~/components/icon/TwitterIcon.vue'
+import WhatsappIcon from '~/components/icon/WhatsappIcon.vue'
 
 // nanti bisa tambah validasi dan submit handler
 </script>

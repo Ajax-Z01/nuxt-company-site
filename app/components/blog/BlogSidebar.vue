@@ -74,7 +74,7 @@ onMounted(() => {
           v-for="tag in tags"
           :key="tag.id"
           :to="`/blog/tag/${tag.slug}`"
-          class="text-sm bg-gray-200 px-3 py-1 rounded-full hover:bg-emerald-600 hover:text-white transition"
+          class="block text-sm bg-gray-200 text-gray-800 px-4 py-1 rounded-full hover:bg-emerald-600 hover:text-white transition-colors duration-300 cursor-pointer select-none"
         >
           {{ tag.name }}
         </NuxtLink>

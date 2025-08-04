@@ -10,6 +10,12 @@ export default {
     './app.vue',
     './nuxt.config.{js,ts}',
   ],
+  safelist: [
+    'translate-y-0',
+    'translate-y-10',
+    'opacity-0',
+    'opacity-100',
+  ],
   theme: {
     extend: {},
   },

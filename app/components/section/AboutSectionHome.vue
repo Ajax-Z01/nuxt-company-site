@@ -1,4 +1,8 @@
 <script setup lang="ts">
+import AboutText from '~/components/text/AboutText.vue'
+import StatsCountUp from '~/components/stat/StatsCountUp.vue'
+import FadeInOnScroll from '~/components/transition/FadeInOnScroll.vue'
+
 const achievements = [
   {
     icon: `<svg class="w-10 h-10 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><path d="M36.406 6.563L21.406 0.3125C20.9375 0.156 20.4688 0.078 20 0.078C19.453 0.078 18.984 0.156 18.516 0.312L3.516 6.563C2.109 7.188 1.25 8.516 1.25 10C1.25 25.547 10.156 36.25 18.516 39.766C19.453 40.156 20.469 40.156 21.406 39.766C28.125 36.953 38.75 27.344 38.75 10C38.75 8.516 37.813 7.188 36.406 6.563ZM20.469 37.422C20.156 37.578 19.766 37.578 19.453 37.422C11.875 34.375 3.75 23.75 3.75 10C3.75 9.532 3.984 9.062 4.453 8.906L19.453 2.656C19.766 2.5 20.156 2.5 20.469 2.656L35.469 8.906C35.937 9.062 36.25 9.532 36.172 10C36.25 23.75 28.125 34.375 20.469 37.422ZM31.094 12.031C30.703 11.719 30.156 11.719 29.766 12.031L17.031 24.688L11.641 19.297C11.25 18.906 10.625 18.906 10.313 19.297L9.609 19.922C9.219 20.313 9.219 20.859 9.609 21.25L16.328 28.047C16.719 28.36 17.266 28.36 17.656 28.047L31.719 14.063C32.109 13.672 32.109 13.125 31.719 12.734L31.094 12.031Z"/></svg>`,
@@ -22,126 +26,26 @@ const stats = [
 
 <template>
   <section class="py-20 bg-white dark:bg-gray-950">
-    <div
-      class="container max-w-7xl mx-auto px-4 flex flex-col md:flex-row gap-12 items-end"
-    >
-      <!-- Left: Text & Achievements -->
-      <div
-        class="md:w-1/2 flex flex-col justify-center gap-10 text-gray-900 dark:text-white"
-      >
-        <p
-          class="text-sm font-semibold uppercase tracking-wider text-sky-500 flex items-center gap-2 max-w-max"
-        >
-          <span class="block w-6 h-0.5 bg-yellow-500 rounded"></span>
-          Just feel the future
-        </p>
+    <div class="container max-w-7xl mx-auto px-4 flex flex-col md:flex-row gap-12 items-stretch">
+      <FadeInOnScroll>
+        <div class="w-full">
+          <AboutText :achievements="achievements" />
+        </div>
+      </FadeInOnScroll>
 
-        <h2 class="text-4xl font-extrabold leading-tight max-w-lg">
-          <span class="text-emerald-500">Bringing Your Ideas</span
-          ><span> and Innovations to Life</span>
-        </h2>
-
-        <p class="text-gray-700 dark:text-gray-300 max-w-xl leading-relaxed">
-          Vitae ultricies leo integer malesuada nunc vel. Molestie ac feugiat sed
-          lectus vestibulum mattis ullamcorper velit. Viverra aliquet eget sit
-          amet tellus cras adipiscing.
-        </p>
-
-        <ul class="space-y-6 max-w-md">
-          <li
-            v-for="(ach, idx) in achievements"
-            :key="idx"
-            class="flex items-center gap-4 cursor-default group transition"
-            tabindex="0"
-            role="listitem"
-          >
-            <div
-              v-html="ach.icon"
-              aria-hidden="true"
-              class="transition group-hover:text-emerald-600"
-            ></div>
-            <span
-              class="text-gray-900 dark:text-white font-semibold text-lg transition group-hover:text-emerald-600"
-              >{{ ach.label }}</span
-            >
-          </li>
-        </ul>
-
-        <a
-          href="#"
-          class="inline-flex items-center gap-2 mt-8 px-8 py-3 bg-emerald-600 hover:bg-emerald-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-500 text-white font-semibold rounded shadow transition max-w-max"
-        >
-          About company
-          <svg
-            class="w-4 h-4"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M9 5l7 7-7 7"
-            ></path>
-          </svg>
-        </a>
-      </div>
-
-      <!-- Right: Stats & Image -->
-      <div class="md:w-1/2 flex flex-col gap-8">
-        <div
-          class="flex flex-wrap gap-8 justify-center md:justify-end mb-6"
-          role="list"
-          aria-label="Company statistics"
-        >
-          <div
-            class="flex flex-col items-center w-40 md:w-48 text-center"
-            role="listitem"
-          >
-            <h3
-              class="text-5xl md:text-6xl font-extrabold text-emerald-500"
-              aria-label="Active Projects in Civil Engineering"
-            >
-              {{ stats[0]?.value ?? '-' }}
-            </h3>
-            <p
-              class="mt-3 text-base max-w-xs text-gray-700 dark:text-gray-300"
-              aria-hidden="true"
-            >
-              {{ stats[0]?.label ?? '-' }}
-            </p>
-          </div>
-
-          <div
-            class="flex flex-col items-center w-40 md:w-48 text-center"
-            role="listitem"
-          >
-            <h3
-              class="text-5xl md:text-6xl font-extrabold text-emerald-500"
-              aria-label="Building Control Approval Rate"
-            >
-              {{ stats[1]?.value ?? '-' }}
-            </h3>
-            <p
-              class="mt-3 text-base max-w-xs text-gray-700 dark:text-gray-300"
-              aria-hidden="true"
-            >
-              {{ stats[1]?.label ?? '-' }}
-            </p>
+      <FadeInOnScroll>
+        <div class="w-full flex flex-col gap-8">
+          <StatsCountUp :stats="stats" :isActive="true" />
+          <div class="rounded-lg overflow-hidden shadow-lg">
+            <img
+              src="/img/gallery/18.webp"
+              alt="Construction site"
+              class="w-full object-cover aspect-[16/9]"
+              loading="lazy"
+            />
           </div>
         </div>
-
-        <div class="rounded-lg overflow-hidden shadow-lg">
-          <img
-            src="/img/gallery/18.webp"
-            alt="Construction site"
-            class="w-full object-cover aspect-[16/9]"
-            loading="lazy"
-          />
-        </div>
-      </div>
+      </FadeInOnScroll>
     </div>
   </section>
 </template>

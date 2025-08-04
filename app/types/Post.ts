@@ -23,6 +23,6 @@ export interface Post {
   content: string
   postDate: string
   coverImage?: CoverImage[]
-  categories?: Category[]
+  category?: Category
   tags?: Tag[]
 }

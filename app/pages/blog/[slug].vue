@@ -17,6 +17,7 @@ const { renderMarkdown } = useMarkdown()
 
 const formattedContent = ref('')
 const relatedPosts = ref<any[]>([])
+const tags = computed(() => post.value?.tags || [])
 
 const imageUrl = computed(() =>
   post.value?.coverImage?.length ? getImageUrl(post.value.coverImage) : ''
@@ -84,6 +85,26 @@ watch(formattedContent, async () => {
           :cover-image="imageUrl"
           :html-content="formattedContent"
         />
+        
+        <!-- Tags -->
+        <div v-if="tags.length" class="mt-10">
+          <div class="flex items-center gap-2 mb-4">
+            <svg class="w-5 h-5 text-emerald-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M7 7h.01M7 11h.01M7 15h.01M11 7h.01M11 11h.01M11 15h.01M15 7h.01M15 11h.01M15 15h.01M3 3h18v18H3z"/>
+            </svg>
+            <h3 class="text-lg font-medium text-gray-800 dark:text-white">Tags</h3>
+          </div>
+          <div class="flex flex-wrap gap-3">
+            <NuxtLink
+              v-for="tag in tags"
+              :key="tag.id"
+              :to="`/blog/tag/${tag.slug}`"
+              class="inline-flex items-center px-3 py-1 text-sm font-medium text-emerald-600 bg-emerald-50 border border-emerald-200 rounded-full hover:bg-emerald-600 hover:text-white transition-colors"
+            >
+              #{{ tag.name }}
+            </NuxtLink>
+          </div>
+        </div>
 
         <div v-else-if="loading" class="text-center text-gray-500 py-16 text-lg">
           Loading post...
