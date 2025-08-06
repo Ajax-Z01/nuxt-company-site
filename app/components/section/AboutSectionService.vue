@@ -1,5 +1,6 @@
 <script setup lang="ts">
-// Jika ingin data dinamis, bisa dipisah ke sini
+import FadeInOnScroll from '~/components/transition/FadeInOnScroll.vue';
+
 const achievements = [
   {
     label: 'Successfully Completed Projects',
@@ -24,40 +25,47 @@ const achievements = [
     <div class="container max-w-7xl mx-auto px-4 flex flex-col md:flex-row gap-12 items-center">
       <!-- Content -->
       <div class="main md:w-1/2 space-y-8">
-        <div class="section_header max-w-lg mb-12 space-y-4" data-aos="fade-up">
-          <p class="text-sm font-semibold uppercase tracking-wider text-sky-400 flex items-center gap-2 max-w-max">
-            <span class="block w-6 h-0.5 bg-yellow-500 rounded"></span>
-            The choice is your time is ours
-          </p>
-          <h2 class="text-4xl md:text-5xl font-extrabold leading-tight">
-            Solving Problems With the Help <span class="text-emerald-400">of Experts</span>
-          </h2>
-          <p class="text-gray-400 text-base md:text-lg leading-relaxed">
-            Nibh praesent tristique magna sit amet purus gravida quis. Bibendum arcu vitae elementum curabitur vitae nulla facilisi. Quam vulputate dignissim suspendisse in
-          </p>
-        </div>
-
+        <FadeInOnScroll>
+          <div class="section_header max-w-lg mb-12 space-y-4" data-aos="fade-up">
+            <p class="text-sm font-semibold uppercase tracking-wider text-sky-400 flex items-center gap-2 max-w-max">
+              <span class="block w-6 h-0.5 bg-yellow-500 rounded"></span>
+              The choice is your time is ours
+            </p>
+            <h2 class="text-4xl md:text-5xl font-extrabold leading-tight">
+              Solving Problems With the Help <span class="text-emerald-400">of Experts</span>
+            </h2>
+            <p class="text-gray-400 text-base md:text-lg leading-relaxed">
+              Nibh praesent tristique magna sit amet purus gravida quis. Bibendum arcu vitae elementum curabitur vitae nulla facilisi. Quam vulputate dignissim suspendisse in
+            </p>
+          </div>
+        </FadeInOnScroll>
 
         <ul class="achievements flex flex-col space-y-6">
           <li
             v-for="(item, index) in achievements"
             :key="index"
-            class="achievements_item flex items-center gap-4"
-            data-aos="fade-up"
-            :data-aos-delay="100 + index * 50"
+            class="achievements_item"
           >
-            <svg
-              class="advantages-icon w-10 h-10 flex-shrink-0 text-emerald-400"
-              viewBox="0 0 40 40"
-              fill="currentColor"
-              xmlns="http://www.w3.org/2000/svg"
-              aria-hidden="true"
-            >
-              <path :d="item.iconPath" />
-            </svg>
-            <span class="label text-gray-300 font-semibold text-lg">
-              {{ item.label }}
-            </span>
+            <FadeInOnScroll>
+              <div
+                class="flex items-center gap-4"
+                :data-aos="'fade-up'"
+                :data-aos-delay="100 + index * 50"
+              >
+                <svg
+                  class="advantages-icon w-10 h-10 flex-shrink-0 text-emerald-400"
+                  viewBox="0 0 40 40"
+                  fill="currentColor"
+                  xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true"
+                >
+                  <path :d="item.iconPath" />
+                </svg>
+                <span class="label text-gray-300 font-semibold text-lg">
+                  {{ item.label }}
+                </span>
+              </div>
+            </FadeInOnScroll>
           </li>
         </ul>
       </div>
@@ -68,16 +76,18 @@ const achievements = [
         data-aos="zoom-in"
         data-aos-duration="700"
       >
-        <picture>
-          <source srcset="/img/about/02.webp" type="image/webp" />
-          <img
-            src="/img/about/02.webp"
-            alt="About media"
-            class="w-full object-cover"
-            loading="lazy"
-            decoding="async"
-          />
-        </picture>
+        <FadeInOnScroll>
+          <picture>
+            <source srcset="/img/about/02.webp" type="image/webp" />
+            <img
+              src="/img/about/02.webp"
+              alt="About media"
+              class="w-full object-cover"
+              loading="lazy"
+              decoding="async"
+            />
+          </picture>
+        </FadeInOnScroll>
       </div>
     </div>
   </section>

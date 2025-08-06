@@ -48,7 +48,7 @@ useIntersectionObserver(
           </p>
           <h2 class="text-4xl font-extrabold leading-tight max-w-lg">
             Bringing
-            <span class="highlight text-emerald-600">Your Ideas</span> and
+            <span class="highlight text-emerald-400">Your Ideas</span> and
             Innovations to Life
           </h2>
           <p class="text text-gray-600 dark:text-gray-300 max-w-lg">

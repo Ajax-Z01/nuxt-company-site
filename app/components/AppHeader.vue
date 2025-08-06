@@ -37,6 +37,7 @@ const links = [
   { name: 'About', path: '/about' },
   { name: 'Services', path: '/services' },
   { name: 'Projects', path: '/projects' },
+  { name: 'Team', path: '/team' },
   { name: 'Blog', path: '/blog' },
   { name: 'Contact', path: '/contact' },
 ]
@@ -53,10 +54,7 @@ const links = [
       transition: 'transform 0.5s ease',
     }"
   >
-    <!-- Navbar -->
-    <nav
-      class="max-w-7xl mx-auto flex justify-between items-center px-4 h-16 md:h-20 transition-transform"
-    >
+    <nav class="max-w-7xl mx-auto flex justify-between items-center px-4 h-16 md:h-20 transition-transform">
       <!-- Logo -->
       <NuxtLink to="/" class="flex items-center gap-3 group">
         <img src="/svg/logo.svg" alt="Ajaxtreon Logo" class="h-8 w-auto md:h-10" />
@@ -66,7 +64,7 @@ const links = [
       </NuxtLink>
 
       <!-- Desktop Menu -->
-      <ul class="hidden md:flex gap-8 text-white text-base font-medium">
+      <ul class="hidden md:flex gap-8 text-white text-sm font-semibold tracking-wide uppercase">
         <li v-for="link in links" :key="link.path">
           <NuxtLink
             :to="link.path"
@@ -111,7 +109,7 @@ const links = [
     <transition name="slide-fade">
       <div
         v-if="isMobileMenuOpen"
-        class="fixed inset-0 bg-slate-900/95 backdrop-blur z-40 px-6 py-8 text-white flex flex-col gap-6 text-lg font-medium"
+        class="fixed inset-0 bg-slate-900/95 backdrop-blur z-40 px-6 py-8 text-white flex flex-col gap-6 text-lg font-semibold uppercase tracking-wide"
       >
         <NuxtLink
           v-for="link in links"
@@ -120,7 +118,7 @@ const links = [
           @click="isMobileMenuOpen = false"
           :class="[
             'transition hover:text-sky-400',
-            route.path === link.path ? 'text-sky-400 font-semibold' : ''
+            route.path === link.path ? 'text-sky-400 font-bold' : ''
           ]"
         >
           {{ link.name }}

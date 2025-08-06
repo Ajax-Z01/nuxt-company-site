@@ -139,7 +139,7 @@ const props = defineProps({
             </table>
             <a
               href="#"
-              class="link link-arrow mt-6 inline-block text-emerald-600 hover:text-emerald-400 font-semibold"
+              class="link link-arrow mt-6 inline-block text-emerald-400 hover:text-emerald-400 font-semibold"
             >
               Order service
               <svg

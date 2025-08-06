@@ -12,16 +12,15 @@ const props = defineProps<{
     <li
       v-for="(stat, i) in props.stats"
       :key="i"
-      class="flex flex-col items-center justify-center text-center"
+      class="text-center space-y-3"
     >
-      <h3 class="text-5xl font-extrabold text-emerald-400 leading-tight">
+      <h3 class="text-4xl font-bold text-emerald-400">
         <CountUpNumber
           :target="stat.value"
           :isActive="props.isActive"
-          class="text-5xl font-extrabold text-emerald-400"
         />
       </h3>
-      <p class="mt-3 text-base font-medium text-gray-900 dark:text-gray-200 max-w-[10rem]">
+      <p class="text-gray-300 whitespace-pre-line text-sm md:text-base">
         {{ stat.label }}
       </p>
     </li>

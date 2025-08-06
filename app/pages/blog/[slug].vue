@@ -99,7 +99,7 @@ watch(formattedContent, async () => {
               v-for="tag in tags"
               :key="tag.id"
               :to="`/blog/tag/${tag.slug}`"
-              class="inline-flex items-center px-3 py-1 text-sm font-medium text-emerald-600 bg-emerald-50 border border-emerald-200 rounded-full hover:bg-emerald-600 hover:text-white transition-colors"
+              class="inline-flex items-center px-3 py-1 text-sm font-medium text-emerald-400 bg-emerald-50 border border-emerald-200 rounded-full hover:bg-emerald-600 hover:text-white transition-colors"
             >
               #{{ tag.name }}
             </NuxtLink>

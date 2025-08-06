@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import { NuxtLink } from '#components'
+import FadeInOnScroll from '~/components/transition/FadeInOnScroll.vue'
+
 const services = [
   {
     title: 'Process Engineering',
@@ -52,14 +55,15 @@ const services = [
 
       <!-- Services Grid -->
       <ul class="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
-        <li
+        <FadeInOnScroll
           v-for="(service, index) in services"
           :key="index"
-          class="group bg-gray-800 rounded-2xl p-6 border-t-4 border-emerald-400/20 hover:border-emerald-400 hover:shadow-xl hover:bg-gray-700 transition-all duration-300"
-          data-aos="fade-up"
+          :style="{ transitionDelay: `${index * 100}ms` }"
         >
-          <div class="space-y-5 h-full flex flex-col justify-between">
-            <div class="space-y-3">
+          <li
+            class="group bg-gray-800 rounded-2xl p-6 border-t-4 border-emerald-400/20 hover:border-emerald-400 hover:shadow-xl hover:bg-gray-700 transition-all duration-300 flex flex-col"
+          >
+            <div class="flex-grow space-y-3">
               <span class="text-2xl font-bold text-emerald-400 block">
                 {{ (index + 1).toString().padStart(2, '0') }}
               </span>
@@ -70,9 +74,10 @@ const services = [
                 {{ service.description }}
               </p>
             </div>
+
             <NuxtLink
               :to="`/services/${service.title.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z-]/g, '')}`"
-              class="inline-flex items-center gap-2 text-emerald-400 hover:text-white mt-4 font-medium group"
+              class="inline-flex items-center gap-2 text-emerald-400 hover:text-white mt-6 font-medium group self-start"
               :aria-label="`Read more about ${service.title}`"
             >
               <span>Details</span>
@@ -90,8 +95,8 @@ const services = [
                 <path d="M12 5l7 7-7 7"></path>
               </svg>
             </NuxtLink>
-          </div>
-        </li>
+          </li>
+        </FadeInOnScroll>
       </ul>
     </div>
   </section>

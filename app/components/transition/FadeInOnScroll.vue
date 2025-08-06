@@ -1,23 +1,30 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
 import { useIntersectionObserver } from '@vueuse/core'
 
 const el = ref<HTMLElement | null>(null)
 const visible = ref(false)
+let stopObserver: (() => void) | null = null
 
 onMounted(() => {
   if (!el.value) return
 
-  useIntersectionObserver(
-    el,
-    ([entry], observer) => {
+  const { stop } = useIntersectionObserver(
+    el.value,
+    ([entry]) => {
       if (entry?.isIntersecting) {
         visible.value = true
-        observer.disconnect()
+        stop() // stop observing after first intersection
+        stopObserver = null
       }
     },
     { threshold: 0.3 }
   )
+  stopObserver = stop
+})
+
+onUnmounted(() => {
+  if (stopObserver) stopObserver()
 })
 </script>
 

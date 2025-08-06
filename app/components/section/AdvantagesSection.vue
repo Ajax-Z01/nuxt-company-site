@@ -58,7 +58,7 @@ useIntersectionObserver(
             Sustainable Construction
           </p>
           <h2 class="mt-2 text-4xl font-extrabold text-gray-900 dark:text-white leading-tight">
-            Why Choose <span class="text-emerald-600">Us</span>
+            Why Choose <span class="text-emerald-400">Us</span>
           </h2>
         </div>
       </FadeInOnScroll>

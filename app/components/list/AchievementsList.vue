@@ -16,10 +16,10 @@ const props = defineProps<{
       <div
         v-html="ach.icon"
         aria-hidden="true"
-        class="transition group-hover:text-emerald-600"
+        class="transition group-hover:text-emerald-400"
       ></div>
       <span
-        class="text-gray-900 dark:text-white font-semibold text-lg transition group-hover:text-emerald-600"
+        class="text-gray-900 dark:text-white font-semibold text-lg transition group-hover:text-emerald-400"
       >
         {{ ach.label }}
       </span>

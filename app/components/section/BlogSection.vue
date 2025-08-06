@@ -1,4 +1,3 @@
-<!-- components/blog/BlogSection.vue -->
 <script setup lang="ts">
 import type { Post } from '~/types/Post'
 import { ArrowRightIcon } from '@heroicons/vue/24/solid'
@@ -68,7 +67,7 @@ defineEmits(['reload'])
                 </p>
                 <NuxtLink
                   :to="`/blog/${post.slug}`"
-                  class="block text-2xl font-semibold text-gray-900 group-hover:text-emerald-600 transition-colors duration-300"
+                  class="block text-2xl font-semibold text-gray-900 group-hover:text-emerald-400 transition-colors duration-300"
                 >
                   {{ post.title.trim() || 'Untitled' }}
                 </NuxtLink>

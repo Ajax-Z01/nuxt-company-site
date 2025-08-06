@@ -10,11 +10,11 @@ const props = defineProps<{
 <template>
   <div class="grid grid-cols-2 gap-x-12 gap-y-2 text-center">
     <!-- Baris angka -->
-    <div v-for="(stat, i) in props.stats" :key="'value-' + i">
+    <div v-for="(stat, i) in props.stats" :key="i">
       <CountUpNumber
         :target="stat.value"
         :isActive="props.isActive"
-        class="text-5xl font-extrabold text-emerald-600"
+        class="text-5xl font-extrabold text-emerald-400"
       />
     </div>
 

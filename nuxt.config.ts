@@ -19,6 +19,10 @@ export default defineNuxtConfig({
       autoprefixer: {},
     },
   },
+  image: {
+    provider: 'static',
+    staticFilenames: '[publicPath]/img/[name].[ext]',
+  },
   runtimeConfig: {
     public: {
       strapiBaseUrl: process.env.NUXT_PUBLIC_STRAPI_BASE_URL || 'http://localhost:1337'

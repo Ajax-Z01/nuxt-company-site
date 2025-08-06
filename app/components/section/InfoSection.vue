@@ -43,7 +43,7 @@
             <h4 class="title text-xl font-semibold text-gray-900">Email</h4>
           </div>
           <span
-            class="content flex flex-col space-y-1 text-emerald-600 text-base font-semibold"
+            class="content flex flex-col space-y-1 text-emerald-400 text-base font-semibold"
           >
             <a href="mailto:info@construct.com" class="link hover:underline">
               info@construct.com
@@ -63,7 +63,7 @@
             <h4 class="title text-xl font-semibold text-gray-900">Phone</h4>
           </div>
           <span
-            class="content flex flex-col space-y-1 text-emerald-600 text-base font-semibold"
+            class="content flex flex-col space-y-1 text-emerald-400 text-base font-semibold"
           >
             <a href="tel:+13136453395" class="link hover:underline">
               1 - 313 - 645 - 3395

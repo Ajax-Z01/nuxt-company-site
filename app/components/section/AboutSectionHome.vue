@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { ref } from 'vue'
+import { useIntersectionObserver } from '@vueuse/core'
 import AboutText from '~/components/text/AboutText.vue'
 import StatsCountUp from '~/components/stat/StatsCountUp.vue'
 import FadeInOnScroll from '~/components/transition/FadeInOnScroll.vue'
@@ -22,6 +24,19 @@ const stats = [
   { value: '200+', label: 'Active Projects in Civil Engineering' },
   { value: '99%', label: 'Building Control Approval Rate' },
 ]
+
+const statsRef = ref<HTMLElement | null>(null)
+const isStatsActive = ref(false)
+
+useIntersectionObserver(
+  statsRef,
+  ([entry]) => {
+    if (entry?.isIntersecting) {
+      isStatsActive.value = true
+    }
+  },
+  { threshold: 0.3 }
+)
 </script>
 
 <template>
@@ -34,8 +49,8 @@ const stats = [
       </FadeInOnScroll>
 
       <FadeInOnScroll>
-        <div class="w-full flex flex-col gap-8">
-          <StatsCountUp :stats="stats" :isActive="true" />
+        <div class="w-full flex flex-col gap-8" ref="statsRef">
+          <StatsCountUp :stats="stats" :isActive="isStatsActive" />
           <div class="rounded-lg overflow-hidden shadow-lg">
             <img
               src="/img/gallery/18.webp"

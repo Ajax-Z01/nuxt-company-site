@@ -29,15 +29,15 @@
             <li>
               <p class="text-base font-semibold text-gray-900 dark:text-white">Email</p>
               <div class="flex flex-col">
-                <a href="mailto:info@construct.com" class="text-emerald-600 hover:underline">info@construct.com</a>
-                <a href="mailto:support@construct.com" class="text-emerald-600 hover:underline">support@construct.com</a>
+                <a href="mailto:info@construct.com" class="text-emerald-400 hover:underline">info@construct.com</a>
+                <a href="mailto:support@construct.com" class="text-emerald-400 hover:underline">support@construct.com</a>
               </div>
             </li>
             <li>
               <p class="text-base font-semibold text-gray-900 dark:text-white">Phone</p>
               <div class="flex flex-col">
-                <a href="tel:+13136453395" class="text-emerald-600 hover:underline">1 - 313 - 645 - 3395</a>
-                <a href="tel:+14699702609" class="text-emerald-600 hover:underline">1 - 469 - 970 - 2609</a>
+                <a href="tel:+13136453395" class="text-emerald-400 hover:underline">1 - 313 - 645 - 3395</a>
+                <a href="tel:+14699702609" class="text-emerald-400 hover:underline">1 - 469 - 970 - 2609</a>
               </div>
             </li>
           </ul>

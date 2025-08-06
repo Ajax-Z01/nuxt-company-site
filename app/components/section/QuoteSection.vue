@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import { ref, onMounted } from 'vue'
+import FadeInOnScroll from '~/components/transition/FadeInOnScroll.vue'
 
 const gearOuter = ref<SVGSVGElement | null>(null)
 const gearInner = ref<SVGSVGElement | null>(null)
@@ -51,12 +52,14 @@ onMounted(() => {
     <div class="container max-w-7xl mx-auto px-4">
       <div class="relative z-10 space-y-10">
         <!-- Subtitle -->
-        <div class="flex items-center gap-3">
-          <span class="block w-10 h-0.5 bg-yellow-400"></span>
-          <span class="text-white text-sm uppercase tracking-wider font-bold">
-            Who we are
-          </span>
-        </div>
+        <FadeInOnScroll>
+          <div class="flex items-center gap-3">
+            <span class="block w-10 h-0.5 bg-yellow-400"></span>
+            <span class="text-white text-sm uppercase tracking-wider font-bold">
+              Who we are
+            </span>
+          </div>
+        </FadeInOnScroll>
 
         <!-- Title + Gear Background -->
         <div class="relative flex items-start">
@@ -98,25 +101,23 @@ onMounted(() => {
           </div>
 
           <!-- Title -->
-          <transition name="fade-slide">
+          <FadeInOnScroll>
             <h3
               class="relative font-sans font-bold text-3xl sm:text-4xl md:text-5xl leading-snug text-white text-left"
             >
-              Pulvinar elementum integer enim neque volutpat ac. Amet dictum sit amet
-              justo donec enim diam vulputate ut. Egestas sed sed risus pretium
-              quam. Viverra accumsan in nisl nisi scelerisque eu.
+              True wealth grows from the soil of knowledge, is built with the strength of innovation, and nurtured by the hands of experience.
             </h3>
-          </transition>
+          </FadeInOnScroll>
         </div>
 
         <!-- Author -->
-        <transition name="fade-slide" appear>
+        <FadeInOnScroll>
           <span
             class="block text-yellow-400 text-lg font-semibold tracking-wide text-left"
           >
             — Benjamin Miller
           </span>
-        </transition>
+        </FadeInOnScroll>
       </div>
     </div>
   </section>
@@ -153,18 +154,5 @@ onMounted(() => {
 .gear-inner {
   color: #fde68a; /* amber-300 */
   opacity: 0.08;
-}
-
-/* Fade slide transition */
-.fade-slide-enter-active {
-  transition: all 0.6s ease;
-}
-.fade-slide-enter-from {
-  opacity: 0;
-  transform: translateY(20px);
-}
-.fade-slide-enter-to {
-  opacity: 1;
-  transform: translateY(0);
 }
 </style>

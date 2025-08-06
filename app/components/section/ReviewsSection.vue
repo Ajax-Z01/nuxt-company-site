@@ -62,24 +62,24 @@ const reviews = [
             Our Reviews
           </p>
           <h2 class="text-4xl font-extrabold leading-tight">
-            What <span class="text-emerald-600">Our Clients</span> Say
+            What <span class="text-emerald-400">Our Clients</span> Say
           </h2>
           <p class="text-gray-600 max-w-lg">
             We value our clients' feedback and constantly strive to improve our services.
           </p>
         </div>
-        <div class="flex md:justify-end gap-4 mt-2 md:mt-0">
+        <div class="md:justify-end gap-8 mt-2 mr-4 md:mt-0 md:flex hidden">
           <button
             aria-label="Previous"
             class="btn-control swiper-button-prev-custom bg-white hover:bg-emerald-50 border border-gray-300 rounded-full p-2 shadow transition"
           >
-            <ChevronLeftIcon class="w-5 h-5 text-emerald-500" />
+            <ChevronLeftIcon class="w-8 h-8 text-emerald-500" />
           </button>
           <button
             aria-label="Next"
             class="btn-control swiper-button-next-custom bg-white hover:bg-emerald-50 border border-gray-300 rounded-full p-2 shadow transition"
           >
-            <ChevronRightIcon class="w-5 h-5 text-emerald-500" />
+            <ChevronRightIcon class="w-8 h-8 text-emerald-500" />
           </button>
         </div>
       </div>
