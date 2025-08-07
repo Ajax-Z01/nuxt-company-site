@@ -1,51 +1,24 @@
 <script setup lang="ts">
 import { MapPinIcon, ArrowRightIcon } from '@heroicons/vue/24/outline'
+import { onMounted, computed } from 'vue'
 import FadeInOnScroll from '~/components/transition/FadeInOnScroll.vue'
+import { useProjects } from '~/composables/useProjects'
 
-const projects = [
-  {
-    title: 'Food Factory Design and Construction',
-    location: 'Karli Turnpike Apt. 993 Port Valentine',
-    imageWebp: '/img/projects/05.webp',
-    imageJpg: '/img/projects/05.jpg',
-    link: '/projects/food-factory',
-  },
-  {
-    title: 'Fresh Concept Construction Renovation',
-    location: 'Daphne Way New Reaganmouth',
-    imageWebp: '/img/projects/02.webp',
-    imageJpg: '/img/projects/02.jpg',
-    link: '/projects/fresh-renovation-1',
-  },
-  {
-    title: 'Reconstruction of Old Factory Building',
-    location: 'Schoen Ramp Suite 607 Borerton',
-    imageWebp: '/img/projects/06.webp',
-    imageJpg: '/img/projects/06.jpg',
-    link: '/projects/old-factory',
-  },
-  {
-    title: 'Installation and Creation of a Supply System',
-    location: 'Ernest Mount Bartonstad',
-    imageWebp: '/img/projects/03.webp',
-    imageJpg: '/img/projects/03.jpg',
-    link: '/projects/supply-system',
-  },
-  {
-    title: 'Jazzy Elite Construction Shopping Center',
-    location: '100 Sunrise Ct Hamel, Minnesota',
-    imageWebp: '/img/projects/01.webp',
-    imageJpg: '/img/projects/01.jpg',
-    link: '/projects/shopping-center',
-  },
-  {
-    title: 'Fresh Concept Construction Renovation',
-    location: 'Claudie Green Suite 698 Avisstad',
-    imageWebp: '/img/projects/07.webp',
-    imageJpg: '/img/projects/07.jpg',
-    link: '/projects/fresh-renovation-2',
-  },
-]
+const { fetchAll, projects, getImageUrl } = useProjects()
+
+onMounted(async () => {
+  await fetchAll()
+})
+
+const displayProjects = computed(() =>
+  projects.value.map((project) => ({
+    title: project.title,
+    location: project.location || project.info?.Location || 'Unknown',
+    imageWebp: getImageUrl(project.image),
+    imageJpg: getImageUrl(project.image),
+    link: `/projects/${project.slug}`,
+  }))
+)
 </script>
 
 <template>
@@ -53,7 +26,7 @@ const projects = [
     <div class="max-w-7xl mx-auto px-4">
       <ul class="grid grid-cols-1 md:grid-cols-2 gap-10">
         <FadeInOnScroll
-          v-for="(project, index) in projects"
+          v-for="(project, index) in displayProjects"
           :key="index"
           :style="{ transitionDelay: `${index * 100}ms` }"
         >

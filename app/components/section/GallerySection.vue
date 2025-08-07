@@ -1,50 +1,32 @@
 <script setup lang="ts">
+import { computed, onMounted } from 'vue'
 import FadeInOnScroll from '~/components/transition/FadeInOnScroll.vue'
+import { useProjects } from '~/composables/useProjects'
 
-const galleryItems = [
-  {
-    src: '/img/gallery/02.webp',
-    webp: '/img/gallery/02.webp',
-    full: '/img/gallery/02full.webp',
-    caption: 'Fresh Concept Construction Renovation',
-    label: 'Special projects',
-  },
-  {
-    src: '/img/gallery/03.webp',
-    webp: '/img/gallery/03.webp',
-    full: '/img/gallery/03full.webp',
-    caption: 'Fresh Concept Construction Renovation',
-    label: 'Special projects',
-  },
-  {
-    src: '/img/gallery/06.webp',
-    webp: '/img/gallery/06.webp',
-    full: '/img/gallery/06full.webp',
-    caption: 'Fresh Concept Construction Renovation',
-    label: 'Special projects',
-  },
-  {
-    src: '/img/gallery/08.webp',
-    webp: '/img/gallery/08.webp',
-    full: '/img/gallery/08full.webp',
-    caption: 'Fresh Concept Construction Renovation',
-    label: 'Special projects',
-  },
-  {
-    src: '/img/gallery/05.webp',
-    webp: '/img/gallery/05.webp',
-    full: '/img/gallery/05full.webp',
-    caption: 'Fresh Concept Construction Renovation',
-    label: 'Special projects',
-  },
-  {
-    src: '/img/gallery/01.webp',
-    webp: '/img/gallery/01.webp',
-    full: '/img/gallery/01full.webp',
-    caption: 'Fresh Concept Construction Renovation',
-    label: 'Special projects',
-  },
-]
+const { fetchAll, projects, getImageUrl } = useProjects()
+
+onMounted(async () => {
+  await fetchAll()
+})
+
+const galleryItems = computed(() => {
+  if (!projects.value || projects.value.length === 0) return []
+
+  return [...projects.value]
+    .filter(p => p.image && p.title && p.createdAt)
+    .sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime())
+    .slice(0, 6)
+    .map(project => {
+      const imageUrl = getImageUrl(project.image)
+      return {
+        src: imageUrl,
+        webp: imageUrl,
+        full: imageUrl,
+        caption: project.title,
+        label: project.info?.Type || 'Project',
+      }
+    })
+})
 </script>
 
 <template>
