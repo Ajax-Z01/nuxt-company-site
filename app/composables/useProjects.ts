@@ -8,11 +8,11 @@ export const useProjects = () => {
 
   const projects = ref<Project[]>([])
   const project = ref<Project | null>(null)
+  const total = ref(0)
   const loading = ref(false)
   const error = ref<Error | null>(null)
 
-  // Helper: build query string for populate with nested
-  // populates for info_contact sub-relations
+  // Helper: query populate
   const populateQuery = [
     'populate[image]=true',
     'populate[details]=true',
@@ -23,13 +23,24 @@ export const useProjects = () => {
     'populate[info_contact][populate][socials]=true',
   ].join('&')
 
-  const fetchAll = async (): Promise<Project[]> => {
+  const fetchAll = async ({
+    page = 1,
+    pageSize = 6,
+  }: {
+    page?: number
+    pageSize?: number
+  } = {}): Promise<Project[]> => {
     loading.value = true
     error.value = null
+
     try {
-      const res = await fetch(`${baseUrl}/api/projects?${populateQuery}`)
+      const url = `${baseUrl}/api/projects?pagination[page]=${page}&pagination[pageSize]=${pageSize}&${populateQuery}`
+      const res = await fetch(url)
       const json = await res.json()
+
       projects.value = Array.isArray(json.data) ? json.data : []
+      total.value = json.meta?.pagination?.total || 0
+
       return projects.value
     } catch (err) {
       error.value = err as Error
@@ -42,6 +53,7 @@ export const useProjects = () => {
   const fetchBySlug = async (slug: string): Promise<Project | null> => {
     loading.value = true
     error.value = null
+
     try {
       const url = `${baseUrl}/api/projects?filters[slug][$eq]=${encodeURIComponent(slug)}&${populateQuery}`
       const res = await fetch(url)
@@ -75,6 +87,7 @@ export const useProjects = () => {
   return {
     projects,
     project,
+    total,
     loading,
     error,
     fetchAll,
