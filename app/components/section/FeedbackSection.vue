@@ -95,12 +95,12 @@ useIntersectionObserver(sectionRef, (entries) => {
           Non curabitur gravida arcu ac tortor dignissim convallis aenean. Dui id ornare arcu odio. Sodales ut eu sem integer vitae justo eget magna.
         </p>
 
-        <a
-          href="/contacts"
-          class="inline-block mt-4 px-6 py-3 rounded-lg bg-emerald-600 text-white font-medium hover:bg-emerald-700 transition"
+        <NuxtLink
+          to="/contact"
+          class="btn bg-emerald-600 hover:bg-emerald-700 text-white font-semibold px-6 py-3 rounded-lg shadow-md transition duration-300"
         >
           Consult now
-        </a>
+        </NuxtLink>
       </div>
 
       <!-- Right: Slider -->
