@@ -70,8 +70,7 @@ watch(formattedContent, async () => {
       { text: 'Blog', to: '/blog' },
       { text: post?.title || 'Loading...' },
     ]"
-    image-webp="/img/plan.webp"
-    image-png="/img/plan.png"
+    :imageUrl="imageUrl"
   />
 
   <div class="bg-white dark:bg-gray-700 text-gray-800 dark:text-white">

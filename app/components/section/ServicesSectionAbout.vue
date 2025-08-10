@@ -1,4 +1,11 @@
 <script setup lang="ts">
+import tabs01 from '~/assets/img/tabs/01.webp?width=600;1200&format=webp&quality=70'
+import tabs02 from '~/assets/img/tabs/02.webp?width=600;1200&format=webp&quality=70'
+import tabs03 from '~/assets/img/tabs/03.webp?width=600;1200&format=webp&quality=70'
+import tabs04 from '~/assets/img/tabs/04.webp?width=600;1200&format=webp&quality=70'
+import tabs05 from '~/assets/img/tabs/05.webp?width=600;1200&format=webp&quality=70'
+import tabs06 from '~/assets/img/tabs/06.webp?width=600;1200&format=webp&quality=70'
+
 import FadeInOnScroll from '../transition/FadeInOnScroll.vue'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import { Pagination, Autoplay } from 'swiper/modules'
@@ -8,7 +15,7 @@ import 'swiper/css/pagination'
 const services = [
   {
     title: 'Process Engineering',
-    imageWebp: '/img/tabs/01.webp',
+    imageWebp: tabs01[0],
     description:
       'Vitae ultricies leo integer malesuada nunc vel. Molestie ac feugiat sed lectus vestibulum mattis.',
     points: [
@@ -19,34 +26,34 @@ const services = [
   },
   {
     title: 'Chemistry and Metallurgy',
-    imageWebp: '/img/tabs/02.webp',
+    imageWebp: tabs02[0],
     description:
       'Molestie ac feugiat sed lectus vestibulum mattis ullamcorper velit. Viverra aliquet eget sit amet.',
     points: ['Precision science', 'Material excellence', 'Lab-to-site implementation'],
   },
   {
     title: 'Electrical Engineering',
-    imageWebp: '/img/tabs/03.webp',
+    imageWebp: tabs03[0],
     description:
       'Engineering efficient and sustainable systems for energy distribution and automation.',
     points: ['Smart systems', 'Sustainable energy', 'Future-ready solutions'],
   },
   {
     title: 'Specialty Services',
-    imageWebp: '/img/tabs/04.webp',
+    imageWebp: tabs04[0],
     description: 'Viverra aliquet eget sit amet tellus cras adipiscing. Custom solutions for unique problems.',
     points: ['Custom engineering', 'Expert consultants', 'Unique innovation'],
   },
   {
     title: 'Civil Engineering',
-    imageWebp: '/img/tabs/05.webp',
+    imageWebp: tabs05[0],
     description:
       'High-quality residential and commercial construction with durable materials and methods.',
     points: ['Urban planning', 'Infrastructure design', 'Structural safety'],
   },
   {
     title: 'Construction Management',
-    imageWebp: '/img/tabs/06.webp',
+    imageWebp: tabs06[0],
     description:
       'Molestie ac feugiat sed lectus vestibulum mattis ullamcorper velit. Efficient project delivery.',
     points: ['Budget control', 'Time efficiency', 'Professional oversight'],
@@ -94,7 +101,6 @@ const services = [
               <!-- Image -->
               <div class="media rounded-lg overflow-hidden shadow-none">
                 <picture>
-                  <source :srcset="service.imageWebp" type="image/webp" />
                   <img
                     :src="service.imageWebp"
                     :alt="service.title"

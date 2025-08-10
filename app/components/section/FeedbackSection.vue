@@ -1,4 +1,9 @@
 <script setup lang="ts">
+import female01 from '~/assets/img/avatars/female01.webp?width=600;1200&format=webp&quality=70'
+import female02 from '~/assets/img/avatars/female02.webp?width=600;1200&format=webp&quality=70'
+import male01 from '~/assets/img/avatars/male01.webp?width=600;1200&format=webp&quality=70'
+import male02 from '~/assets/img/avatars/male02.webp?width=600;1200&format=webp&quality=70'
+
 import { ref, computed, nextTick } from 'vue'
 import { useWindowSize, useIntersectionObserver } from '@vueuse/core'
 import { Swiper, SwiperSlide } from 'swiper/vue'
@@ -12,36 +17,31 @@ const { width } = useWindowSize()
 const feedbacks = ref([
   {
     main: 'Consequat nisl vel pretium lectus quam id leo. Mauris augue neque gravida in fermentum et sollicitudin ac orci. Blandit libero volutpat sed cras ornare',
-    avatarWebp: '/img/avatars/female01.webp',
-    avatarJpg: '/img/avatars/female01.jpg',
+    avatar: female01[0],
     name: 'Rene Rodriguez',
     company: 'Acelerisque',
   },
   {
     main: 'Consequat nisl vel pretium lectus quam id leo. Mauris augue neque gravida in fermentum et sollicitudin ac orci. Blandit libero volutpat sed cras ornare',
-    avatarWebp: '/img/avatars/male01.webp',
-    avatarJpg: '/img/avatars/male01.jpg',
+    avatar: male01[0],
     name: 'John Smith',
     company: 'Loremipsum',
   },
   {
     main: 'Consequat nisl vel pretium lectus quam id leo. Mauris augue neque gravida in fermentum et sollicitudin ac orci. Blandit libero volutpat sed cras ornare',
-    avatarWebp: '/img/avatars/female02.webp',
-    avatarJpg: '/img/avatars/female02.jpg',
+    avatar: female02[0],
     name: 'Marta Diaz',
     company: 'Qwerty',
   },
   {
     main: 'Consequat nisl vel pretium lectus quam id leo. Mauris augue neque gravida in fermentum et sollicitudin ac orci. Blandit libero volutpat sed cras ornare',
-    avatarWebp: '/img/avatars/male02.webp',
-    avatarJpg: '/img/avatars/male02.jpg',
+    avatar: male02[0],
     name: 'Victor Adams',
     company: 'Dolorsitamet',
   },
   {
     main: 'Consequat nisl vel pretium lectus quam id leo. Mauris augue neque gravida in fermentum et sollicitudin ac orci. Blandit libero volutpat sed cras ornare',
-    avatarWebp: '/img/avatars/female03.webp',
-    avatarJpg: '/img/avatars/female03.jpg',
+    avatar: '/img/avatars/female03.webp',
     name: 'Sarah Doe',
     company: 'Companyname',
   },
@@ -97,7 +97,7 @@ useIntersectionObserver(sectionRef, (entries) => {
 
         <NuxtLink
           to="/contact"
-          class="btn bg-emerald-600 hover:bg-emerald-700 text-white font-semibold px-6 py-3 rounded-lg shadow-md transition duration-300"
+          class="btn mt-6 inline-block px-6 py-3 bg-emerald-600 text-white rounded hover:bg-emerald-700 transition mx-auto lg:mx-0"
         >
           Consult now
         </NuxtLink>
@@ -128,12 +128,12 @@ useIntersectionObserver(sectionRef, (entries) => {
               <div class="flex items-center justify-center gap-4">
                 <div class="w-16 h-16 rounded-full overflow-hidden border-2 border-emerald-500 dark:border-emerald-400">
                   <picture>
-                    <source :srcset="item.avatarWebp" type="image/webp" />
                     <img
-                      :src="item.avatarJpg"
+                      :src="item.avatar"
                       :alt="item.name"
                       class="w-full h-full object-cover"
                       loading="lazy"
+                      decoding="async"
                     />
                   </picture>
                 </div>

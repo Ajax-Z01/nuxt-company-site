@@ -47,14 +47,14 @@ const links = [
   <header
     :class="[
       'fixed top-0 left-0 right-0 z-50 transition-colors duration-500',
-      (isMobileMenuOpen || isScrolled) ? 'bg-slate-900/90 shadow-lg backdrop-blur' : 'bg-transparent'
+      (isMobileMenuOpen || isScrolled) ? 'bg-slate-900 shadow-lg backdrop-blur' : 'bg-transparent'
     ]"
     :style="{
       transform: (isScrollingUp || isMobileMenuOpen) ? 'translateY(0)' : 'translateY(-100%)',
       transition: 'transform 0.5s ease',
     }"
   >
-    <nav class="max-w-7xl mx-auto flex justify-between items-center px-4 h-16 md:h-20 transition-transform">
+    <nav class="max-w-7xl mx-auto flex justify-between items-center px-4 h-16 md:h-20 transition-transform relative z-[60]">
       <!-- Logo -->
       <NuxtLink to="/" class="flex items-center gap-3 group">
         <img src="/svg/logo.svg" alt="Ajaxtreon Logo" class="h-8 w-auto md:h-10" />
@@ -81,7 +81,7 @@ const links = [
       </ul>
 
       <!-- Mobile Toggle -->
-      <button @click="toggleMobileMenu" class="md:hidden text-white">
+      <button @click="toggleMobileMenu" class="md:hidden text-white relative z-[70]">
         <svg
           v-if="!isMobileMenuOpen"
           class="w-6 h-6"
@@ -104,28 +104,28 @@ const links = [
         </svg>
       </button>
     </nav>
-
-    <!-- Mobile Menu -->
-    <transition name="slide-fade">
-      <div
-        v-if="isMobileMenuOpen"
-        class="fixed inset-0 bg-slate-900/95 backdrop-blur z-40 px-6 py-8 text-white flex flex-col gap-6 text-lg font-semibold uppercase tracking-wide"
-      >
-        <NuxtLink
-          v-for="link in links"
-          :key="link.path"
-          :to="link.path"
-          @click="isMobileMenuOpen = false"
-          :class="[
-            'transition hover:text-sky-400',
-            route.path === link.path ? 'text-sky-400 font-bold' : ''
-          ]"
-        >
-          {{ link.name }}
-        </NuxtLink>
-      </div>
-    </transition>
   </header>
+
+  <!-- MOBILE MENU -->
+  <transition name="slide-fade">
+    <div
+      v-if="isMobileMenuOpen"
+      class="fixed inset-0 bg-slate-900 text-white z-40 px-6 py-8 flex flex-col gap-6 text-lg font-semibold uppercase tracking-wide"
+    >
+      <NuxtLink
+        v-for="link in links"
+        :key="link.path"
+        :to="link.path"
+        @click="isMobileMenuOpen = false"
+        :class="[
+          'transition hover:text-sky-400',
+          route.path === link.path ? 'text-sky-400 font-bold' : ''
+        ]"
+      >
+        {{ link.name }}
+      </NuxtLink>
+    </div>
+  </transition>
 </template>
 
 <style scoped>

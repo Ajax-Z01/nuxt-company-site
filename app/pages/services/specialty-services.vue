@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import imageUrl from '~/assets/img/tabs/04.webp?width=600;1200&format=webp&quality=70'
+
 import HeaderPage from '@/components/HeaderPage.vue'
 import TabsSection from '~/components/section/TabsSection.vue'
 import ProcessSection from '~/components/section/ProcessSection.vue'
@@ -51,8 +53,7 @@ const breadcrumbs = [
     title="Specialty Services"
     subtitle="Tailored Expertise for Unique Challenges"
     :breadcrumbs="breadcrumbs"
-    imageWebp="/img/tabs/04.webp"
-    imagePng="/img/tabs/04.png"
+    :imageUrl="imageUrl[0]"
   />
 
   <TabsSection

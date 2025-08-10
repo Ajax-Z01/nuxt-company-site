@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import posterSrc from '~/assets/img/video/03.webp?width=600;1200&format=webp&quality=70'
+
 import { ref } from 'vue'
 import { useStorage } from '@vueuse/core'
 
@@ -6,7 +8,6 @@ const videoStarted = useStorage('videoStarted', false)
 const videoRef = ref<HTMLVideoElement | null>(null)
 
 const videoSrc = '/img/video/Services.mp4'
-const posterSrc = '/img/video/03.webp'
 
 onMounted(() => {
   videoStarted.value = false
@@ -17,9 +18,11 @@ onMounted(() => {
   <div class="relative max-w-7xl mx-auto rounded-xl overflow-hidden aspect-video" data-aos="zoom-in">
     <template v-if="!videoStarted">
       <img
-        :src="posterSrc"
+        :src="posterSrc[0]"
         alt="Video Poster"
         class="w-full h-full object-cover pointer-events-none"
+        loading="lazy"
+        decoding="async"
       />
       <button
         @click="videoStarted = true"

@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import imageUrl from '~/assets/img/tabs/01.webp?width=600;1200&format=webp&quality=70'
+
 import HeaderPage from '@/components/HeaderPage.vue'
 import TabsSection from '~/components/section/TabsSection.vue'
 import ProcessSection from '~/components/section/ProcessSection.vue'
@@ -51,8 +53,7 @@ const breadcrumbs = [
     title="Civil Engineering"
     subtitle="Innovative and Sustainable Civil Solutions"
     :breadcrumbs="breadcrumbs"
-    imageWebp="/img/tabs/01.webp"
-    imagePng="/img/tabs/01.png"
+    :imageUrl="imageUrl[0]"
   />
 
   <TabsSection

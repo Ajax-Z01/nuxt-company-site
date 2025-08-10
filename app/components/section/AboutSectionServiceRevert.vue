@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import imageUrl from '~/assets/img/about/03.webp?width=600;1200&format=webp&quality=70';
+
 import { ref, onMounted } from 'vue'
 import { useIntersectionObserver } from '@vueuse/core'
 import { useAsset } from '~/composables/useAsset'
@@ -54,9 +56,8 @@ onMounted(() => {
       >
         <FadeInOnScroll>
           <picture>
-            <source :srcset="useAsset('/img/about/03.webp')" type="image/webp" />
             <img
-              :src="useAsset('/img/about/03.webp')"
+              :src="imageUrl[0]"
               alt="About media"
               class="w-full object-cover"
               loading="lazy"

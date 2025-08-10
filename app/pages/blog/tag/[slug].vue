@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import imageUrl from '~/assets/img/plan.webp?width=600;1200&format=webp&quality=70'
+
 import { useRoute } from 'vue-router'
 import { ref, onMounted, computed } from 'vue'
 import { usePosts } from '~/composables/usePosts'
@@ -40,8 +42,7 @@ const breadcrumbs = computed(() => [
     :title="tagName"
     subtitle="Tag"
     :breadcrumbs="breadcrumbs"
-    imageWebp="/img/plan.webp"
-    imagePng="/img/plan.png"
+    :imageUrl="imageUrl[0]"
   />
   <BlogSection
     :posts="filteredPosts"

@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import imageUrl from '~/assets/img/plan.webp?width=600;1200&format=webp&quality=70'
+
 import HeaderPage from '@/components/HeaderPage.vue'
 import InfoSection from '~/components/section/InfoSection.vue'
 import ContactSection from '~/components/section/ContactSectionService.vue'
@@ -14,8 +16,7 @@ const breadcrumbs = [
     title="Contact Us"
     subtitle="Get in Touch"
     :breadcrumbs="breadcrumbs"
-    imageWebp="/img/plan.webp"
-    imagePng="/img/plan.png"
+    :imageUrl="imageUrl[0]"
   />
   <InfoSection />
   <ContactSection />

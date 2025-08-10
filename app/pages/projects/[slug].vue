@@ -65,8 +65,7 @@ const contactInfo = computed(() => {
       :title="project.title"
       :subtitle="project.subtitle"
       :breadcrumbs="breadcrumbs"
-      :imageWebp="getImageUrl(project.image)"
-      :imagePng="getImageUrl(project.image)"
+      :imageUrl="getImageUrl(project.image)"
     />
 
     <AboutProjectSection

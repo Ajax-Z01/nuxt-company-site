@@ -3,8 +3,7 @@ defineProps<{
   title: string
   subtitle: string
   breadcrumbs: { text: string; to?: string }[]
-  imageWebp: string
-  imagePng: string
+  imageUrl: any
 }>()
 </script>
 
@@ -55,11 +54,12 @@ defineProps<{
     <div class="absolute inset-0 z-0">
       <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/80"></div>
       <picture>
-        <source :srcset="imageWebp" type="image/webp" />
         <img
-          :src="imagePng"
+          :src="imageUrl"
           :alt="title"
           class="w-full h-full object-cover scale-105 brightness-[0.75] transition-transform duration-1000"
+          loading="lazy"
+          decoding="async"
         />
       </picture>
     </div>

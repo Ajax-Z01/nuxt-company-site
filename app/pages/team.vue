@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import imageUrl from '~/assets/img/plan.webp?width=600;1200&format=webp&quality=70'
+
 import HeaderPage from '@/components/HeaderPage.vue'
 import TeamSection from '@/components/section/TeamSection.vue'
 
@@ -13,8 +15,7 @@ const breadcrumbs = [
     title="Meet Our Team"
     subtitle="The People Behind Our Success"
     :breadcrumbs="breadcrumbs"
-    imageWebp="/img/plan.webp"
-    imagePng="/img/plan.png"
+    :imageUrl="imageUrl[0]"
   />
   
   <TeamSection />

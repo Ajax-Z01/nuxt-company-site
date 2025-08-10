@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import imageUrl from '~/assets/img/plan.webp?width=600;1200&format=webp&quality=70'
+
 import HeaderPage from '@/components/HeaderPage.vue'
 import ServicesSectionPage from '~/components/section/ServicesSectionPage.vue'
 import StatsSection from '~/components/section/StatsSection.vue'
@@ -17,8 +19,7 @@ const breadcrumbs = [
     title="Our Services"
     subtitle="What We Offer"
     :breadcrumbs="breadcrumbs"
-    imageWebp="/img/plan.webp"
-    imagePng="/img/plan.png"
+    :imageUrl="imageUrl[0]"
   />
   <ServicesSectionPage />
   <StatsSection />

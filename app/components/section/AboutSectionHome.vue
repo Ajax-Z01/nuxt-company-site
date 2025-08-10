@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import image from '~/assets/img/gallery/18.webp?width=600;1200&format=webp&quality=70'
+
 import { ref } from 'vue'
 import { useIntersectionObserver } from '@vueuse/core'
 import AboutText from '~/components/text/AboutText.vue'
@@ -53,10 +55,11 @@ useIntersectionObserver(
           <StatsCountUp :stats="stats" :isActive="isStatsActive" />
           <div class="rounded-lg overflow-hidden shadow-lg">
             <img
-              src="/img/gallery/18.webp"
+              :src="image[0]"
               alt="Construction site"
               class="w-full object-cover aspect-[16/9]"
               loading="lazy"
+              decoding="async"
             />
           </div>
         </div>

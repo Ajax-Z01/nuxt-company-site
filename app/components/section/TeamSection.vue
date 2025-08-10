@@ -1,4 +1,9 @@
 <script setup lang="ts">
+import team01 from '~/assets/img/team/01.webp?width=600;1200&format=webp&quality=70';
+import team02 from '~/assets/img/team/02.webp?width=600;1200&format=webp&quality=70';
+import team03 from '~/assets/img/team/03.webp?width=600;1200&format=webp&quality=70';
+import team04 from '~/assets/img/team/04.webp?width=600;1200&format=webp&quality=70';
+
 import FacebookIcon from '~/components/icon/FacebookIcon.vue'
 import InstagramIcon from '~/components/icon/InstagramIcon.vue'
 import TwitterIcon from '~/components/icon/TwitterIcon.vue'
@@ -10,8 +15,7 @@ const teamMembers = [
     name: 'Benjamin Miller',
     position: 'Chief Engineering Officer',
     bio: 'Morbi tempus iaculis urna id volutpat lacus laoreet non. Purus faucibus ornare suspendisse sed',
-    imageWebp: '/img/team/01.webp',
-    imageJpg: '/img/team/01.jpg',
+    imageWebp: team01[0],
     alt: 'Benjamin Miller',
     socials: [
       { label: 'Facebook', component: FacebookIcon, url: '#' },
@@ -24,8 +28,7 @@ const teamMembers = [
     name: 'Stephanie Ramirez',
     position: 'Marketing Manager',
     bio: 'Gravida cum sociis natoque penatibus et magnis dis. Eu volutpat odio facilisis mauris. Vitae',
-    imageWebp: '/img/team/02.webp',
-    imageJpg: '/img/team/02.jpg',
+    imageWebp: team02[0],
     alt: 'Stephanie Ramirez',
     socials: [
       { label: 'Facebook', component: FacebookIcon, url: '#' },
@@ -38,8 +41,7 @@ const teamMembers = [
     name: 'Jameson Smith',
     position: 'Sales Manager',
     bio: 'In hac habitasse platea dictumst vestibulum rhoncus est pellentesque. Nunc aliquet bibendum enim facilisis',
-    imageWebp: '/img/team/03.webp',
-    imageJpg: '/img/team/03.jpg',
+    imageWebp: team03[0],
     alt: 'Jameson Smith',
     socials: [
       { label: 'Facebook', component: FacebookIcon, url: '#' },
@@ -52,8 +54,7 @@ const teamMembers = [
     name: 'Miguel Rodriguez',
     position: 'Chief Financial Officer',
     bio: 'Mauris rhoncus aenean vel elit scelerisque mauris. Semper risus in hendrerit gravida rutrum quisque non tellus',
-    imageWebp: '/img/team/04.webp',
-    imageJpg: '/img/team/04.jpg',
+    imageWebp: team04[0],
     alt: 'Miguel Rodriguez',
     socials: [
       { label: 'Facebook', component: FacebookIcon, url: '#' },
@@ -82,12 +83,12 @@ const teamMembers = [
           <!-- Avatar -->
           <div class="w-full aspect-square overflow-hidden">
             <picture>
-              <source :srcset="member.imageWebp" type="image/webp" />
               <img
-                :src="member.imageJpg"
+                :src="member.imageWebp"
                 :alt="member.alt"
                 class="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
                 loading="lazy"
+                decoding="async"
               />
             </picture>
           </div>

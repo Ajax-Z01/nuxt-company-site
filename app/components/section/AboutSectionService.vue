@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import imageUrl from '~/assets/img/about/02.webp?width=600;1200&format=webp&quality=70';
+
 import FadeInOnScroll from '~/components/transition/FadeInOnScroll.vue';
 
 const achievements = [
@@ -78,9 +80,8 @@ const achievements = [
       >
         <FadeInOnScroll>
           <picture>
-            <source srcset="/img/about/02.webp" type="image/webp" />
             <img
-              src="/img/about/02.webp"
+              :src="imageUrl[0]"
               alt="About media"
               class="w-full object-cover"
               loading="lazy"
