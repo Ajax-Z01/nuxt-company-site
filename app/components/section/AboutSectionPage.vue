@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import imageUrl from '~/assets/img/about/01.webp?width=600;1200&format=webp&quality=70'
+
 import { ref } from 'vue'
 import { useIntersectionObserver } from '@vueuse/core'
 
@@ -137,9 +139,8 @@ useIntersectionObserver(
         ]"
       >
         <picture>
-          <source srcset="/img/about/01.webp" type="image/webp" />
           <img
-            src="/img/about/01.webp"
+            :src="imageUrl[1]"
             alt="About Us"
             class="rounded-xl shadow-lg object-cover w-full h-auto"
             loading="lazy"

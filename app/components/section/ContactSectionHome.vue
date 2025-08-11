@@ -70,13 +70,14 @@
         <!-- Right: Map -->
         <div class="flex-1 w-full h-96 md:h-auto rounded-lg overflow-hidden shadow-lg">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.115429386898!2d-122.41941528468195!3d37.77492977975921!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085809c5c9a5f41%3A0x40f914e88d5fd2a!2sSan%20Francisco%20City%20Hall!5e0!3m2!1sen!2sus!4v1712952028940!5m2!1sen!2sus"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.146703024521!2d106.8066373147721!3d-6.267440763610631!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f6f85ac0a495%3A0xd1f70caa7a89b4c7!2sJakarta%20Selatan%2C%20DKI%20Jakarta!5e0!3m2!1sen!2sid!4v1712952028940!5m2!1sen!2sid"
             width="100%"
             height="100%"
             style="border:0"
-            :allowfullscreen="true"
+            allowfullscreen
             loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"
+            title="Google Maps location of Jakarta Selatan"
             class="w-full h-full"
           ></iframe>
         </div>

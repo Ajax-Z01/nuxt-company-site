@@ -1,0 +1,19 @@
+{
+  "header": {
+    "logoAlt": "Ajaxtreon Logo",
+    "companyName": "Ajaxtreon",
+    "menu": {
+      "home": "Home",
+      "about": "About",
+      "services": "Services",
+      "projects": "Projects",
+      "team": "Team",
+      "blog": "Blog",
+      "contact": "Contact"
+    },
+    "mobileMenu": {
+      "close": "Close menu",
+      "open": "Open menu"
+    }
+  }
+}

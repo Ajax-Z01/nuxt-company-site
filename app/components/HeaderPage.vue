@@ -13,9 +13,9 @@ defineProps<{
     <div class="relative z-10 mx-auto max-w-7xl px-4 py-24 lg:py-36">
       <div class="text-center lg:text-left space-y-6 backdrop-blur-sm bg-black/10 p-6 rounded-md animate-fade-up">
         <!-- Subtitle -->
-        <span class="block text-yellow-400 uppercase tracking-widest text-base lg:text-lg font-semibold">
+        <h2 class="block text-yellow-400 uppercase tracking-widest text-base lg:text-lg font-semibold">
           {{ subtitle }}
-        </span>
+        </h2>
 
         <!-- Title -->
         <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight drop-shadow-md max-w-4xl">
@@ -36,14 +36,14 @@ defineProps<{
               <span class="text-gray-500">›</span>
             </template>
             <template v-else>
-              <span
+              <h3
                 :class="[
                   'text-white font-semibold',
                   index !== 0 ? 'pl-1' : ''
                 ]"
               >
                 {{ crumb.text }}
-              </span>
+            </h3>
             </template>
           </li>
         </ul>
@@ -58,8 +58,9 @@ defineProps<{
           :src="imageUrl"
           :alt="title"
           class="w-full h-full object-cover scale-105 brightness-[0.75] transition-transform duration-1000"
-          loading="lazy"
+          :loading="breadcrumbs?.length ? 'eager' : 'lazy'"
           decoding="async"
+          :fetchpriority="breadcrumbs?.length ? 'high' : 'low'"
         />
       </picture>
     </div>

@@ -9,7 +9,6 @@ const { fetchAll, projects, total, getImageUrl } = useProjects()
 const page = ref(1)
 const pageSize = 6
 
-// Fetch projects saat mount dan setiap page berubah
 const loadProjects = async () => {
   await fetchAll({ page: page.value, pageSize })
 }
@@ -22,8 +21,7 @@ const displayProjects = computed(() =>
   projects.value.map((project) => ({
     title: project.title,
     location: project.location || project.info?.Location || 'Unknown',
-    imageWebp: getImageUrl(project.image),
-    imageJpg: getImageUrl(project.image),
+    image: getImageUrl(project.image),
     link: `/projects/${project.slug}`,
   }))
 )
@@ -48,9 +46,8 @@ const goToPage = (n: number) => {
             class="group rounded-xl overflow-hidden shadow-md hover:shadow-lg flex flex-col bg-white/90 dark:bg-gray-900/90 transition-all duration-500"
           >
             <picture>
-              <source :srcset="project.imageWebp" type="image/webp" />
               <img
-                :src="project.imageJpg"
+                :src="project.image"
                 :alt="project.title"
                 loading="lazy"
                 class="w-full object-cover transition-transform duration-500 ease-out group-hover:scale-110"

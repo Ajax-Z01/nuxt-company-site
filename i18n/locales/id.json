@@ -1,0 +1,19 @@
+{
+  "header": {
+    "logoAlt": "Logo Ajaxtreon",
+    "companyName": "Ajaxtreon",
+    "menu": {
+      "home": "Beranda",
+      "about": "Tentang",
+      "services": "Layanan",
+      "projects": "Proyek",
+      "team": "Tim",
+      "blog": "Blog",
+      "contact": "Kontak"
+    },
+    "mobileMenu": {
+      "close": "Tutup menu",
+      "open": "Buka menu"
+    }
+  }
+}

@@ -1,5 +1,21 @@
 <script setup lang="ts">
-// statis, no logic
+import map from '~/assets/img/map.webp?width=600;1200&format=webp&quality=70'
+import { ref } from 'vue'
+
+const mapLoaded = ref(false)
+const showIframe = ref(false)
+
+const loadMap = () => {
+  showIframe.value = true
+}
+
+const onIframeLoad = () => {
+  mapLoaded.value = true
+}
+
+onMounted(() => {
+  showIframe.value = true
+})
 </script>
 
 <template>
@@ -77,17 +93,39 @@
 
       <!-- Map -->
       <div
-        class="contacts_map h-96 rounded-lg overflow-hidden shadow-lg mt-16"
+        class="contacts_map h-96 rounded-lg overflow-hidden shadow-lg mt-16 cursor-pointer relative"
+        @click="loadMap"
+        @keydown.enter="loadMap"
+        tabindex="0"
+        role="button"
+        aria-label="Load Google Map"
         data-aos="fade-up"
       >
+        <img
+          :src="map[0]"
+          alt="Static map of Jakarta Selatan"
+          class="w-full h-full object-cover"
+          loading="lazy"
+          decoding="async"
+        />
+
         <iframe
-          id="map"
-          src="https://maps.google.com/maps?q=2047%20Cyrus%20Viaduct%20East%20Jadynchester&t=&z=13&ie=UTF8&iwloc=&output=embed"
-          class="w-full h-full border-0"
+          v-if="showIframe"
+          src="https://maps.google.com/maps?q=Jakarta%20Selatan&t=&z=13&ie=UTF8&iwloc=&output=embed"
+          class="w-full h-full border-0 absolute top-0 left-0"
+          :style="{ visibility: mapLoaded ? 'visible' : 'hidden' }"
           allowfullscreen
           loading="lazy"
           referrerpolicy="no-referrer-when-downgrade"
+          @load="onIframeLoad"
         ></iframe>
+
+        <div
+          v-if="showIframe && !mapLoaded"
+          class="absolute inset-0 flex justify-center items-center bg-white bg-opacity-70"
+        >
+          <span class="text-gray-700">Loading map...</span>
+        </div>
       </div>
     </div>
   </section>

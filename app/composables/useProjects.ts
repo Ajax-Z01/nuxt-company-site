@@ -83,6 +83,20 @@ export const useProjects = () => {
     if (!url) return ''
     return url.startsWith('http') ? url : `${baseUrl}${url}`
   }
+  
+  const getThumbnailUrl = (images: Project['image'] = []): string => {
+    const image = images?.[0]
+    if (!image) return ''
+
+    const url =
+      image.formats?.thumbnail?.url ||
+      image.formats?.small?.url ||
+      image.formats?.medium?.url ||
+      image.url
+
+    if (!url) return ''
+    return url.startsWith('http') ? url : `${baseUrl}${url}`
+  }
 
   return {
     projects,
@@ -93,5 +107,6 @@ export const useProjects = () => {
     fetchAll,
     fetchBySlug,
     getImageUrl,
+    getThumbnailUrl
   }
 }

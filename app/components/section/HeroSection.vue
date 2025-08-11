@@ -4,11 +4,11 @@ import hero02 from '~/assets/img/hero/02.webp?width=600;1200&format=webp&quality
 import hero03 from '~/assets/img/hero/03.webp?width=600;1200&format=webp&quality=70'
 import hero04 from '~/assets/img/hero/04.webp?width=600;1200&format=webp&quality=70'
 import hero05 from '~/assets/img/hero/05.webp?width=600;1200&format=webp&quality=70'
-import thumb01 from '~/assets/img/hero/thumb01.webp?width=600;1200&format=webp&quality=70'
-import thumb02 from '~/assets/img/hero/thumb02.webp?width=600;1200&format=webp&quality=70'
-import thumb03 from '~/assets/img/hero/thumb03.webp?width=600;1200&format=webp&quality=70'
-import thumb04 from '~/assets/img/hero/thumb04.webp?width=600;1200&format=webp&quality=70'
-import thumb05 from '~/assets/img/hero/thumb05.webp?width=600;1200&format=webp&quality=70'
+import thumb01 from '~/assets/img/hero/thumb01.webp?width=380;280&format=webp&quality=70'
+import thumb02 from '~/assets/img/hero/thumb02.webp?width=380;280&format=webp&quality=70'
+import thumb03 from '~/assets/img/hero/thumb03.webp?width=380;280&format=webp&quality=70'
+import thumb04 from '~/assets/img/hero/thumb04.webp?width=380;280&format=webp&quality=70'
+import thumb05 from '~/assets/img/hero/thumb05.webp?width=380;280&format=webp&quality=70'
 
 import { ref, computed } from 'vue'
 import { Swiper, SwiperSlide } from 'swiper/vue'
@@ -129,31 +129,32 @@ function onThumbsSwiperInit(swiper: SwiperClass) {
           :src="slide.bg"
           :alt="slide.title"
           class="absolute inset-0 object-cover w-full h-full"
-          loading="eager"
+          :loading="i === 0 ? 'eager' : 'lazy'"
           decoding="async"
           sizes="100vw"
+          :fetchpriority="i === 0 ? 'high' : undefined"
         />
         <div class="absolute inset-0 bg-black/60 z-0"></div>
         <div
           class="relative z-10 max-w-7xl px-4 md:px-6 py-12 mt-24 text-white mx-auto flex flex-col md:flex-row md:items-start md:text-left md:gap-8"
         >
           <div class="flex-1 flex flex-col">
-            <p class="text-sm font-semibold uppercase tracking-wider text-sky-500 flex items-center gap-2">
+            <h3 class="text-sm font-semibold uppercase tracking-wider text-sky-500 flex items-center gap-2">
               <span class="block w-6 h-0.5 bg-yellow-500"></span>
               Our Services
-            </p>
-            <h2 class="text-4xl md:text-5xl font-extrabold leading-tight text-emerald-400 drop-shadow mb-4 animate-fade-in-up">
+            </h3>
+            <h1 class="text-4xl md:text-5xl font-extrabold leading-tight text-emerald-400 drop-shadow mb-4 animate-fade-in-up">
               {{ slide.title }}
-            </h2>
-            <p class="text-base md:text-lg text-slate-200 max-w-2xl leading-relaxed mb-8 animate-fade-in-up">
+            </h1>
+            <h2 class="text-base md:text-lg text-slate-200 max-w-2xl leading-relaxed mb-8 animate-fade-in-up">
               {{ slide.text }}
-            </p>
-            <a
-              href="/single-service.html"
+            </h2>
+            <NuxtLink
+              to="/services"
               class="inline-block bg-yellow-500 hover:bg-yellow-600 text-black font-semibold px-6 py-3 rounded transition w-max animate-fade-in-up"
             >
               SERVICE DETAILS
-            </a>
+            </NuxtLink>
           </div>
         </div>
       </SwiperSlide>

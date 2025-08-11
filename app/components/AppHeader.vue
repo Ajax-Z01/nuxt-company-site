@@ -1,11 +1,12 @@
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted, watch } from 'vue'
+import { ref, onMounted, onUnmounted, watch, computed } from 'vue'
 import { useRoute } from 'vue-router'
+import { useI18n } from 'vue-i18n'
+import { useLocalePath } from '#i18n'
 
 const isScrolled = ref(false)
 const isMobileMenuOpen = ref(false)
 const isScrollingUp = ref(true)
-
 let lastScrollY = 0
 const route = useRoute()
 
@@ -27,20 +28,36 @@ onUnmounted(() => {
   window.removeEventListener('scroll', onScroll)
 })
 
-// Optional: scroll to top when opening mobile nav
 watch(isMobileMenuOpen, (open) => {
   if (open) window.scrollTo(0, 0)
 })
 
-const links = [
-  { name: 'Home', path: '/' },
-  { name: 'About', path: '/about' },
-  { name: 'Services', path: '/services' },
-  { name: 'Projects', path: '/projects' },
-  { name: 'Team', path: '/team' },
-  { name: 'Blog', path: '/blog' },
-  { name: 'Contact', path: '/contact' },
-]
+const { t } = useI18n()
+const localePath = useLocalePath()
+
+function safeT(key: string): string {
+  try {
+    const value = t(key)
+    if (typeof value !== 'string') {
+      console.warn(`i18n key '${key}' is not a string or missing. Value:`, value)
+      return key
+    }
+    return value
+  } catch (e) {
+    console.warn(`i18n key '${key}' caused error:`, e)
+    return key
+  }
+}
+
+const links = computed(() => [
+  { name: safeT('header.menu.home'), path: localePath('index') },
+  { name: safeT('header.menu.about'), path: localePath('about') },
+  { name: safeT('header.menu.services'), path: localePath('services') },
+  { name: safeT('header.menu.projects'), path: localePath('projects') },
+  { name: safeT('header.menu.team'), path: localePath('team') },
+  { name: safeT('header.menu.blog'), path: localePath('blog') },
+  { name: safeT('header.menu.contact'), path: localePath('contact') },
+])
 </script>
 
 <template>
@@ -57,9 +74,9 @@ const links = [
     <nav class="max-w-7xl mx-auto flex justify-between items-center px-4 h-16 md:h-20 transition-transform relative z-[60]">
       <!-- Logo -->
       <NuxtLink to="/" class="flex items-center gap-3 group">
-        <img src="/svg/logo.svg" alt="Ajaxtreon Logo" class="h-8 w-auto md:h-10" />
+        <img src="/svg/logo.svg" :alt="safeT('header.logoAlt')" class="h-8 w-auto md:h-10" />
         <span class="text-2xl font-extrabold text-white group-hover:text-emerald-400 transition">
-          PT <span class="text-emerald-400">Ajaxtreon</span>
+          PT <span class="text-emerald-400">{{ safeT('header.companyName') }}</span>
         </span>
       </NuxtLink>
 
@@ -110,7 +127,7 @@ const links = [
   <transition name="slide-fade">
     <div
       v-if="isMobileMenuOpen"
-      class="fixed inset-0 bg-slate-900 text-white z-40 px-6 py-8 flex flex-col gap-6 text-lg font-semibold uppercase tracking-wide"
+      class="fixed inset-0 bg-slate-900 text-white z-40 px-6 py-8 pt-20 flex flex-col gap-6 text-lg font-semibold uppercase tracking-wide"
     >
       <NuxtLink
         v-for="link in links"
