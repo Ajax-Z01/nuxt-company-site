@@ -15,5 +15,529 @@
       "close": "Close menu",
       "open": "Open menu"
     }
+  },
+  "footer": {
+    "logoAlt": "Ajaxtreon Logo",
+    "companyName": "Ajaxtreon",
+    "description": "Committed to delivering innovative and sustainable engineering solutions that enhance communities and drive progress.",
+    "contacts": {
+      "title": "Contacts",
+      "address": {
+        "line1": "2047 Cyrus Viaduct",
+        "line2": "East Jadynchester"
+      }
+    },
+    "companyLinks": {
+      "title": "Company",
+      "about": "About",
+      "services": "Services",
+      "projects": "Projects",
+      "blog": "Blog"
+    },
+    "newsletter": {
+      "title": "Subscribe to Our News",
+      "description": "Receive updates on our latest projects, industry news, and exclusive offers.",
+      "placeholder": "Enter your email",
+      "button": "Subscribe"
+    },
+    "copyright": "PT Ajaxtreon — All rights reserved © {year}"
+  },
+  "breadcrumbs": {
+    "home": "Home",
+    "team": "Team",
+    "blog": "Blog",
+    "contact": "Contact",
+    "about": "About",
+    "services": "Services",
+    "projects": "Projects"
+  },
+  "teamPage": {
+    "title": "Meet Our Team",
+    "subtitle": "Dedicated Professionals Driving Excellence"
+  },
+  "contactPage": {
+    "title": "Contact Us",
+    "subtitle": "We’re Here to Help"
+  },
+  "aboutPage": {
+    "title": "About Us",
+    "subtitle": "Our Story and Mission"
+  },
+  "blogPage": {
+    "title": "Blog",
+    "subtitle": "Insights and Updates",
+    "postsTitle": "Latest Posts",
+    "postsSubtitle": "Explore expert insights, stories, and industry news."
+  },
+  "pagination": {
+    "previous": "Previous",
+    "next": "Next"
+  },
+  "projectsPage": {
+    "title": "Our Projects",
+    "subtitle": "Building Sustainable Communities"
+  },
+  "servicesPage": {
+    "title": "Our Services",
+    "subtitle": "Engineering Solutions for Your Needs"
+  },
+  "about": {
+    "subtitle": "Who We Are",
+    "title": {
+      "part1": "Bringing",
+      "highlight": "Your Ideas",
+      "part2": "to Life with Innovation"
+    },
+    "description": "We provide expert civil and structural engineering services focused on sustainable, creative, and efficient solutions that empower communities.",
+    "checklist": {
+      "livesEasier": "Making Lives Easier",
+      "everySolution": "Comprehensive Solutions Under One Roof",
+      "innovation": "Driving Innovation and Creativity",
+      "fineEngineering": "Precision Engineering Excellence"
+    },
+    "cta": "Consult Now",
+    "imageAlt": "About Us"
+  },
+  "partners": {
+    "whereWeWork": "Our Partners",
+    "topRanking": "Leading Industry Partners",
+    "company": "Company",
+    "remedy": "Remedy Engineering",
+    "brickblock": "Brick & Block",
+    "stateofdesign": "State of Design",
+    "arup": "Arup",
+    "fluor": "Fluor Corp."
+  },
+  "aboutsectionhome": {
+    "achievements": {
+      "successProjects": "Completed Projects Successfully Delivered",
+      "simplicityDesign": "Designs Combining Simplicity and Practicality",
+      "constructionControl": "Strict Construction Control and Quality Assurance"
+    },
+    "stats": {
+      "activeProjects": "Active Civil Engineering Projects",
+      "approvalRate": "High Building Control Approval Rate"
+    },
+    "imageAlt": "Construction Site",
+    "subtitle": "Shaping the Future",
+    "heading": {
+      "strong": "Bringing Your Ideas",
+      "normal": "to Life with Innovation"
+    },
+    "description": "Our team combines expertise, technology, and creativity to deliver outstanding engineering and construction results tailored to your needs.",
+    "cta": "About Company"
+  },
+  "sustainableConstruction": {
+    "header": {
+      "subtitle": "Sustainable Construction",
+      "titleBefore": "Why Choose",
+      "titleHighlight": "Us"
+    },
+    "description": "We emphasize eco-friendly practices and long-term value in all our engineering and construction projects.",
+    "stats": {
+      "completedProjects": "Projects Completed Annually",
+      "turnover": "Million Euros Turnover in 2020",
+      "approvalRate": "Building Control Approval Rate",
+      "activeProjects": "Ongoing Engineering Projects"
+    },
+    "advantages": {
+      "uniqueProjects": {
+        "title": "Tailored Solutions",
+        "description": "Each project customized to meet client requirements with exceptional quality."
+      },
+      "valueConvenience": {
+        "title": "Value & Efficiency",
+        "description": "Cost-effective solutions without sacrificing quality or timelines."
+      },
+      "implementIdeas": {
+        "title": "Innovative Implementation",
+        "description": "Transforming new ideas into practical engineering realities."
+      }
+    }
+  },
+  "process": {
+    "header": {
+      "subtitle": "Our Process",
+      "titleBefore": "The Process of Working",
+      "titleHighlight": "With Us"
+    },
+    "steps": {
+      "leaveRequest": {
+        "title": "Submit a Request",
+        "description": "Share your project needs and receive expert guidance."
+      },
+      "costCalculation": {
+        "title": "Cost Estimation",
+        "description": "Transparent and detailed budgeting tailored to your project."
+      },
+      "signingContract": {
+        "title": "Contract Agreement",
+        "description": "Finalize terms and establish clear project timelines."
+      },
+      "executionWorks": {
+        "title": "Project Execution",
+        "description": "Bringing your project to life with precision and professionalism."
+      }
+    }
+  },
+  "feedbacks": {
+    "sectionTitle": "Client Feedback",
+    "titlePart1": "What",
+    "titleHighlight": "Our Clients",
+    "titlePart2": "Say About Us",
+    "description": "Read what our clients say about their experience working with us.",
+    "cta": "Consult Now",
+    "rene": {
+      "main": "Ajaxtreon delivered our project on schedule and exceeded quality expectations. Their professionalism was outstanding.",
+      "name": "Rene Rodriguez",
+      "company": "Acelerisque"
+    },
+    "john": {
+      "main": "Highly skilled and efficient team. I strongly recommend their engineering services.",
+      "name": "John Smith",
+      "company": "Loremipsum"
+    },
+    "marta": {
+      "main": "Their attention to detail and innovative solutions made our project a great success.",
+      "name": "Marta Diaz",
+      "company": "Qwerty"
+    },
+    "victor": {
+      "main": "Reliable, professional, and easy to work with throughout the entire project.",
+      "name": "Victor Adams",
+      "company": "Dolorsitamet"
+    },
+    "sarah": {
+      "main": "Excellent communication and outstanding results from the Ajaxtreon team.",
+      "name": "Sarah Doe",
+      "company": "Companyname"
+    }
+  },
+  "gallery": {
+    "subtitle": "Our Work",
+    "titleBefore": "Project",
+    "titleHighlight": "Gallery",
+    "projectLabel": "Project"
+  },
+  "contact": {
+    "subtitle": "Get in Touch",
+    "titleHighlight": "Contact",
+    "titleRest": "Information",
+    "description": "We are here to answer your questions and help with your engineering needs. Reach out anytime.",
+    "addressLabel": "Address",
+    "address": "2047 Cyrus Viaduct East Jadynchester",
+    "emailLabel": "Email",
+    "phoneLabel": "Phone",
+    "mapTitle": "Google Maps Location of Jakarta Selatan"
+  },
+  "servicesSectionAbout": {
+    "justFeelTheFuture": "Embrace the Future",
+    "spotlightServices": "Featured Services",
+    "servicesLabel": "Service",
+    "services": {
+      "processEngineering": {
+        "title": "Process Engineering",
+        "slug": "process-engineering",
+        "description": "We optimize industrial processes to improve efficiency and sustainability.",
+        "points": {
+          "first": "Simplifying operations",
+          "second": "Comprehensive solutions",
+          "third": "Innovative approaches"
+        }
+      },
+      "chemistryAndMetallurgy": {
+        "title": "Chemistry and Metallurgy",
+        "slug": "chemistry-and-metallurgy",
+        "description": "Expertise in material science ensuring quality and durability.",
+        "points": {
+          "first": "Precise analysis",
+          "second": "Material excellence",
+          "third": "Applied research"
+        }
+      },
+      "electricalEngineering": {
+        "title": "Electrical Engineering",
+        "slug": "electrical-engineering",
+        "description": "Designing efficient energy distribution and automation systems.",
+        "points": {
+          "first": "Smart technology",
+          "second": "Sustainable energy",
+          "third": "Future-proof solutions"
+        }
+      },
+      "specialtyServices": {
+        "title": "Specialty Services",
+        "slug": "specialty-services",
+        "description": "Customized engineering solutions for unique challenges.",
+        "points": {
+          "first": "Tailored engineering",
+          "second": "Expert consultancy",
+          "third": "Innovative designs"
+        }
+      },
+      "civilEngineering": {
+        "title": "Civil Engineering",
+        "slug": "civil-engineering",
+        "description": "Quality residential and commercial infrastructure development.",
+        "points": {
+          "first": "Urban planning",
+          "second": "Infrastructure design",
+          "third": "Safety and durability"
+        }
+      },
+      "constructionManagement": {
+        "title": "Construction Management",
+        "slug": "construction-management",
+        "description": "Efficient project delivery with budget and time management.",
+        "points": {
+          "first": "Budget oversight",
+          "second": "Timely completion",
+          "third": "Professional supervision"
+        }
+      }
+    },
+    "readMore": "Read More",
+    "ariaLabelReadMore": "Read more about {service}"
+  },
+  "features": {
+    "header": {
+      "label": "Our Features",
+      "title": {
+        "before": "Discover the",
+        "highlight": "Unique Features",
+        "after": "That Set Us Apart"
+      },
+      "description": "Explore the exceptional qualities that make our services stand out."
+    },
+    "fastPerformance": {
+      "title": "Fast Performance",
+      "description": "Our systems are designed for speed and reliability to meet your demands."
+    },
+    "secure": {
+      "title": "Secure",
+      "description": "We ensure your data and projects are protected with top-tier security measures."
+    },
+    "customizable": {
+      "title": "Customizable",
+      "description": "Flexible services tailored to your unique needs and specifications."
+    },
+    "reliable": {
+      "title": "Reliable",
+      "description": "Robust architecture guarantees consistent uptime and stable performance."
+    },
+    "scalable": {
+      "title": "Scalable",
+      "description": "Easily scale resources as your projects grow without losing efficiency."
+    }
+  },
+  "reviews": {
+    "header": {
+      "label": "Client Reviews",
+      "title": {
+        "before": "What",
+        "highlight": "Clients Say",
+        "after": ""
+      },
+      "description": "Valuable feedback from clients that helps us continually improve."
+    },
+    "list": [
+      {
+        "text": "Exceptional service and professional team that exceeded our expectations.",
+        "name": "Vera Robinson",
+        "details": "Psychologist"
+      },
+      {
+        "text": "Efficient and reliable engineers who delivered our project on time.",
+        "name": "Benjamin Norris",
+        "details": "Business Analyst"
+      },
+      {
+        "text": "Innovative solutions and great attention to detail throughout the project.",
+        "name": "Lisa Smith",
+        "details": "Manager"
+      },
+      {
+        "text": "Professional approach and consistent communication made the process smooth.",
+        "name": "Lucas Perry",
+        "details": "Analyst"
+      }
+    ]
+  },
+  "servicesSection": {
+    "label": "What We Offer",
+    "title": {
+      "before": "Our",
+      "highlight": "Services",
+      "after": ""
+    },
+    "description": "Explore our comprehensive range of engineering and construction services designed to meet your needs.",
+    "details": "Details",
+    "readMoreAria": "Read more about {service}",
+    "services": {
+      "processEngineering": {
+        "title": "Process Engineering",
+        "slug": "process-engineering",
+        "description": "We optimize industrial processes to improve efficiency and sustainability."
+      },
+      "chemistryAndMetallurgy": {
+        "title": "Chemistry and Metallurgy",
+        "slug": "chemistry-and-metallurgy",
+        "description": "Expertise in material science ensuring quality and durability."
+      },
+      "electricalEngineering": {
+        "title": "Electrical Engineering",
+        "slug": "electrical-engineering",
+        "description": "Designing efficient energy distribution and automation systems."
+      },
+      "specialtyServices": {
+        "title": "Specialty Services",
+        "slug": "specialty-services",
+        "description": "Customized engineering solutions for unique challenges."
+      },
+      "civilEngineering": {
+        "title": "Civil Engineering",
+        "slug": "civil-engineering",
+        "description": "Quality residential and commercial infrastructure development."
+      },
+      "constructionManagement": {
+        "title": "Construction Management",
+        "slug": "construction-management",
+        "description": "Efficient project delivery with budget and time management."
+      }
+    }
+  },
+  "statsSection": {
+    "label": "What We Do",
+    "title": {
+      "before": "Building The Future on a",
+      "highlight": "Foundation of Excellence",
+      "after": ""
+    },
+    "description": "We combine expertise and innovation to deliver outstanding engineering projects that shape the world."
+  },
+  "stats": {
+    "buildingControlApprovalRate": "Building Control\nApproval Rate",
+    "activeProjectsConstructionManagement": "Active Projects in\nConstruction Management",
+    "completedProjectsPerYear": "Projects Completed\nPer Year",
+    "millionEurosTurnover2020": "Million Euros Turnover\nin 2020"
+  },
+  "aboutSectionService": {
+    "header": {
+      "subLabel": "Your Choice, Our Commitment",
+      "title": {
+        "part1": "Solving Problems With the Help ",
+        "highlight": "of Experts",
+        "part2": ""
+      },
+      "description": "We bring decades of experience to provide solutions that exceed expectations and deliver real value."
+    },
+    "achievements": {
+      "successfullyCompletedProjects": "Successfully Completed Projects",
+      "simplicityInDesign": "Simplicity in Design with Practical Focus",
+      "highLevelConstructionControl": "High Level of Construction Control Approval"
+    }
+  },
+  "aboutSectionServiceRevert": {
+    "skills": {
+      "subtitle": "Committed to Quality",
+      "title": {
+        "part1": "Trusted Quality for Over ",
+        "highlight": "20 Years"
+      },
+      "description": "Our dedicated team ensures high standards and reliable results across all projects.",
+      "industry": "Industry",
+      "engineering": "Engineering",
+      "factory": "Factory",
+      "construction": "Construction"
+    }
+  },
+  "contactSection": {
+    "contactUs": "Contact Us",
+    "title": {
+      "part1": "Have Any",
+      "highlight": "Questions?"
+    },
+    "description": "We’re ready to assist. Fill out the form and our team will respond promptly.",
+    "form": {
+      "fullName": "Full Name",
+      "phone": "Phone Number",
+      "email": "Email Address",
+      "message": "Your Message",
+      "sendMessage": "Send Message"
+    },
+    "projectQuestion": "Planning to Start a Project?",
+    "address": {
+      "label": "Address",
+      "content": "2047 Cyrus Viaduct East Jadynchester"
+    },
+    "email": {
+      "label": "Email"
+    },
+    "phone": {
+      "label": "Phone"
+    }
+  },
+  "team": {
+    "members": {
+      "benjamin": {
+        "name": "Benjamin Miller",
+        "position": "Chief Engineering Officer",
+        "bio": "Experienced leader specializing in civil engineering and project management."
+      },
+      "stephanie": {
+        "name": "Stephanie Ramirez",
+        "position": "Marketing Manager",
+        "bio": "Skilled in market strategy and client communications with a passion for growth."
+      },
+      "jameson": {
+        "name": "Jameson Smith",
+        "position": "Sales Manager",
+        "bio": "Dedicated to client satisfaction and driving business development."
+      },
+      "miguel": {
+        "name": "Miguel Rodriguez",
+        "position": "Chief Financial Officer",
+        "bio": "Expert in financial planning and ensuring the company’s fiscal health."
+      }
+    }
+  },
+  "aboutProjectSection": {
+    "about": {
+      "keyHighlights": "Key Highlights",
+      "projectInformation": "Project Details",
+      "orderService": "Order Service",
+      "contactQuestion": "Ready to Implement Your Project?"
+    },
+    "contact": {
+      "address": "Address",
+      "email": "Email",
+      "phone": "Phone"
+    }
+  },
+  "infoSection": {
+    "information": "Information",
+    "contacts": "Contacts",
+    "informationLower": "information",
+    "address": "Address",
+    "email": "Email",
+    "phone": "Phone",
+    "loadMap": "Load Google Map",
+    "staticMapAlt": "Static map of South Jakarta",
+    "loadingMap": "Loading map..."
+  },
+  "blogSidebar": {
+    "searchPlaceholder": "Search...",
+    "search": "Search",
+    "categories": "Categories",
+    "newsletterTitle": "Subscribe to Our News",
+    "newsletterDescription": "Stay updated with our latest posts and company news.",
+    "newsletterEmailPlaceholder": "Your email",
+    "subscribe": "Subscribe",
+    "tags": "Tags"
+  },
+  "quote": {
+    "subtitle": "Who we are",
+    "title": "True wealth grows from the soil of knowledge, is built with the strength of innovation, and nurtured by the hands of experience.",
+    "author": "Benjamin Miller"
   }
 }

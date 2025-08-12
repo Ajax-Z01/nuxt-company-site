@@ -1,32 +1,35 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import { useI18n } from 'vue-i18n'
 import { CheckCircleIcon, ClipboardDocumentCheckIcon, PencilSquareIcon, WrenchScrewdriverIcon } from '@heroicons/vue/24/solid'
 import FadeInOnScroll from '~/components/transition/FadeInOnScroll.vue'
+
+const { t } = useI18n()
 
 const currentStep = ref(3)
 
 const steps = [
   {
-    title: 'Leave a request',
-    description: 'In arcu cursus euismod quis viverra nibh cras pulvinar mattis. Cras adipiscing enim.',
+    title: t('process.steps.leaveRequest.title'),
+    description: t('process.steps.leaveRequest.description'),
     icon: ClipboardDocumentCheckIcon,
     completed: true,
   },
   {
-    title: 'Cost calculation',
-    description: 'Habitant morbi tristique senectus et netus et malesuada fames.',
+    title: t('process.steps.costCalculation.title'),
+    description: t('process.steps.costCalculation.description'),
     icon: PencilSquareIcon,
     completed: true,
   },
   {
-    title: 'Signing of a contract',
-    description: 'Etiam dignissim diam quis enim lobortis scelerisque fermentum dui faucibus.',
+    title: t('process.steps.signingContract.title'),
+    description: t('process.steps.signingContract.description'),
     icon: CheckCircleIcon,
     completed: true,
   },
   {
-    title: 'Execution of works',
-    description: 'Ridiculus mus mauris vitae ultricies. Imperdiet proin fermentum leo vel orci porta.',
+    title: t('process.steps.executionWorks.title'),
+    description: t('process.steps.executionWorks.description'),
     icon: WrenchScrewdriverIcon,
     completed: true,
   },
@@ -41,10 +44,10 @@ const steps = [
         <div class="mb-12">
           <p class="text-sm font-semibold uppercase tracking-wider text-sky-500 flex items-center gap-2">
             <span class="block w-6 h-0.5 bg-yellow-400"></span>
-            Better Process
+            {{ t('process.header.subtitle') }}
           </p>
           <h2 class="mt-2 text-4xl font-extrabold text-gray-900 dark:text-gray-100 leading-tight">
-            The Process of Working <span class="text-emerald-400">with Us</span>
+            {{ t('process.header.titleBefore') }} <span class="text-emerald-400">{{ t('process.header.titleHighlight') }}</span>
           </h2>
         </div>
       </FadeInOnScroll>
@@ -104,3 +107,4 @@ const steps = [
     </div>
   </section>
 </template>
+

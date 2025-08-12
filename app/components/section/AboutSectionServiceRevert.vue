@@ -3,22 +3,24 @@ import imageUrl from '~/assets/img/about/03.webp?width=600;1200&format=webp&qual
 
 import { ref, onMounted } from 'vue'
 import { useIntersectionObserver } from '@vueuse/core'
-import { useAsset } from '~/composables/useAsset'
 import FadeInOnScroll from '~/components/transition/FadeInOnScroll.vue'
+import { useI18n } from 'vue-i18n'
 
 interface Skill {
   id: string
-  label: string
+  labelKey: string
   value: number
   color: string
   isVisible: boolean
 }
 
+const { t } = useI18n()
+
 const skills = ref<Skill[]>([
-  { id: 'industry', label: 'Industry', value: 90, color: '#0DA574', isVisible: false },
-  { id: 'engineering', label: 'Engineering', value: 96, color: '#FFC631', isVisible: false },
-  { id: 'factory', label: 'Factory', value: 89, color: '#0DA574', isVisible: false },
-  { id: 'construction', label: 'Construction', value: 99, color: '#FFC631', isVisible: false },
+  { id: 'industry', labelKey: 'aboutSectionServiceRevert.skills.industry', value: 90, color: '#0DA574', isVisible: false },
+  { id: 'engineering', labelKey: 'aboutSectionServiceRevert.skills.engineering', value: 96, color: '#FFC631', isVisible: false },
+  { id: 'factory', labelKey: 'aboutSectionServiceRevert.skills.factory', value: 89, color: '#0DA574', isVisible: false },
+  { id: 'construction', labelKey: 'aboutSectionServiceRevert.skills.construction', value: 99, color: '#FFC631', isVisible: false },
 ])
 
 const skillRefs = ref<(HTMLElement | null)[]>([])
@@ -73,15 +75,14 @@ onMounted(() => {
           <div class="section_header max-w-lg mb-12 space-y-4">
             <p class="text-sm font-semibold uppercase tracking-wider text-sky-400 flex items-center gap-2 max-w-max">
               <span class="block w-6 h-0.5 bg-yellow-500 rounded"></span>
-              We build only quality things
+              {{ t('aboutSectionServiceRevert.skills.subtitle') }}
             </p>
             <h2 class="text-4xl md:text-5xl font-extrabold leading-tight">
-              Trusted Quality for Over <span class="text-emerald-400">20 Years</span>
+              {{ t('aboutSectionServiceRevert.skills.title.part1') }}
+              <span class="text-emerald-400">{{ t('aboutSectionServiceRevert.skills.title.highlight') }}</span>
             </h2>
             <p class="text-gray-400 text-base md:text-lg leading-relaxed">
-              Convallis a cras semper auctor neque vitae. Lectus proin nibh nisl
-              condimentum fermentum odio eu. Augue neque gravida in fermentum et
-              sollicitudin
+              {{ t('aboutSectionServiceRevert.skills.description') }}
             </p>
           </div>
         </FadeInOnScroll>
@@ -100,7 +101,7 @@ onMounted(() => {
                 data-aos-duration="500"
               >
                 <span class="label text-gray-300 font-semibold text-lg min-w-[120px]">
-                  {{ skill.label }}
+                  {{ t(skill.labelKey) }}
                 </span>
 
                 <div class="progressLine relative flex-1 h-6" style="max-width: 400px;">

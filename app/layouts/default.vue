@@ -1,9 +1,23 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, watch } from 'vue'
 import AppHeader from '~/components/AppHeader.vue'
 import AppFooter from '~/components/AppFooter.vue'
 
+import { useI18n } from 'vue-i18n'
+import { useHead } from '#imports'
+
 const isLoading = ref(true)
+
+const { locale } = useI18n()
+const localeRef = locale as Ref<string>
+
+watch(localeRef, (newLocale) => {
+  useHead({
+    htmlAttrs: {
+      lang: newLocale,
+    },
+  })
+}, { immediate: true })
 
 onMounted(() => {
   setTimeout(() => {
@@ -17,7 +31,6 @@ onMounted(() => {
     <AppHeader />
 
     <main class="flex-grow relative">
-      <!-- Page is rendered, but hidden until loading finishes -->
       <div v-show="!isLoading">
         <NuxtPage />
         <AppFooter />

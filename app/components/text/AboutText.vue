@@ -1,6 +1,10 @@
 <script setup lang="ts">
 import AchievementsList from '~/components/list/AchievementsList.vue'
 import { NuxtLink } from '#components'
+import { useLocalePath, useI18n } from '#i18n'
+
+const localePath = useLocalePath()
+const { t } = useI18n()
 
 const props = defineProps<{
   achievements: { icon: string; label: string }[]
@@ -14,19 +18,18 @@ const props = defineProps<{
       class="mb-2 text-sm font-semibold uppercase tracking-wide text-sky-500 flex items-center gap-3"
     >
       <span class="block w-6 h-0.5 bg-yellow-500 rounded"></span>
-      Just feel the future
+      {{ t('aboutsectionhome.subtitle') }}
     </p>
 
     <!-- Heading -->
     <h2 class="text-4xl font-extrabold leading-tight text-gray-900 dark:text-white mb-6">
-      <span class="text-emerald-500">Bringing Your Ideas</span>
-      <span> and Innovations to Life</span>
+      <span class="text-emerald-500">{{ t('aboutsectionhome.heading.strong') }}</span>
+      <span> {{ t('aboutsectionhome.heading.normal') }}</span>
     </h2>
 
     <!-- Description -->
     <p class="text-base md:text-lg text-gray-700 dark:text-gray-300 max-w-2xl leading-relaxed mb-10">
-      Vitae ultricies leo integer malesuada nunc vel. Molestie ac feugiat sed lectus vestibulum
-      mattis ullamcorper velit. Viverra aliquet eget sit amet tellus cras adipiscing.
+      {{ t('aboutsectionhome.description') }}
     </p>
 
     <!-- Achievements -->
@@ -36,10 +39,10 @@ const props = defineProps<{
 
     <!-- CTA Button -->
     <NuxtLink
-      to="/about"
+      :to="localePath('/about')"
       class="inline-flex items-center gap-2 px-6 py-3 bg-emerald-600 hover:bg-emerald-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-500 text-white font-semibold rounded-lg shadow-sm transition-all w-max"
     >
-      About company
+      {{ t('aboutsectionhome.cta') }}
       <svg
         class="w-4 h-4"
         fill="none"

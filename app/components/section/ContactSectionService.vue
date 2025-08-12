@@ -3,8 +3,9 @@ import FacebookIcon from '~/components/icon/FacebookIcon.vue'
 import InstagramIcon from '~/components/icon/InstagramIcon.vue'
 import TwitterIcon from '~/components/icon/TwitterIcon.vue'
 import WhatsappIcon from '~/components/icon/WhatsappIcon.vue'
+import { useI18n } from 'vue-i18n'
 
-// nanti bisa tambah validasi dan submit handler
+const { t } = useI18n()
 </script>
 
 <template>
@@ -20,13 +21,14 @@ import WhatsappIcon from '~/components/icon/WhatsappIcon.vue'
             class="text-sm font-semibold uppercase tracking-wider text-sky-400 flex items-center gap-2 max-w-max"
           >
             <span class="block w-6 h-0.5 bg-yellow-500 rounded"></span>
-            Contact Us
+            {{ t('contactSection.contactUs') }}
           </p>
           <h2 class="title text-4xl font-extrabold leading-tight max-w-xl">
-            Do You Have any <span class="highlight text-emerald-500">Questions?</span>
+            {{ t('contactSection.title.part1') }}
+            <span class="highlight text-emerald-500">{{ t('contactSection.title.highlight') }}</span>
           </h2>
           <p class="text-gray-600 text-base md:text-lg leading-relaxed max-w-lg">
-            We’re here to help! Fill out the form and our team will get back to you shortly.
+            {{ t('contactSection.description') }}
           </p>
         </div>
         <form
@@ -40,7 +42,7 @@ import WhatsappIcon from '~/components/icon/WhatsappIcon.vue'
             type="text"
             id="feedbackName"
             name="feedbackName"
-            placeholder="Full name"
+            :placeholder="t('contactSection.form.fullName')"
             required
             class="contact-form_field w-full md:w-[48%] p-4 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:ring-offset-1 transition-shadow"
           />
@@ -48,7 +50,7 @@ import WhatsappIcon from '~/components/icon/WhatsappIcon.vue'
             type="tel"
             id="feedbackTel"
             name="feedbackTel"
-            placeholder="Phone"
+            :placeholder="t('contactSection.form.phone')"
             required
             class="contact-form_field w-full md:w-[48%] p-4 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:ring-offset-1 transition-shadow"
           />
@@ -56,14 +58,14 @@ import WhatsappIcon from '~/components/icon/WhatsappIcon.vue'
             type="email"
             id="feedbackEmail"
             name="feedbackEmail"
-            placeholder="Email Address"
+            :placeholder="t('contactSection.form.email')"
             required
             class="contact-form_field w-full p-4 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:ring-offset-1 transition-shadow"
           />
           <textarea
             id="feedbackMessage"
             name="feedbackMessage"
-            placeholder="Message"
+            :placeholder="t('contactSection.form.message')"
             required
             rows="6"
             class="contact-form_field w-full p-4 border border-gray-300 rounded-md resize-none focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:ring-offset-1 transition-shadow"
@@ -72,7 +74,7 @@ import WhatsappIcon from '~/components/icon/WhatsappIcon.vue'
             type="submit"
             class="contact-form_btn btn bg-emerald-500 text-white font-semibold py-4 px-10 rounded-md hover:bg-emerald-600 shadow-md hover:shadow-lg transition w-full md:w-auto"
           >
-            Send message
+            {{ t('contactSection.form.sendMessage') }}
           </button>
         </form>
       </div>
@@ -86,26 +88,26 @@ import WhatsappIcon from '~/components/icon/WhatsappIcon.vue'
           <h3
             class="contact_info-header text-3xl font-extrabold mb-8 max-w-xs text-gray-900"
           >
-            Are You Going to Implement a Project?
+            {{ t('contactSection.projectQuestion') }}
           </h3>
           <ul class="contact-info space-y-10 max-w-xs">
             <li class="contact-info_group">
               <span
                 class="name block text-sm font-semibold uppercase tracking-wide text-gray-500 mb-3"
               >
-                Address
+                {{ t('contactSection.address.label') }}
               </span>
               <span
                 class="content block text-lg font-bold leading-relaxed text-gray-900"
               >
-                2047 Cyrus Viaduct East Jadynchester
+                {{ t('contactSection.address.content') }}
               </span>
             </li>
             <li class="contact-info_group">
               <span
                 class="name block text-sm font-semibold uppercase tracking-wide text-gray-500 mb-3"
               >
-                Email
+                {{ t('contactSection.email.label') }}
               </span>
               <span
                 class="content flex flex-col space-y-1 text-lg font-bold text-gray-900"
@@ -122,7 +124,7 @@ import WhatsappIcon from '~/components/icon/WhatsappIcon.vue'
               <span
                 class="name block text-sm font-semibold uppercase tracking-wide text-gray-500 mb-3"
               >
-                Phone
+                {{ t('contactSection.phone.label') }}
               </span>
               <span
                 class="content flex flex-col space-y-1 text-lg font-bold text-gray-900"

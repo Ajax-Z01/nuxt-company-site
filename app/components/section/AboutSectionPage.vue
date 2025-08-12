@@ -1,8 +1,11 @@
 <script setup lang="ts">
 import imageUrl from '~/assets/img/about/01.webp?width=600;1200&format=webp&quality=70'
-
 import { ref } from 'vue'
 import { useIntersectionObserver } from '@vueuse/core'
+import { useI18n } from 'vue-i18n'
+import { useLocalePath } from '#i18n'
+
+const localePath = useLocalePath()
 
 const leftRef = ref<HTMLElement | null>(null)
 const rightRef = ref<HTMLElement | null>(null)
@@ -27,6 +30,16 @@ useIntersectionObserver(
   },
   { threshold: 0.1 }
 )
+
+const { t } = useI18n()
+
+// Checklist items from localization
+const checklistItems = [
+  t('about.checklist.livesEasier'),
+  t('about.checklist.everySolution'),
+  t('about.checklist.innovation'),
+  t('about.checklist.fineEngineering'),
+]
 </script>
 
 <template>
@@ -42,26 +55,32 @@ useIntersectionObserver(
           leftVisible ? 'animate-fade-in-left' : 'opacity-0 translate-x-[-20px]'
         ]"
       >
-        <!-- ... isi kiri tetap sama ... -->
         <div class="section_header space-y-4">
-          <p class="text-sm font-semibold uppercase tracking-wider text-sky-500 flex items-center gap-2 max-w-max">
+          <p
+            class="text-sm font-semibold uppercase tracking-wider text-sky-500 flex items-center gap-2 max-w-max"
+          >
             <span class="block w-6 h-0.5 bg-yellow-500 rounded"></span>
-            Who we are
+            {{ t('about.subtitle') }}
           </p>
           <h2 class="text-4xl font-extrabold leading-tight max-w-lg">
-            Bringing
-            <span class="highlight text-emerald-400">Your Ideas</span> and
-            Innovations to Life
+            {{ t('about.title.part1') }}
+            <span class="highlight text-emerald-400">{{ t('about.title.highlight') }}</span>
+            {{ t('about.title.part2') }}
           </h2>
           <p class="text text-gray-600 dark:text-gray-300 max-w-lg">
-            Our civil and structural team is committed to providing
-            sustainable, creative & efficient engineering solutions for our
-            communities.
+            {{ t('about.description') }}
           </p>
         </div>
+
         <!-- Checklist -->
         <ul class="checklist space-y-5 mt-6 max-w-md">
-          <li class="flex items-start gap-3" data-aos="fade-up" data-aos-delay="100">
+          <li
+            v-for="(item, index) in checklistItems"
+            :key="index"
+            class="flex items-start gap-3"
+            :data-aos="'fade-up'"
+            :data-aos-delay="100 + index * 50"
+          >
             <svg
               class="w-5 h-5 mt-1 flex-shrink-0 text-emerald-500"
               fill="none"
@@ -73,59 +92,17 @@ useIntersectionObserver(
             >
               <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
             </svg>
-            <span>Making lives easier</span>
-          </li>
-          <li class="flex items-start gap-3" data-aos="fade-up" data-aos-delay="150">
-            <svg
-              class="w-5 h-5 mt-1 flex-shrink-0 text-emerald-500"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-              aria-hidden="true"
-            >
-              <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-            </svg>
-            <span>Get every solution right here</span>
-          </li>
-          <li class="flex items-start gap-3" data-aos="fade-up" data-aos-delay="200">
-            <svg
-              class="w-5 h-5 mt-1 flex-shrink-0 text-emerald-500"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-              aria-hidden="true"
-            >
-              <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-            </svg>
-            <span>Innovation and creativity</span>
-          </li>
-          <li class="flex items-start gap-3" data-aos="fade-up" data-aos-delay="250">
-            <svg
-              class="w-5 h-5 mt-1 flex-shrink-0 text-emerald-500"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-              aria-hidden="true"
-            >
-              <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-            </svg>
-            <span>Fine engineering only with us</span>
+            <span>{{ item }}</span>
           </li>
         </ul>
 
         <!-- Button -->
-        <div class="wrapper mt-8" data-aos="fade-up" data-aos-delay="300">
+        <div class="wrapper pt-8" data-aos="fade-up" data-aos-delay="300">
           <NuxtLink
-            to="/contact"
+            :to="localePath('/contact')"
             class="btn bg-emerald-600 hover:bg-emerald-700 text-white font-semibold px-6 py-3 rounded-lg shadow-md transition duration-300"
           >
-            Consult now
+            {{ t('about.cta') }}
           </NuxtLink>
         </div>
       </div>
@@ -141,7 +118,7 @@ useIntersectionObserver(
         <picture>
           <img
             :src="imageUrl[1]"
-            alt="About Us"
+            :alt="t('about.imageAlt')"
             class="rounded-xl shadow-lg object-cover w-full h-auto"
             loading="lazy"
             decoding="async"

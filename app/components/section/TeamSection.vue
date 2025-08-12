@@ -10,11 +10,14 @@ import TwitterIcon from '~/components/icon/TwitterIcon.vue'
 import WhatsappIcon from '~/components/icon/WhatsappIcon.vue'
 import FadeInOnScroll from '~/components/transition/FadeInOnScroll.vue'
 
+import { useI18n } from 'vue-i18n'
+const { t } = useI18n()
+
 const teamMembers = [
   {
-    name: 'Benjamin Miller',
-    position: 'Chief Engineering Officer',
-    bio: 'Morbi tempus iaculis urna id volutpat lacus laoreet non. Purus faucibus ornare suspendisse sed',
+    nameKey: 'team.members.benjamin.name',
+    positionKey: 'team.members.benjamin.position',
+    bioKey: 'team.members.benjamin.bio',
     imageWebp: team01[0],
     alt: 'Benjamin Miller',
     socials: [
@@ -25,9 +28,9 @@ const teamMembers = [
     ],
   },
   {
-    name: 'Stephanie Ramirez',
-    position: 'Marketing Manager',
-    bio: 'Gravida cum sociis natoque penatibus et magnis dis. Eu volutpat odio facilisis mauris. Vitae',
+    nameKey: 'team.members.stephanie.name',
+    positionKey: 'team.members.stephanie.position',
+    bioKey: 'team.members.stephanie.bio',
     imageWebp: team02[0],
     alt: 'Stephanie Ramirez',
     socials: [
@@ -38,9 +41,9 @@ const teamMembers = [
     ],
   },
   {
-    name: 'Jameson Smith',
-    position: 'Sales Manager',
-    bio: 'In hac habitasse platea dictumst vestibulum rhoncus est pellentesque. Nunc aliquet bibendum enim facilisis',
+    nameKey: 'team.members.jameson.name',
+    positionKey: 'team.members.jameson.position',
+    bioKey: 'team.members.jameson.bio',
     imageWebp: team03[0],
     alt: 'Jameson Smith',
     socials: [
@@ -51,9 +54,9 @@ const teamMembers = [
     ],
   },
   {
-    name: 'Miguel Rodriguez',
-    position: 'Chief Financial Officer',
-    bio: 'Mauris rhoncus aenean vel elit scelerisque mauris. Semper risus in hendrerit gravida rutrum quisque non tellus',
+    nameKey: 'team.members.miguel.name',
+    positionKey: 'team.members.miguel.position',
+    bioKey: 'team.members.miguel.bio',
     imageWebp: team04[0],
     alt: 'Miguel Rodriguez',
     socials: [
@@ -96,13 +99,13 @@ const teamMembers = [
           <!-- Content -->
           <div class="flex flex-col flex-grow p-6">
             <h4 class="text-lg md:text-xl font-semibold mb-1 text-white">
-              {{ member.name }}
+              {{ t(member.nameKey) }}
             </h4>
             <h5 class="text-emerald-400 text-sm md:text-base font-medium mb-3">
-              {{ member.position }}
+              {{ t(member.positionKey) }}
             </h5>
             <p class="text-gray-300 text-sm leading-relaxed mb-6">
-              {{ member.bio }}
+              {{ t(member.bioKey) }}
             </p>
 
             <!-- Socials -->

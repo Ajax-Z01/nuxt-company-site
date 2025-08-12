@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { useI18n } from 'vue-i18n'
 import tabs01 from '~/assets/img/tabs/01.webp?width=600;1200&format=webp&quality=70'
 import tabs02 from '~/assets/img/tabs/02.webp?width=600;1200&format=webp&quality=70'
 import tabs03 from '~/assets/img/tabs/03.webp?width=600;1200&format=webp&quality=70'
@@ -12,51 +13,32 @@ import { Pagination, Autoplay } from 'swiper/modules'
 import 'swiper/css'
 import 'swiper/css/pagination'
 
+const { t } = useI18n()
+
 const services = [
   {
-    title: 'Process Engineering',
+    key: 'processEngineering',
     imageWebp: tabs01[0],
-    description:
-      'Vitae ultricies leo integer malesuada nunc vel. Molestie ac feugiat sed lectus vestibulum mattis.',
-    points: [
-      'Making lives easier',
-      'Get every solution right here',
-      'Innovation and creativity',
-    ],
   },
   {
-    title: 'Chemistry and Metallurgy',
+    key: 'chemistryAndMetallurgy',
     imageWebp: tabs02[0],
-    description:
-      'Molestie ac feugiat sed lectus vestibulum mattis ullamcorper velit. Viverra aliquet eget sit amet.',
-    points: ['Precision science', 'Material excellence', 'Lab-to-site implementation'],
   },
   {
-    title: 'Electrical Engineering',
+    key: 'electricalEngineering',
     imageWebp: tabs03[0],
-    description:
-      'Engineering efficient and sustainable systems for energy distribution and automation.',
-    points: ['Smart systems', 'Sustainable energy', 'Future-ready solutions'],
   },
   {
-    title: 'Specialty Services',
+    key: 'specialtyServices',
     imageWebp: tabs04[0],
-    description: 'Viverra aliquet eget sit amet tellus cras adipiscing. Custom solutions for unique problems.',
-    points: ['Custom engineering', 'Expert consultants', 'Unique innovation'],
   },
   {
-    title: 'Civil Engineering',
+    key: 'civilEngineering',
     imageWebp: tabs05[0],
-    description:
-      'High-quality residential and commercial construction with durable materials and methods.',
-    points: ['Urban planning', 'Infrastructure design', 'Structural safety'],
   },
   {
-    title: 'Construction Management',
+    key: 'constructionManagement',
     imageWebp: tabs06[0],
-    description:
-      'Molestie ac feugiat sed lectus vestibulum mattis ullamcorper velit. Efficient project delivery.',
-    points: ['Budget control', 'Time efficiency', 'Professional oversight'],
   },
 ]
 </script>
@@ -71,10 +53,11 @@ const services = [
             class="text-sm font-semibold uppercase tracking-wider text-sky-400 flex items-center gap-2 max-w-max"
           >
             <span class="block w-6 h-0.5 bg-yellow-500 rounded"></span>
-            Just feel the future
+            {{ t('servicesSectionAbout.justFeelTheFuture') }}
           </p>
           <h2 class="text-4xl font-extrabold leading-tight">
-            Spotlight <span class="text-emerald-400">Services</span>
+            {{ t('servicesSectionAbout.spotlightServices') }} 
+            <span class="text-emerald-400">{{ t('servicesSectionAbout.servicesLabel', 'Services') }}</span>
           </h2>
         </div>
       </FadeInOnScroll>
@@ -92,8 +75,8 @@ const services = [
           data-aos="fade-up"
         >
           <SwiperSlide
-            v-for="(service, index) in services"
-            :key="index"
+            v-for="service in services"
+            :key="service.key"
             class="p-0"
             style="will-change: transform;"
           >
@@ -103,7 +86,7 @@ const services = [
                 <picture>
                   <img
                     :src="service.imageWebp"
-                    :alt="service.title"
+                    :alt="t(`servicesSectionAbout.services.${service.key}.title`)"
                     class="w-full object-cover aspect-[4/3] rounded-lg"
                     loading="lazy"
                     decoding="async"
@@ -114,26 +97,22 @@ const services = [
               <!-- Content -->
               <div class="main space-y-5 px-0 md:px-6">
                 <h3 class="text-4xl font-semibold tracking-tight">
-                  {{ service.title }}
+                  {{ t(`servicesSectionAbout.services.${service.key}.title`) }}
                 </h3>
                 <p class="text-gray-300 text-lg md:text-xl leading-relaxed">
-                  {{ service.description }}
+                  {{ t(`servicesSectionAbout.services.${service.key}.description`) }}
                 </p>
                 <ul class="list-disc list-inside space-y-3 text-gray-400 text-base md:text-lg">
-                  <li
-                    v-for="(item, i) in service.points"
-                    :key="i"
-                    class="hover:text-emerald-400 transition-colors cursor-default"
-                  >
-                    {{ item }}
+                  <li v-for="(label, key) in ['first', 'second', 'third']" :key="key">
+                    {{ t(`servicesSectionAbout.services.${service.key}.points.${label}`) }}
                   </li>
                 </ul>
                 <NuxtLink
-                  :to="`/services/${service.title.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z-]/g, '')}`"
+                  :to="`/services/${t(`servicesSectionAbout.services.${service.key}.slug`)}`"
                   class="inline-block mt-6 px-8 py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold rounded shadow-md transition"
-                  aria-label="Read more about {{ service.title }}"
+                  :aria-label="t('servicesSectionAbout.ariaLabelReadMore', { service: t(`servicesSectionAbout.services.${service.key}.title`) })"
                 >
-                  Read more
+                  {{ t('servicesSectionAbout.readMore') }}
                 </NuxtLink>
               </div>
             </div>

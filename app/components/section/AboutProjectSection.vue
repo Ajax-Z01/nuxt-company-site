@@ -5,6 +5,11 @@ import TwitterIcon from '~/components/icon/TwitterIcon.vue'
 import WhatsappIcon from '~/components/icon/WhatsappIcon.vue'
 import LinkedinIcon from '~/components/icon/LinkedinIcon.vue'
 
+import { computed } from 'vue'
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
+
 const iconsMap = {
   facebook: FacebookIcon,
   instagram: InstagramIcon,
@@ -105,7 +110,7 @@ const processedAboutSections = computed(() => {
           <!-- Project Details List -->
           <div v-if="detailsList.length" class="space-y-4">
             <h3 class="text-3xl font-semibold border-l-4 border-emerald-400 pl-4 mb-2">
-              Key Highlights
+              {{ t('aboutProjectSection.about.keyHighlights') }}
             </h3>
             <ul class="list-disc list-inside space-y-3 text-gray-700 dark:text-gray-300 text-lg">
               <li v-for="(detail, idx) in detailsList" :key="idx">
@@ -164,7 +169,7 @@ const processedAboutSections = computed(() => {
             <h3
               class="about_info-title title text-2xl font-bold mb-8 border-b border-gray-300 dark:border-gray-700 pb-4"
             >
-              Information About the Project
+              {{ t('aboutProjectSection.about.projectInformation') }}
             </h3>
             <div class="overflow-x-auto rounded-md">
               <table
@@ -198,7 +203,7 @@ const processedAboutSections = computed(() => {
               class="link link-arrow mt-8 inline-block text-emerald-500 hover:text-emerald-600 font-semibold transition-colors"
               aria-label="Order service link"
             >
-              Order service
+              {{ t('aboutProjectSection.about.orderService') }}
               <svg
                 class="inline-block w-5 h-5 ml-1"
                 fill="none"
@@ -220,15 +225,15 @@ const processedAboutSections = computed(() => {
             <h3
               class="about_contact-title title text-2xl font-bold mb-8 border-b border-emerald-600 pb-4"
             >
-              Are You Going to Implement Project?
+              {{ t('aboutProjectSection.about.contactQuestion') }}
             </h3>
             <ul class="contact-info space-y-6">
               <li class="contact-info_group">
-                <span class="name font-semibold block mb-1 text-lg">Address</span>
+                <span class="name font-semibold block mb-1 text-lg">{{ t('aboutProjectSection.contact.address') }}</span>
                 <span class="content text-lg">{{ contactInfo.address }}</span>
               </li>
               <li class="contact-info_group">
-                <span class="name font-semibold block mb-1 text-lg">Email</span>
+                <span class="name font-semibold block mb-1 text-lg">{{ t('aboutProjectSection.contact.email') }}</span>
                 <span class="content flex flex-col gap-2 text-lg">
                   <a
                     v-for="(email, idx) in contactInfo.emails"
@@ -241,7 +246,7 @@ const processedAboutSections = computed(() => {
                 </span>
               </li>
               <li class="contact-info_group">
-                <span class="name font-semibold block mb-1 text-lg">Phone</span>
+                <span class="name font-semibold block mb-1 text-lg">{{ t('aboutProjectSection.contact.phone') }}</span>
                 <span class="content flex flex-col gap-2 text-lg">
                   <a
                     v-for="(phone, idx) in contactInfo.phones"

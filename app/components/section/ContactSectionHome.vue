@@ -1,3 +1,9 @@
+<script setup lang="ts">
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
+</script>
+
 <template>
   <section class="py-20 bg-white dark:bg-gray-950">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -6,10 +12,10 @@
       <div class="mb-8 max-w-3xl">
         <p class="text-sm font-semibold uppercase tracking-wider text-sky-500 flex items-center gap-2">
           <span class="block w-6 h-0.5 bg-yellow-500"></span>
-          Contact us
+          {{ t('contact.subtitle') }}
         </p>
         <h2 class="mt-2 text-4xl font-extrabold text-gray-900 dark:text-white leading-tight">
-          <span class="text-emerald-500">Contacts</span> information
+          <span class="text-emerald-500">{{ t('contact.titleHighlight') }}</span> {{ t('contact.titleRest') }}
         </h2>
       </div>
 
@@ -18,23 +24,22 @@
         <!-- Left: Contact Info -->
         <div class="flex-1 max-w-3xl">
           <p class="mb-4 text-gray-700 dark:text-gray-300 max-w-2xl leading-relaxed">
-            Justo eget magna fermentum iaculis eu non diam phasellus vestibulum. Eu volutpat odio facilisis
-            mauris sit amet massa. Sit amet est placerat in egestas.
+            {{ t('contact.description') }}
           </p>
           <ul class="space-y-8">
             <li>
-              <p class="text-base font-semibold text-gray-900 dark:text-white">Address</p>
-              <p class="text-gray-700 dark:text-gray-300">2047 Cyrus Viaduct East Jadynchester</p>
+              <p class="text-base font-semibold text-gray-900 dark:text-white">{{ t('contact.addressLabel') }}</p>
+              <p class="text-gray-700 dark:text-gray-300">{{ t('contact.address') }}</p>
             </li>
             <li>
-              <p class="text-base font-semibold text-gray-900 dark:text-white">Email</p>
+              <p class="text-base font-semibold text-gray-900 dark:text-white">{{ t('contact.emailLabel') }}</p>
               <div class="flex flex-col">
                 <a href="mailto:info@construct.com" class="text-emerald-400 hover:underline">info@construct.com</a>
                 <a href="mailto:support@construct.com" class="text-emerald-400 hover:underline">support@construct.com</a>
               </div>
             </li>
             <li>
-              <p class="text-base font-semibold text-gray-900 dark:text-white">Phone</p>
+              <p class="text-base font-semibold text-gray-900 dark:text-white">{{ t('contact.phoneLabel') }}</p>
               <div class="flex flex-col">
                 <a href="tel:+13136453395" class="text-emerald-400 hover:underline">1 - 313 - 645 - 3395</a>
                 <a href="tel:+14699702609" class="text-emerald-400 hover:underline">1 - 469 - 970 - 2609</a>
@@ -77,7 +82,7 @@
             allowfullscreen
             loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"
-            title="Google Maps location of Jakarta Selatan"
+            :title="t('contact.mapTitle')"
             class="w-full h-full"
           ></iframe>
         </div>

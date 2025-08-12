@@ -9,8 +9,8 @@ export default defineNuxtConfig({
     '@vueuse/motion/nuxt',
     ['@nuxtjs/i18n', {
       locales: [
-        { code: 'en', iso: 'en-US', file: 'en.json' },
-        { code: 'id', iso: 'id-ID', file: 'id.json' }
+        { code: 'en', iso: 'en', file: 'en.json' },
+        { code: 'id', iso: 'id', file: 'id.json' }
       ],
       lazy: true,
       langDir: 'locales',
@@ -60,9 +60,6 @@ export default defineNuxtConfig({
   app: {
     head: {
       title: 'PT Ajaxteron Company',
-      htmlAttrs: {
-        lang: 'en',
-      },
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },

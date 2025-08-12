@@ -33,20 +33,11 @@ watch(isMobileMenuOpen, (open) => {
 })
 
 const { t } = useI18n()
-const localePath = useLocalePath()
+const localePath = useLocalePath() as (name: string, params?: Record<string, any>) => string
 
 function safeT(key: string): string {
-  try {
-    const value = t(key)
-    if (typeof value !== 'string') {
-      console.warn(`i18n key '${key}' is not a string or missing. Value:`, value)
-      return key
-    }
-    return value
-  } catch (e) {
-    console.warn(`i18n key '${key}' caused error:`, e)
-    return key
-  }
+  const value = t(key)
+  return typeof value === 'string' ? value : key
 }
 
 const links = computed(() => [
@@ -98,7 +89,11 @@ const links = computed(() => [
       </ul>
 
       <!-- Mobile Toggle -->
-      <button @click="toggleMobileMenu" class="md:hidden text-white relative z-[70]">
+      <button
+        @click="toggleMobileMenu"
+        class="md:hidden text-white relative z-[70]"
+        :aria-label="isMobileMenuOpen ? safeT('header.mobileMenu.close') : safeT('header.mobileMenu.open')"
+      >
         <svg
           v-if="!isMobileMenuOpen"
           class="w-6 h-6"

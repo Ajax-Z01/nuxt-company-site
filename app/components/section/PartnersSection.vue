@@ -1,12 +1,15 @@
 <script setup lang="ts">
 import { ref, onMounted, onBeforeUnmount } from 'vue'
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
 
 const partnerLogos = [
-  { src: '/svg/remedy.svg', alt: 'Remedy Engineering' },
-  { src: '/svg/brickblock.svg', alt: 'Brick & Block' },
-  { src: '/svg/stateofdesign.svg', alt: 'State of Design' },
-  { src: '/svg/arup.svg', alt: 'Arup' },
-  { src: '/svg/fluor.svg', alt: 'Fluor Corp.' },
+  { src: '/svg/remedy.svg', altKey: 'partners.remedy' },
+  { src: '/svg/brickblock.svg', altKey: 'partners.brickblock' },
+  { src: '/svg/stateofdesign.svg', altKey: 'partners.stateofdesign' },
+  { src: '/svg/arup.svg', altKey: 'partners.arup' },
+  { src: '/svg/fluor.svg', altKey: 'partners.fluor' },
 ]
 
 const isVisible = ref(false)
@@ -43,12 +46,12 @@ onBeforeUnmount(() => {
       <!-- Section Header -->
       <div class="mb-12">
         <p class="text-sm font-semibold uppercase tracking-wider text-sky-500 flex items-center gap-2">
-          <span class="block w-6 h-0.5 bg-yellow-500"></span>
-          Where we work
+          <span class="block w-6 h-0.5 bg-yellow-500 mr"></span>
+          {{ t('partners.whereWeWork') }}
         </p>
         <h2 class="mt-2 text-4xl font-extrabold leading-tight text-gray-900 dark:text-white">
-          <span class="text-emerald-500">Top Ranking</span>
-          <span class="text-gray-800 dark:text-gray-100"> Company</span>
+          <span class="text-emerald-500 mr-2">{{ t('partners.topRanking') }}</span>
+          <span class="text-gray-800 dark:text-gray-100"> {{ t('partners.company') }}</span>
         </h2>
       </div>
 
@@ -66,10 +69,10 @@ onBeforeUnmount(() => {
         >
           <img
             :src="logo.src"
-            :alt="logo.alt"
+            :alt="t(logo.altKey)"
             class="h-16 w-auto object-contain mb-4"
           />
-          <p class="text-sm font-semibold text-gray-800 dark:text-gray-700">{{ logo.alt }}</p>
+          <p class="text-sm font-semibold text-gray-800 dark:text-gray-700">{{ t(logo.altKey) }}</p>
         </div>
       </div>
     </div>

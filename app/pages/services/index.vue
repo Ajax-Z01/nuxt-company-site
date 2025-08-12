@@ -8,16 +8,20 @@ import AboutSectionService from '~/components/section/AboutSectionService.vue'
 import AboutSectionServiceRevert from '~/components/section/AboutSectionServiceRevert.vue'
 import ContactSectionService from '~/components/section/ContactSectionService.vue'
 
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
+
 const breadcrumbs = [
-  { text: 'Home', to: '/' },
-  { text: 'Services' },
+  { text: t('breadcrumbs.home'), to: '/' },
+  { text: t('breadcrumbs.services') },
 ]
 </script>
 
 <template>
   <HeaderPage
-    title="Our Services"
-    subtitle="What We Offer"
+    :title="t('servicesPage.title')"
+    :subtitle="t('servicesPage.subtitle')"
     :breadcrumbs="breadcrumbs"
     :imageUrl="imageUrl[0]"
   />

@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { useI18n } from 'vue-i18n'
 import FeatureCard from '~/components/card/FeatureCard.vue'
 import FadeInOnScroll from '~/components/transition/FadeInOnScroll.vue'
 
@@ -10,31 +11,33 @@ import {
   ServerIcon
 } from '@heroicons/vue/24/outline'
 
+const { t } = useI18n()
+
 const features = [
   {
     icon: BoltIcon,
-    title: 'Fast Performance',
-    description: 'Our system is optimized to deliver lightning fast speed and reliability.',
+    titleKey: 'features.fastPerformance.title',
+    descriptionKey: 'features.fastPerformance.description',
   },
   {
     icon: ShieldCheckIcon,
-    title: 'Secure',
-    description: 'We prioritize your security with industry-leading practices and encryption.',
+    titleKey: 'features.secure.title',
+    descriptionKey: 'features.secure.description',
   },
   {
     icon: Cog6ToothIcon,
-    title: 'Customizable',
-    description: 'Flexible configurations let you tailor the service to your exact needs.',
+    titleKey: 'features.customizable.title',
+    descriptionKey: 'features.customizable.description',
   },
   {
     icon: LockClosedIcon,
-    title: 'Reliable',
-    description: 'Built with robust architecture for consistent uptime and stability.',
+    titleKey: 'features.reliable.title',
+    descriptionKey: 'features.reliable.description',
   },
   {
     icon: ServerIcon,
-    title: 'Scalable',
-    description: 'Easily scale resources to handle growth without compromising performance.',
+    titleKey: 'features.scalable.title',
+    descriptionKey: 'features.scalable.description',
   },
 ]
 
@@ -59,48 +62,81 @@ const feature5 = features[4]!
                 class="text-sm font-semibold uppercase tracking-wider text-sky-500 flex items-center gap-2 max-w-max"
               >
                 <span class="block w-6 h-0.5 bg-yellow-500 rounded"></span>
-                Our Features
+                {{ t('features.header.label') }}
               </p>
 
               <h2
                 class="text-4xl font-extrabold leading-tight max-w-lg"
                 data-aos="fade-right"
               >
-                Discover the <span class="highlight text-emerald-400">Unique Features</span> That Make Us Stand Out
+                {{ t('features.header.title.before') }}
+                <span class="highlight text-emerald-400">{{ t('features.header.title.highlight') }}</span>
+                {{ t('features.header.title.after') }}
               </h2>
+
               <p
                 class="text-gray-400 max-w-lg"
                 data-aos="fade-up"
                 data-aos-delay="50"
               >
-                Discover the unique features that make our services stand out.
+                {{ t('features.header.description') }}
               </p>
             </div>
           </FadeInOnScroll>
 
           <!-- Feature 1 -->
           <FadeInOnScroll>
-            <FeatureCard :feature="feature1" />
+            <FeatureCard
+              :feature="{
+                icon: feature1.icon,
+                title: t(feature1.titleKey),
+                description: t(feature1.descriptionKey)
+              }"
+            />
           </FadeInOnScroll>
         </div>
 
         <!-- Kolom tengah: Feature 2 & 3 -->
         <div class="flex flex-col justify-between space-y-10">
           <FadeInOnScroll>
-            <FeatureCard :feature="feature2" />
+            <FeatureCard
+              :feature="{
+                icon: feature2.icon,
+                title: t(feature2.titleKey),
+                description: t(feature2.descriptionKey)
+              }"
+            />
           </FadeInOnScroll>
           <FadeInOnScroll>
-            <FeatureCard :feature="feature3" />
+            <FeatureCard
+              :feature="{
+                icon: feature3.icon,
+                title: t(feature3.titleKey),
+                description: t(feature3.descriptionKey)
+              }"
+            />
           </FadeInOnScroll>
         </div>
 
         <!-- Kolom kanan: Feature 4 & 5 -->
         <div class="flex flex-col justify-between space-y-10">
           <FadeInOnScroll>
-            <FeatureCard :feature="feature4" />
+            <FeatureCard
+              :feature="{
+                icon: feature4.icon,
+                title: t(feature4.titleKey),
+                description: t(feature4.descriptionKey)
+              }"
+            />
           </FadeInOnScroll>
           <FadeInOnScroll>
-            <FeatureCard :feature="feature5" />
+            <FeatureCard
+              :feature="{
+                icon: feature5.icon,
+                title: t(feature5.titleKey),
+                description: t(feature5.descriptionKey)
+              }"
+            />
           </FadeInOnScroll>
         </div>
       </div>

@@ -1,6 +1,9 @@
 <script lang="ts" setup>
 import { ref, onMounted } from 'vue'
+import { useI18n } from 'vue-i18n'
 import FadeInOnScroll from '~/components/transition/FadeInOnScroll.vue'
+
+const { t } = useI18n()
 
 const gearOuter = ref<SVGSVGElement | null>(null)
 const gearInner = ref<SVGSVGElement | null>(null)
@@ -9,11 +12,11 @@ onMounted(() => {
   let angleOuter = 0
   let angleInner = 0
 
-  let speed = 1         // current speed (deg per frame)
-  let targetSpeed = 1   // desired speed
+  let speed = 1
+  let targetSpeed = 1
   let minSpeed = 0
   let maxSpeed = 1
-  let easing = 0.05       // smooth interpolation factor (0-1)
+  let easing = 0.05 
 
   const animate = () => {
     speed += (targetSpeed - speed) * easing
@@ -41,7 +44,7 @@ onMounted(() => {
   }
 
   animate()
-  setTimeout(cycle, 4000) // mulai siklus pertama setelah 4s
+  setTimeout(cycle, 4000)
 })
 </script>
 
@@ -56,7 +59,7 @@ onMounted(() => {
           <div class="flex items-center gap-3">
             <span class="block w-10 h-0.5 bg-yellow-400"></span>
             <span class="text-white text-sm uppercase tracking-wider font-bold">
-              Who we are
+              {{ t('quote.subtitle') }}
             </span>
           </div>
         </FadeInOnScroll>
@@ -105,7 +108,7 @@ onMounted(() => {
             <h3
               class="relative font-sans font-bold text-3xl sm:text-4xl md:text-5xl leading-snug text-white text-left"
             >
-              True wealth grows from the soil of knowledge, is built with the strength of innovation, and nurtured by the hands of experience.
+              {{ t('quote.title') }}
             </h3>
           </FadeInOnScroll>
         </div>
@@ -115,7 +118,7 @@ onMounted(() => {
           <span
             class="block text-yellow-400 text-lg font-semibold tracking-wide text-left"
           >
-            — Benjamin Miller
+            — {{ t('quote.author') }}
           </span>
         </FadeInOnScroll>
       </div>

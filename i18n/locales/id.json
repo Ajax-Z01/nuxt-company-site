@@ -15,5 +15,529 @@
       "close": "Tutup menu",
       "open": "Buka menu"
     }
+  },
+  "footer": {
+    "logoAlt": "Logo Ajaxtreon",
+    "companyName": "Ajaxtreon",
+    "description": "Berkomitmen menghadirkan solusi rekayasa inovatif dan berkelanjutan yang memperkuat komunitas dan mendorong kemajuan.",
+    "contacts": {
+      "title": "Kontak",
+      "address": {
+        "line1": "2047 Cyrus Viaduct",
+        "line2": "East Jadynchester"
+      }
+    },
+    "companyLinks": {
+      "title": "Perusahaan",
+      "about": "Tentang",
+      "services": "Layanan",
+      "projects": "Proyek",
+      "blog": "Blog"
+    },
+    "newsletter": {
+      "title": "Berlangganan Berita Kami",
+      "description": "Terima pembaruan tentang proyek terbaru, berita industri, dan penawaran eksklusif.",
+      "placeholder": "Masukkan email Anda",
+      "button": "Berlangganan"
+    },
+    "copyright": "PT Ajaxtreon — Hak cipta dilindungi © {year}"
+  },
+  "breadcrumbs": {
+    "home": "Beranda",
+    "team": "Tim",
+    "blog": "Blog",
+    "contact": "Kontak",
+    "about": "Tentang",
+    "services": "Layanan",
+    "projects": "Proyek"
+  },
+  "teamPage": {
+    "title": "Temui Tim Kami",
+    "subtitle": "Profesional Berdedikasi Menghadirkan Keunggulan"
+  },
+  "contactPage": {
+    "title": "Hubungi Kami",
+    "subtitle": "Kami Siap Membantu"
+  },
+  "aboutPage": {
+    "title": "Tentang Kami",
+    "subtitle": "Cerita dan Misi Kami"
+  },
+  "blogPage": {
+    "title": "Blog",
+    "subtitle": "Wawasan dan Pembaruan",
+    "postsTitle": "Posting Terbaru",
+    "postsSubtitle": "Jelajahi wawasan ahli, cerita, dan berita industri."
+  },
+  "pagination": {
+    "previous": "Sebelumnya",
+    "next": "Berikutnya"
+  },
+  "projectsPage": {
+    "title": "Proyek Kami",
+    "subtitle": "Membangun Komunitas Berkelanjutan"
+  },
+  "servicesPage": {
+    "title": "Layanan Kami",
+    "subtitle": "Solusi Rekayasa untuk Kebutuhan Anda"
+  },
+  "about": {
+    "subtitle": "Siapa Kami",
+    "title": {
+      "part1": "Mewujudkan",
+      "highlight": "Ide Anda",
+      "part2": "Dengan Inovasi"
+    },
+    "description": "Kami menyediakan layanan rekayasa sipil dan struktural yang berfokus pada solusi berkelanjutan, kreatif, dan efisien untuk memberdayakan komunitas.",
+    "checklist": {
+      "livesEasier": "Membuat Hidup Lebih Mudah",
+      "everySolution": "Solusi Komprehensif di Bawah Satu Atap",
+      "innovation": "Menggerakkan Inovasi dan Kreativitas",
+      "fineEngineering": "Keunggulan Teknik Presisi"
+    },
+    "cta": "Konsultasi Sekarang",
+    "imageAlt": "Tentang Kami"
+  },
+  "partners": {
+    "whereWeWork": "Mitra Kami",
+    "topRanking": "Mitra Industri Teratas",
+    "company": "Perusahaan",
+    "remedy": "Remedy Engineering",
+    "brickblock": "Brick & Block",
+    "stateofdesign": "State of Design",
+    "arup": "Arup",
+    "fluor": "Fluor Corp."
+  },
+  "aboutsectionhome": {
+    "achievements": {
+      "successProjects": "Proyek Selesai dengan Sukses",
+      "simplicityDesign": "Desain Menggabungkan Kesederhanaan dan Praktikalitas",
+      "constructionControl": "Kontrol Konstruksi Ketat dan Jaminan Kualitas"
+    },
+    "stats": {
+      "activeProjects": "Proyek Sipil Aktif",
+      "approvalRate": "Tingkat Persetujuan Pengendalian Bangunan Tinggi"
+    },
+    "imageAlt": "Lokasi Konstruksi",
+    "subtitle": "Membentuk Masa Depan",
+    "heading": {
+      "strong": "Mewujudkan Ide Anda",
+      "normal": "Dengan Inovasi"
+    },
+    "description": "Tim kami menggabungkan keahlian, teknologi, dan kreativitas untuk memberikan hasil rekayasa dan konstruksi luar biasa yang sesuai kebutuhan Anda.",
+    "cta": "Tentang Perusahaan"
+  },
+  "sustainableConstruction": {
+    "header": {
+      "subtitle": "Konstruksi Berkelanjutan",
+      "titleBefore": "Mengapa Memilih",
+      "titleHighlight": "Kami"
+    },
+    "description": "Kami menekankan praktik ramah lingkungan dan nilai jangka panjang dalam semua proyek rekayasa dan konstruksi kami.",
+    "stats": {
+      "completedProjects": "Proyek Selesai per Tahun",
+      "turnover": "Omset Jutaan Euro Tahun 2020",
+      "approvalRate": "Tingkat Persetujuan Pengendalian Bangunan",
+      "activeProjects": "Proyek Rekayasa Berjalan"
+    },
+    "advantages": {
+      "uniqueProjects": {
+        "title": "Solusi Khusus",
+        "description": "Setiap proyek disesuaikan untuk memenuhi kebutuhan klien dengan kualitas luar biasa."
+      },
+      "valueConvenience": {
+        "title": "Nilai & Efisiensi",
+        "description": "Solusi hemat biaya tanpa mengorbankan kualitas atau jadwal."
+      },
+      "implementIdeas": {
+        "title": "Implementasi Inovatif",
+        "description": "Mengubah ide baru menjadi realitas rekayasa praktis."
+      }
+    }
+  },
+  "process": {
+    "header": {
+      "subtitle": "Proses Kami",
+      "titleBefore": "Proses Bekerja",
+      "titleHighlight": "Dengan Kami"
+    },
+    "steps": {
+      "leaveRequest": {
+        "title": "Kirim Permintaan",
+        "description": "Bagikan kebutuhan proyek Anda dan dapatkan panduan ahli."
+      },
+      "costCalculation": {
+        "title": "Estimasi Biaya",
+        "description": "Anggaran transparan dan rinci sesuai proyek Anda."
+      },
+      "signingContract": {
+        "title": "Penandatanganan Kontrak",
+        "description": "Finalisasi persyaratan dan jadwal proyek yang jelas."
+      },
+      "executionWorks": {
+        "title": "Pelaksanaan Proyek",
+        "description": "Mewujudkan proyek Anda dengan ketelitian dan profesionalisme."
+      }
+    }
+  },
+  "feedbacks": {
+    "sectionTitle": "Umpan Balik Klien",
+    "titlePart1": "Apa",
+    "titleHighlight": "Klien Kami",
+    "titlePart2": "Katakan Tentang Kami",
+    "description": "Baca apa kata klien tentang pengalaman mereka bekerja bersama kami.",
+    "cta": "Konsultasi Sekarang",
+    "rene": {
+      "main": "Ajaxtreon menyelesaikan proyek kami tepat waktu dan melebihi ekspektasi kualitas. Profesionalisme mereka luar biasa.",
+      "name": "Rene Rodriguez",
+      "company": "Acelerisque"
+    },
+    "john": {
+      "main": "Tim yang sangat terampil dan efisien. Saya sangat merekomendasikan layanan rekayasa mereka.",
+      "name": "John Smith",
+      "company": "Loremipsum"
+    },
+    "marta": {
+      "main": "Perhatian mereka terhadap detail dan solusi inovatif membuat proyek kami sukses besar.",
+      "name": "Marta Diaz",
+      "company": "Qwerty"
+    },
+    "victor": {
+      "main": "Dapat diandalkan, profesional, dan mudah diajak bekerja sama sepanjang proyek.",
+      "name": "Victor Adams",
+      "company": "Dolorsitamet"
+    },
+    "sarah": {
+      "main": "Komunikasi sangat baik dan hasil luar biasa dari tim Ajaxtreon.",
+      "name": "Sarah Doe",
+      "company": "Companyname"
+    }
+  },
+  "gallery": {
+    "subtitle": "Karya Kami",
+    "titleBefore": "Galeri",
+    "titleHighlight": "Proyek",
+    "projectLabel": "Proyek"
+  },
+  "contact": {
+    "subtitle": "Hubungi Kami",
+    "titleHighlight": "Informasi",
+    "titleRest": "Kontak",
+    "description": "Kami siap menjawab pertanyaan Anda dan membantu kebutuhan rekayasa Anda. Hubungi kapan saja.",
+    "addressLabel": "Alamat",
+    "address": "2047 Cyrus Viaduct East Jadynchester",
+    "emailLabel": "Email",
+    "phoneLabel": "Telepon",
+    "mapTitle": "Lokasi Google Maps Jakarta Selatan"
+  },
+  "servicesSectionAbout": {
+    "justFeelTheFuture": "Rasakan Masa Depan",
+    "spotlightServices": "Layanan Unggulan",
+    "servicesLabel": "Layanan",
+    "services": {
+      "processEngineering": {
+        "title": "Rekayasa Proses",
+        "slug": "process-engineering",
+        "description": "Kami mengoptimalkan proses industri untuk meningkatkan efisiensi dan keberlanjutan.",
+        "points": {
+          "first": "Menyederhanakan operasi",
+          "second": "Solusi komprehensif",
+          "third": "Pendekatan inovatif"
+        }
+      },
+      "chemistryAndMetallurgy": {
+        "title": "Kimia dan Metalurgi",
+        "slug": "chemistry-and-metallurgy",
+        "description": "Keahlian dalam ilmu material untuk memastikan kualitas dan daya tahan.",
+        "points": {
+          "first": "Analisis presisi",
+          "second": "Keunggulan material",
+          "third": "Riset terapan"
+        }
+      },
+      "electricalEngineering": {
+        "title": "Rekayasa Listrik",
+        "slug": "electrical-engineering",
+        "description": "Merancang distribusi energi dan sistem otomasi yang efisien.",
+        "points": {
+          "first": "Teknologi pintar",
+          "second": "Energi berkelanjutan",
+          "third": "Solusi masa depan"
+        }
+      },
+      "specialtyServices": {
+        "title": "Layanan Khusus",
+        "slug": "specialty-services",
+        "description": "Solusi rekayasa khusus untuk tantangan unik.",
+        "points": {
+          "first": "Rekayasa yang disesuaikan",
+          "second": "Konsultasi ahli",
+          "third": "Desain inovatif"
+        }
+      },
+      "civilEngineering": {
+        "title": "Rekayasa Sipil",
+        "slug": "civil-engineering",
+        "description": "Pengembangan infrastruktur residensial dan komersial berkualitas.",
+        "points": {
+          "first": "Perencanaan kota",
+          "second": "Desain infrastruktur",
+          "third": "Keamanan dan daya tahan"
+        }
+      },
+      "constructionManagement": {
+        "title": "Manajemen Konstruksi",
+        "slug": "construction-management",
+        "description": "Pengiriman proyek efisien dengan pengelolaan anggaran dan waktu.",
+        "points": {
+          "first": "Pengawasan anggaran",
+          "second": "Penyelesaian tepat waktu",
+          "third": "Pengawasan profesional"
+        }
+      }
+    },
+    "readMore": "Baca Selengkapnya",
+    "ariaLabelReadMore": "Baca selengkapnya tentang {service}"
+  },
+  "features": {
+    "header": {
+      "label": "Fitur Kami",
+      "title": {
+        "before": "Temukan",
+        "highlight": "Fitur Unik",
+        "after": "Yang Membuat Kami Berbeda"
+      },
+      "description": "Jelajahi kualitas luar biasa yang membuat layanan kami menonjol."
+    },
+    "fastPerformance": {
+      "title": "Performa Cepat",
+      "description": "Sistem kami dirancang untuk kecepatan dan keandalan memenuhi kebutuhan Anda."
+    },
+    "secure": {
+      "title": "Aman",
+      "description": "Kami memastikan data dan proyek Anda terlindungi dengan keamanan terbaik."
+    },
+    "customizable": {
+      "title": "Dapat Disesuaikan",
+      "description": "Layanan fleksibel yang disesuaikan dengan kebutuhan unik Anda."
+    },
+    "reliable": {
+      "title": "Terpercaya",
+      "description": "Arsitektur kuat menjamin uptime konsisten dan performa stabil."
+    },
+    "scalable": {
+      "title": "Mudah Diperluas",
+      "description": "Skalakan sumber daya dengan mudah seiring pertumbuhan proyek tanpa kehilangan efisiensi."
+    }
+  },
+  "reviews": {
+    "header": {
+      "label": "Ulasan Klien",
+      "title": {
+        "before": "Apa",
+        "highlight": "Kata Klien",
+        "after": ""
+      },
+      "description": "Masukan berharga dari klien yang membantu kami terus meningkatkan."
+    },
+    "list": [
+      {
+        "text": "Layanan luar biasa dan tim profesional yang melebihi harapan kami.",
+        "name": "Vera Robinson",
+        "details": "Psikolog"
+      },
+      {
+        "text": "Insinyur yang efisien dan dapat diandalkan yang menyelesaikan proyek tepat waktu.",
+        "name": "Benjamin Norris",
+        "details": "Analis Bisnis"
+      },
+      {
+        "text": "Solusi inovatif dan perhatian besar terhadap detail sepanjang proyek.",
+        "name": "Lisa Smith",
+        "details": "Manajer"
+      },
+      {
+        "text": "Pendekatan profesional dan komunikasi konsisten membuat proses berjalan lancar.",
+        "name": "Lucas Perry",
+        "details": "Analis"
+      }
+    ]
+  },
+  "servicesSection": {
+    "label": "Apa yang Kami Tawarkan",
+    "title": {
+      "before": "Layanan",
+      "highlight": "Kami",
+      "after": ""
+    },
+    "description": "Jelajahi rangkaian lengkap layanan rekayasa dan konstruksi yang dirancang sesuai kebutuhan Anda.",
+    "details": "Detail",
+    "readMoreAria": "Baca selengkapnya tentang {service}",
+    "services": {
+      "processEngineering": {
+        "title": "Rekayasa Proses",
+        "slug": "process-engineering",
+        "description": "Kami mengoptimalkan proses industri untuk meningkatkan efisiensi dan keberlanjutan."
+      },
+      "chemistryAndMetallurgy": {
+        "title": "Kimia dan Metalurgi",
+        "slug": "chemistry-and-metallurgy",
+        "description": "Keahlian dalam ilmu material untuk memastikan kualitas dan daya tahan."
+      },
+      "electricalEngineering": {
+        "title": "Rekayasa Listrik",
+        "slug": "electrical-engineering",
+        "description": "Merancang distribusi energi dan sistem otomasi yang efisien."
+      },
+      "specialtyServices": {
+        "title": "Layanan Khusus",
+        "slug": "specialty-services",
+        "description": "Solusi rekayasa khusus untuk tantangan unik."
+      },
+      "civilEngineering": {
+        "title": "Rekayasa Sipil",
+        "slug": "civil-engineering",
+        "description": "Pengembangan infrastruktur residensial dan komersial berkualitas."
+      },
+      "constructionManagement": {
+        "title": "Manajemen Konstruksi",
+        "slug": "construction-management",
+        "description": "Pengiriman proyek efisien dengan pengelolaan anggaran dan waktu."
+      }
+    }
+  },
+  "statsSection": {
+    "label": "Apa yang Kami Kerjakan",
+    "title": {
+      "before": "Membangun Masa Depan dengan",
+      "highlight": "Dasar Keunggulan",
+      "after": ""
+    },
+    "description": "Kami menggabungkan keahlian dan inovasi untuk menghasilkan proyek rekayasa luar biasa yang membentuk dunia."
+  },
+  "stats": {
+    "buildingControlApprovalRate": "Tingkat Persetujuan\nPengendalian Bangunan",
+    "activeProjectsConstructionManagement": "Proyek Aktif di\nManajemen Konstruksi",
+    "completedProjectsPerYear": "Proyek Selesai\nPer Tahun",
+    "millionEurosTurnover2020": "Omset Jutaan Euro\nTahun 2020"
+  },
+  "aboutSectionService": {
+    "header": {
+      "subLabel": "Pilihan Anda, Komitmen Kami",
+      "title": {
+        "part1": "Memecahkan Masalah Dengan Bantuan ",
+        "highlight": "Para Ahli",
+        "part2": ""
+      },
+      "description": "Kami membawa puluhan tahun pengalaman untuk memberikan solusi yang melebihi harapan dan memberikan nilai nyata."
+    },
+    "achievements": {
+      "successfullyCompletedProjects": "Proyek Selesai dengan Sukses",
+      "simplicityInDesign": "Kesederhanaan dalam Desain dengan Fokus Praktis",
+      "highLevelConstructionControl": "Tingkat Persetujuan Pengendalian Konstruksi Tinggi"
+    }
+  },
+  "aboutSectionServiceRevert": {
+    "skills": {
+      "subtitle": "Berkomitmen pada Kualitas",
+      "title": {
+        "part1": "Kualitas Terpercaya Selama ",
+        "highlight": "20 Tahun"
+      },
+      "description": "Tim berdedikasi kami menjamin standar tinggi dan hasil yang dapat diandalkan di semua proyek.",
+      "industry": "Industri",
+      "engineering": "Rekayasa",
+      "factory": "Pabrik",
+      "construction": "Konstruksi"
+    }
+  },
+  "contactSection": {
+    "contactUs": "Hubungi Kami",
+    "title": {
+      "part1": "Punya",
+      "highlight": "Pertanyaan?"
+    },
+    "description": "Kami siap membantu. Isi formulir dan tim kami akan merespon dengan cepat.",
+    "form": {
+      "fullName": "Nama Lengkap",
+      "phone": "Nomor Telepon",
+      "email": "Alamat Email",
+      "message": "Pesan Anda",
+      "sendMessage": "Kirim Pesan"
+    },
+    "projectQuestion": "Berencana Memulai Proyek?",
+    "address": {
+      "label": "Alamat",
+      "content": "2047 Cyrus Viaduct East Jadynchester"
+    },
+    "email": {
+      "label": "Email"
+    },
+    "phone": {
+      "label": "Telepon"
+    }
+  },
+  "team": {
+    "members": {
+      "benjamin": {
+        "name": "Benjamin Miller",
+        "position": "Kepala Insinyur Teknik",
+        "bio": "Pemimpin berpengalaman khusus di bidang teknik sipil dan manajemen proyek."
+      },
+      "stephanie": {
+        "name": "Stephanie Ramirez",
+        "position": "Manajer Pemasaran",
+        "bio": "Terampil dalam strategi pasar dan komunikasi klien dengan semangat untuk pertumbuhan."
+      },
+      "jameson": {
+        "name": "Jameson Smith",
+        "position": "Manajer Penjualan",
+        "bio": "Berkomitmen pada kepuasan klien dan pengembangan bisnis."
+      },
+      "miguel": {
+        "name": "Miguel Rodriguez",
+        "position": "Kepala Keuangan",
+        "bio": "Ahli perencanaan keuangan dan menjaga kesehatan fiskal perusahaan."
+      }
+    }
+  },
+  "aboutProjectSection": {
+    "about": {
+      "keyHighlights": "Sorotan Utama",
+      "projectInformation": "Detail Proyek",
+      "orderService": "Pesan Layanan",
+      "contactQuestion": "Siap Mengimplementasikan Proyek Anda?"
+    },
+    "contact": {
+      "address": "Alamat",
+      "email": "Email",
+      "phone": "Telepon"
+    }
+  },
+  "infoSection": {
+    "information": "Informasi",
+    "contacts": "Kontak",
+    "informationLower": "informasi",
+    "address": "Alamat",
+    "email": "Email",
+    "phone": "Telepon",
+    "loadMap": "Muat Peta Google",
+    "staticMapAlt": "Peta statis Jakarta Selatan",
+    "loadingMap": "Memuat peta..."
+  },
+  "blogSidebar": {
+    "searchPlaceholder": "Cari...",
+    "search": "Cari",
+    "categories": "Kategori",
+    "newsletterTitle": "Berlangganan Berita Kami",
+    "newsletterDescription": "Tetap diperbarui dengan posting terbaru dan berita perusahaan.",
+    "newsletterEmailPlaceholder": "Email Anda",
+    "subscribe": "Berlangganan",
+    "tags": "Tag"
+  },
+  "quote": {
+    "subtitle": "Siapa kami",
+    "title": "Kekayaan sejati tumbuh dari tanah pengetahuan, dibangun dengan kekuatan inovasi, dan dipelihara oleh tangan pengalaman.",
+    "author": "Benjamin Miller"
   }
 }

@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import map from '~/assets/img/map.webp?width=600;1200&format=webp&quality=70'
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
 
 const mapLoaded = ref(false)
 const showIframe = ref(false)
@@ -23,16 +26,12 @@ onMounted(() => {
     <div class="container max-w-7xl mx-auto px-4">
       <!-- Header -->
       <div class="mb-8 max-w-3xl" data-aos="fade-right">
-        <p
-          class="text-sm font-semibold uppercase tracking-wider text-sky-500 flex items-center gap-2"
-        >
+        <p class="text-sm font-semibold uppercase tracking-wider text-sky-500 flex items-center gap-2">
           <span class="block w-6 h-0.5 bg-yellow-500 rounded"></span>
-            Information
+          {{ t('infoSection.information') }}
         </p>
-        <h2
-          class="mt-2 text-4xl font-extrabold text-gray-900 leading-tight"
-        >
-          <span class="text-emerald-500">Contacts</span> information
+        <h2 class="mt-2 text-4xl font-extrabold text-gray-900 leading-tight">
+          <span class="text-emerald-500">{{ t('infoSection.contacts') }}</span> {{ t('infoSection.informationLower') }}
         </h2>
       </div>
 
@@ -43,7 +42,7 @@ onMounted(() => {
         >
           <div class="wrapper flex items-center gap-4">
             <i class="icon-location text-emerald-500 text-3xl"></i>
-            <h4 class="title text-xl font-semibold text-gray-900">Address</h4>
+            <h4 class="title text-xl font-semibold text-gray-900">{{ t('infoSection.address') }}</h4>
           </div>
           <span class="content text-gray-700 leading-relaxed">
             2047 Cyrus Viaduct East Jadynchester
@@ -56,7 +55,7 @@ onMounted(() => {
         >
           <div class="wrapper flex items-center gap-4">
             <i class="icon-inbox text-emerald-500 text-3xl"></i>
-            <h4 class="title text-xl font-semibold text-gray-900">Email</h4>
+            <h4 class="title text-xl font-semibold text-gray-900">{{ t('infoSection.email') }}</h4>
           </div>
           <span
             class="content flex flex-col space-y-1 text-emerald-400 text-base font-semibold"
@@ -76,7 +75,7 @@ onMounted(() => {
         >
           <div class="wrapper flex items-center gap-4">
             <i class="icon-call text-emerald-500 text-3xl"></i>
-            <h4 class="title text-xl font-semibold text-gray-900">Phone</h4>
+            <h4 class="title text-xl font-semibold text-gray-900">{{ t('infoSection.phone') }}</h4>
           </div>
           <span
             class="content flex flex-col space-y-1 text-emerald-400 text-base font-semibold"
@@ -98,12 +97,12 @@ onMounted(() => {
         @keydown.enter="loadMap"
         tabindex="0"
         role="button"
-        aria-label="Load Google Map"
+        :aria-label="t('infoSection.loadMap')"
         data-aos="fade-up"
       >
         <img
           :src="map[0]"
-          alt="Static map of Jakarta Selatan"
+          :alt="t('infoSection.staticMapAlt')"
           class="w-full h-full object-cover"
           loading="lazy"
           decoding="async"
@@ -124,7 +123,7 @@ onMounted(() => {
           v-if="showIframe && !mapLoaded"
           class="absolute inset-0 flex justify-center items-center bg-white bg-opacity-70"
         >
-          <span class="text-gray-700">Loading map...</span>
+          <span class="text-gray-700">{{ t('infoSection.loadingMap') }}</span>
         </div>
       </div>
     </div>

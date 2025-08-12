@@ -1,7 +1,10 @@
 <script setup lang="ts">
 import { computed, onMounted } from 'vue'
+import { useI18n } from 'vue-i18n'
 import FadeInOnScroll from '~/components/transition/FadeInOnScroll.vue'
 import { useProjects } from '~/composables/useProjects'
+
+const { t } = useI18n()
 
 const { fetchAll, projects, getImageUrl } = useProjects()
 
@@ -23,7 +26,7 @@ const galleryItems = computed(() => {
         webp: imageUrl,
         full: imageUrl,
         caption: project.title,
-        label: project.info?.Type || 'Project',
+        label: project.info?.Type || t('gallery.projectLabel'),
       }
     })
 })
@@ -37,10 +40,11 @@ const galleryItems = computed(() => {
         <FadeInOnScroll>
           <p class="text-sm font-semibold uppercase tracking-wider text-sky-500 flex items-center gap-2">
             <span class="block w-6 h-0.5 bg-yellow-500"></span>
-            What we do
+            {{ t('gallery.subtitle') }}
           </p>
-          <h2 class="mt-2 text-4xl font-extrabold text-gray-100 leading-tight">
-            Our <span class="text-emerald-400">Gallery</span>
+          <h2 class="mt-2 text-4xl font-extrabold text-gray-900 dark:text-white leading-tight">
+            {{ t('gallery.titleBefore') }}
+            <span class="text-emerald-400">{{ t('gallery.titleHighlight') }}</span>
           </h2>
         </FadeInOnScroll>
       </div>

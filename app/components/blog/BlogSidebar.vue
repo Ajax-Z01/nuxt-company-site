@@ -3,6 +3,11 @@ import { onMounted } from 'vue'
 import { useCategories } from '~/composables/useCategories'
 import { useTags } from '~/composables/useTags'
 import { MagnifyingGlassIcon } from '@heroicons/vue/24/solid'
+import { useI18n } from 'vue-i18n'
+import { useLocalePath } from '#i18n'
+
+const localePath = useLocalePath()
+const { t } = useI18n()
 
 const { categories, fetchCategories } = useCategories()
 const { tags, fetchTags } = useTags()
@@ -16,15 +21,16 @@ onMounted(() => {
 <template>
   <aside class="space-y-8">
     <!-- Search -->
-    <form class="relative mb-6">
+    <form class="relative mb-6" @submit.prevent>
       <input
         type="text"
-        placeholder="Search..."
+        :placeholder="t('blogSidebar.searchPlaceholder')"
         class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:border-transparent"
       />
       <button
         type="submit"
         class="absolute right-3 top-2.5 text-gray-400 hover:text-emerald-500"
+        :aria-label="t('blogSidebar.search')"
       >
         <MagnifyingGlassIcon class="w-5 h-5" />
       </button>
@@ -32,11 +38,11 @@ onMounted(() => {
 
     <!-- Categories -->
     <div class="bg-white rounded-xl shadow p-6 mb-6" v-if="categories.length">
-      <h3 class="text-lg font-semibold text-gray-900 mb-4">Categories</h3>
+      <h3 class="text-lg font-semibold text-gray-900 mb-4">{{ t('blogSidebar.categories') }}</h3>
       <ul class="flex flex-wrap gap-3">
         <li v-for="category in categories" :key="category.id">
           <NuxtLink
-            :to="`/blog/category/${category.slug}`"
+           :to="localePath(`/blog/category/${category.slug}`)"
             class="block text-sm bg-gray-200 text-gray-800 px-4 py-1 rounded-full hover:bg-emerald-600 hover:text-white transition-colors duration-300 cursor-pointer select-none"
           >
             {{ category.name }}
@@ -47,33 +53,33 @@ onMounted(() => {
 
     <!-- Newsletter -->
     <div class="bg-white rounded-xl shadow p-6 mb-6">
-      <h3 class="text-lg font-semibold text-gray-900 mb-4">Subscribe to our news</h3>
+      <h3 class="text-lg font-semibold text-gray-900 mb-4">{{ t('blogSidebar.newsletterTitle') }}</h3>
       <p class="text-sm text-gray-600 mb-6 leading-relaxed">
-        Stay updated with our latest posts and updates.
+        {{ t('blogSidebar.newsletterDescription') }}
       </p>
-      <form class="flex flex-col gap-3">
+      <form class="flex flex-col gap-3" @submit.prevent>
         <input
           type="email"
-          placeholder="Your email"
+          :placeholder="t('blogSidebar.newsletterEmailPlaceholder')"
           class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:border-transparent"
         />
         <button
           type="submit"
           class="bg-emerald-600 text-white py-2 rounded-md hover:bg-emerald-700 transition"
         >
-          Subscribe
+          {{ t('blogSidebar.subscribe') }}
         </button>
       </form>
     </div>
 
     <!-- Tags -->
     <div class="bg-white rounded-xl shadow p-6" v-if="tags.length">
-      <h3 class="text-lg font-semibold text-gray-900 mb-4">Tags</h3>
+      <h3 class="text-lg font-semibold text-gray-900 mb-4">{{ t('blogSidebar.tags') }}</h3>
       <div class="flex flex-wrap gap-3">
         <NuxtLink
           v-for="tag in tags"
           :key="tag.id"
-          :to="`/blog/tag/${tag.slug}`"
+          :to="localePath(`/blog/tag/${tag.slug}`)"
           class="block text-sm bg-gray-200 text-gray-800 px-4 py-1 rounded-full hover:bg-emerald-600 hover:text-white transition-colors duration-300 cursor-pointer select-none"
         >
           {{ tag.name }}

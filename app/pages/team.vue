@@ -3,17 +3,20 @@ import imageUrl from '~/assets/img/plan.webp?width=600;1200&format=webp&quality=
 
 import HeaderPage from '@/components/HeaderPage.vue'
 import TeamSection from '@/components/section/TeamSection.vue'
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
 
 const breadcrumbs = [
-  { text: 'Home', to: '/' },
-  { text: 'Team' },
+  { text: t('breadcrumbs.home'), to: '/' },
+  { text: t('breadcrumbs.team') },
 ]
 </script>
 
 <template>
   <HeaderPage
-    title="Meet Our Team"
-    subtitle="The People Behind Our Success"
+    :title="t('teamPage.title')"
+    :subtitle="t('teamPage.subtitle')"
     :breadcrumbs="breadcrumbs"
     :imageUrl="imageUrl[0]"
   />

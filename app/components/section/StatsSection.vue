@@ -4,6 +4,9 @@ import { useIntersectionObserver } from '@vueuse/core'
 import StatsGridSmall from '~/components/stat/StatsGridSmall.vue'
 import FadeInOnScroll from '~/components/transition/FadeInOnScroll.vue'
 import VideoSection from '~/components/section/VideoSection.vue'
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
 
 const statsInView = ref(false)
 const statsRef = ref<HTMLElement | null>(null)
@@ -19,19 +22,19 @@ useIntersectionObserver(statsRef, ([entry]) => {
 const stats = [
   {
     value: '99%',
-    label: 'Building Control\nApproval Rate',
+    labelKey: 'stats.buildingControlApprovalRate',
   },
   {
     value: '320+',
-    label: 'Active Projects in\nConstruction Management',
+    labelKey: 'stats.activeProjectsConstructionManagement',
   },
   {
     value: '200+',
-    label: 'Completed Projects\nEvery Year',
+    labelKey: 'stats.completedProjectsPerYear',
   },
   {
     value: '4.253',
-    label: 'Million Euros Turnover\nin 2020',
+    labelKey: 'stats.millionEurosTurnover2020',
   },
 ]
 </script>
@@ -44,15 +47,19 @@ const stats = [
         <!-- Header -->
         <FadeInOnScroll>
           <div class="space-y-4" data-aos="fade-right">
-            <p class="text-sm font-semibold uppercase tracking-wider text-sky-400 flex items-center gap-2">
+            <p
+              class="text-sm font-semibold uppercase tracking-wider text-sky-400 flex items-center gap-2"
+            >
               <span class="block w-6 h-0.5 bg-yellow-500 rounded"></span>
-              What we do
+              {{ t('statsSection.label') }}
             </p>
             <h2 class="text-4xl md:text-5xl font-extrabold leading-tight">
-              Building The Future on a <span class="text-emerald-400">Foundation of Excellence</span>
+              {{ t('statsSection.title.before') }}
+              <span class="text-emerald-400">{{ t('statsSection.title.highlight') }}</span>
+              {{ t('statsSection.title.after') }}
             </h2>
             <p class="text-gray-400 text-base md:text-lg">
-              Risus commodo viverra maecenas accumsan lacus vel. Semper viverra nam libero justo laoreet sit amet cursus.
+              {{ t('statsSection.description') }}
             </p>
           </div>
         </FadeInOnScroll>
@@ -60,7 +67,10 @@ const stats = [
         <!-- Stats -->
         <FadeInOnScroll>
           <div ref="statsRef">
-            <StatsGridSmall :stats="stats" :isActive="statsInView" />
+            <StatsGridSmall
+              :stats="stats.map(s => ({ value: s.value, label: t(s.labelKey) }))"
+              :isActive="statsInView"
+            />
           </div>
         </FadeInOnScroll>
       </div>

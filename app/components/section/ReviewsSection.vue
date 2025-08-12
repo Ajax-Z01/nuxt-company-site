@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { useI18n } from 'vue-i18n'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import { Navigation, Autoplay } from 'swiper/modules'
 
@@ -7,44 +8,42 @@ import 'swiper/css/navigation'
 
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/vue/24/outline'
 
+const { t } = useI18n()
+
 const reviews = [
   {
     id: 1,
     rating: 5,
-    text:
-      'Curabitur vitae nunc sed velit dignissim sodales ut. Maecenas ultricies mi eget mauris pharetra et. Et ligula ullamcorper malesuada proin pellentesque diam volutpat commodo',
-    name: 'Vera Robinson',
-    details: 'Psychologist',
+    text: t('reviews.list.0.text'),
+    name: t('reviews.list.0.name'),
+    details: t('reviews.list.0.details'),
     avatarWebp: '/img/avatars/female01.webp',
     avatarJpg: '/img/avatars/female01.jpg',
   },
   {
     id: 2,
     rating: 5,
-    text:
-      'Commodo quis imperdiet massa tincidunt nunc. Volutpat odio facilisis mauris sit amet. Mauris commodo quis imperdiet massa tincidunt',
-    name: 'Benjamin Norris',
-    details: 'Business analyst',
+    text: t('reviews.list.1.text'),
+    name: t('reviews.list.1.name'),
+    details: t('reviews.list.1.details'),
     avatarWebp: '/img/avatars/male01.webp',
     avatarJpg: '/img/avatars/male01.jpg',
   },
   {
     id: 3,
     rating: 5,
-    text:
-      'Curabitur vitae nunc sed velit dignissim sodales ut. Maecenas ultricies mi eget mauris pharetra et. Et ligula ullamcorper malesuada proin pellentesque diam volutpat commodo',
-    name: 'Lisa Smith',
-    details: 'Manager',
+    text: t('reviews.list.2.text'),
+    name: t('reviews.list.2.name'),
+    details: t('reviews.list.2.details'),
     avatarWebp: '/img/avatars/female02.webp',
     avatarJpg: '/img/avatars/female02.jpg',
   },
   {
     id: 4,
     rating: 5,
-    text:
-      'Commodo quis imperdiet massa tincidunt nunc. Volutpat odio facilisis mauris sit amet. Mauris commodo quis imperdiet massa tincidunt',
-    name: 'Lucas Perry',
-    details: 'Analyst',
+    text: t('reviews.list.3.text'),
+    name: t('reviews.list.3.name'),
+    details: t('reviews.list.3.details'),
     avatarWebp: '/img/avatars/male02.webp',
     avatarJpg: '/img/avatars/male02.jpg',
   },
@@ -59,13 +58,15 @@ const reviews = [
         <div class="section_header max-w-lg space-y-4" data-aos="fade-up">
           <p class="text-sm font-semibold uppercase tracking-wider text-sky-500 flex items-center gap-2 max-w-max">
             <span class="block w-6 h-0.5 bg-yellow-500 rounded"></span>
-            Our Reviews
+            {{ t('reviews.header.label') }}
           </p>
           <h2 class="text-4xl font-extrabold leading-tight">
-            What <span class="text-emerald-400">Our Clients</span> Say
+            {{ t('reviews.header.title.before') }}
+            <span class="text-emerald-400">{{ t('reviews.header.title.highlight') }}</span>
+            {{ t('reviews.header.title.after') }}
           </h2>
           <p class="text-gray-600 max-w-lg">
-            We value our clients' feedback and constantly strive to improve our services.
+            {{ t('reviews.header.description') }}
           </p>
         </div>
         <div class="md:justify-end gap-8 mt-2 mr-4 md:mt-0 md:flex hidden">

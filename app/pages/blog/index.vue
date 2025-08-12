@@ -1,11 +1,14 @@
 <script setup lang="ts">
 import imageUrl from '~/assets/img/plan.webp?width=600;1200&format=webp&quality=70'
 
-import { ref, watchEffect, computed } from 'vue'
+import { ref, watchEffect } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { usePosts } from '~/composables/usePosts'
 import HeaderPage from '~/components/HeaderPage.vue'
 import BlogSection from '~/components/section/BlogSection.vue'
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
 
 const route = useRoute()
 const router = useRouter()
@@ -25,10 +28,10 @@ watchEffect(async () => {
   router.replace({ query: { page: page.value } })
 })
 
-// Breadcrumbs
+// Breadcrumbs with i18n
 const breadcrumbs = [
-  { text: 'Home', to: '/' },
-  { text: 'Blog' }
+  { text: t('breadcrumbs.home'), to: '/' },
+  { text: t('breadcrumbs.blog') }
 ]
 
 // Pagination logic
@@ -40,8 +43,8 @@ const goToPage = (n: number) => {
 <template>
   <!-- Hero Header -->
   <HeaderPage
-    title="Blog"
-    subtitle="Our Blog"
+    :title="t('blogPage.title')"
+    :subtitle="t('blogPage.subtitle')"
     :breadcrumbs="breadcrumbs"
     :imageUrl="imageUrl[0]"
   />
@@ -51,8 +54,8 @@ const goToPage = (n: number) => {
     :posts="posts"
     :loading="loading"
     :error="error"
-    title="Our Latest"
-    subtitle="Explore insights, stories, and updates on our field."
+    :title="t('blogPage.postsTitle')"
+    :subtitle="t('blogPage.postsSubtitle')"
   />
 
   <!-- Pagination -->
@@ -66,7 +69,7 @@ const goToPage = (n: number) => {
       :disabled="page === 1"
       @click="goToPage(page - 1)"
     >
-      Previous
+      {{ t('pagination.previous') }}
     </button>
 
     <!-- Numbered Pages -->
@@ -89,7 +92,7 @@ const goToPage = (n: number) => {
       :disabled="page === totalPages"
       @click="goToPage(page + 1)"
     >
-      Next
+      {{ t('pagination.next') }}
     </button>
   </div>
 </template>

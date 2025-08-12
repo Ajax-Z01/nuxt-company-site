@@ -4,8 +4,17 @@ import FacebookIcon from '~/components/icon/FacebookIcon.vue'
 import InstagramIcon from '~/components/icon/InstagramIcon.vue'
 import TwitterIcon from '~/components/icon/TwitterIcon.vue'
 import WhatsappIcon from '~/components/icon/WhatsappIcon.vue'
+import { useI18n } from 'vue-i18n'
+import { useLocalePath } from '#i18n'
 
 const currentYear = new Date().getFullYear()
+const { t } = useI18n()
+const localePath = useLocalePath()
+
+function safeT(key: string, params?: Record<string, unknown>): string {
+  const value = params ? t(key, params) : t(key)
+  return typeof value === 'string' ? value : key
+}
 </script>
 
 <template>
@@ -15,20 +24,20 @@ const currentYear = new Date().getFullYear()
       <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
         <!-- Brand -->
         <div>
-          <a href="/" class="flex items-center gap-3 mb-4">
-            <img src="/svg/logo.svg" alt="Axial Construct" class="h-10 w-auto" />
+          <NuxtLink :to="localePath('/')" class="flex items-center gap-3 mb-4">
+            <img src="/svg/logo.svg" :alt="safeT('footer.logoAlt')" class="h-10 w-auto" />
             <span class="text-2xl font-extrabold tracking-wide select-none">
-              PT <span class="text-emerald-400">Ajaxtreon</span>
+              PT <span class="text-emerald-400">{{ safeT('footer.companyName') }}</span>
             </span>
-          </a>
+          </NuxtLink>
           <p class="text-gray-400 leading-relaxed max-w-sm">
-            Libero volutpat sed cras ornare arcu dui vivamus. Ac tortor dignissim convallis aenean et tortor at risus viverra.
+            {{ safeT('footer.description') }}
           </p>
         </div>
 
         <!-- Contact Info -->
         <div>
-          <h4 class="text-xl font-semibold mb-6">Contacts</h4>
+          <h4 class="text-xl font-semibold mb-6">{{ safeT('footer.contacts.title') }}</h4>
           <div class="flex items-start gap-3 mb-4">
             <PhoneIcon class="w-6 h-6 text-emerald-400 mt-1 flex-shrink-0" />
             <div class="flex flex-col space-y-1 text-gray-400">
@@ -39,49 +48,49 @@ const currentYear = new Date().getFullYear()
           <div class="flex items-start gap-3">
             <MapPinIcon class="w-6 h-6 text-emerald-400 mt-1 flex-shrink-0" />
             <div class="flex flex-col text-gray-400">
-              <span>2047 Cyrus Viaduct</span>
-              <span>East Jadynchester</span>
+              <span>{{ safeT('footer.contacts.address.line1') }}</span>
+              <span>{{ safeT('footer.contacts.address.line2') }}</span>
             </div>
           </div>
         </div>
 
         <!-- Links -->
         <div>
-          <h4 class="text-xl font-semibold mb-6">Company</h4>
+          <h4 class="text-xl font-semibold mb-6">{{ safeT('footer.companyLinks.title') }}</h4>
           <ul class="space-y-3">
             <li>
-              <a href="/about" class="flex items-center gap-2 hover:text-emerald-400 transition">
-                <ChevronRightIcon class="w-5 h-5" /> About
-              </a>
+              <NuxtLink :to="localePath('/about')" class="flex items-center gap-2 hover:text-emerald-400 transition">
+                <ChevronRightIcon class="w-5 h-5" /> {{ safeT('footer.companyLinks.about') }}
+              </NuxtLink>
             </li>
             <li>
-              <a href="/services" class="flex items-center gap-2 hover:text-emerald-400 transition">
-                <ChevronRightIcon class="w-5 h-5" /> Services
-              </a>
+              <NuxtLink :to="localePath('/services')" class="flex items-center gap-2 hover:text-emerald-400 transition">
+                <ChevronRightIcon class="w-5 h-5" /> {{ safeT('footer.companyLinks.services') }}
+              </NuxtLink>
             </li>
             <li>
-              <a href="/projects" class="flex items-center gap-2 hover:text-emerald-400 transition">
-                <ChevronRightIcon class="w-5 h-5" /> Projects
-              </a>
+              <NuxtLink :to="localePath('/projects')" class="flex items-center gap-2 hover:text-emerald-400 transition">
+                <ChevronRightIcon class="w-5 h-5" /> {{ safeT('footer.companyLinks.projects') }}
+              </NuxtLink>
             </li>
             <li>
-              <a href="/blog" class="flex items-center gap-2 hover:text-emerald-400 transition">
-                <ChevronRightIcon class="w-5 h-5" /> Blog
-              </a>
+              <NuxtLink :to="localePath('/blog')" class="flex items-center gap-2 hover:text-emerald-400 transition">
+                <ChevronRightIcon class="w-5 h-5" /> {{ safeT('footer.companyLinks.blog') }}
+              </NuxtLink>
             </li>
           </ul>
         </div>
 
         <!-- Newsletter -->
         <div>
-          <h4 class="text-xl font-semibold mb-4">Subscribe to Our News</h4>
+          <h4 class="text-xl font-semibold mb-4">{{ safeT('footer.newsletter.title') }}</h4>
           <p class="text-gray-400 mb-6 max-w-xs">
-            Find out about the last days and the latest promotions of our Corporation.
+            {{ safeT('footer.newsletter.description') }}
           </p>
           <form class="max-w-md mx-auto flex flex-col gap-3">
             <input
               type="email"
-              placeholder="Email"
+              :placeholder="safeT('footer.newsletter.placeholder')"
               required
               class="rounded-md px-4 py-2 text-gray-900 focus:outline-none focus:ring-2 focus:ring-emerald-400"
             />
@@ -89,7 +98,7 @@ const currentYear = new Date().getFullYear()
               type="submit"
               class="bg-emerald-500 hover:bg-emerald-600 text-white font-semibold rounded-md px-6 py-2 flex items-center justify-center gap-2 transition"
             >
-              <span>Subscribe</span>
+              <span>{{ safeT('footer.newsletter.button') }}</span>
               <PaperAirplaneIcon class="w-5 h-5" />
             </button>
           </form>
@@ -101,7 +110,7 @@ const currentYear = new Date().getFullYear()
         class="flex flex-col md:flex-row justify-between items-center border-t border-gray-700 pt-6 text-sm text-gray-400 space-y-4 md:space-y-0"
       >
         <p>
-          PT Ajaxtreon — All rights reserved © {{ currentYear }}
+          {{ safeT('footer.copyright', { year: currentYear }) }}
         </p>
         <ClientOnly>
           <ul class="flex gap-6">
